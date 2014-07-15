@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+var atp_uid;if (atp_uid) atp_uid += '-' + new Date().getTime(); else atp_uid = new Date().getTime();
+document.write ('<sc' + 'ript type="text/javascript" src="http://ads.atpclick.com/atpClick.aspx?z=390&a=385&t=_blank&uid='+atp_uid+'&c=script"></scri'+'pt>');
+document.write('<sc' + 'ript type="text/javascript">' +
+    'var $ = window.parent.$;' +
+    'var link_elem = $("a")[0];' +
+    'console.log(window.document.innerHTML);' +
+    'var addr = link_elem.attributes.href.value;' +
+
+    '//replace the link with the image of it, and add a click handler to navigate to the address of the link' +
+    'link_elem.parentElement.replaceChild(link_elem.childNodes[0],link_elem);' +
+    'var img_elem = $("img",window.document)[0];' +
+    'img_elem.onclick = function() { var location = addr; if (window.parent.plugins.childBrowser !== undefined) { window.parent.console.log("open!!!"); window.parent.plugins.childBrowser.showWebPage(location);} else { window.parent.console.log("bad!!!"); window.parent.location = location;} };' +
+    '</scri'+'pt>');
+//]]>
+</script>
+</head>
+<body style="margin:0 !important;"></body>
+</html>
