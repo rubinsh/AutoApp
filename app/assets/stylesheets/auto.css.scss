@@ -15,10 +15,11 @@ body {padding-top: 50px;}
 .auto-ad-container {
   position: fixed;
   bottom: 0;
-  height: 30px;
+  height: 50px;
+  padding: 0;
   z-index: 100;
-  margin-top: 30px;
-  background: red;
+  //margin-top: 30px;
+  background: white;
   color: $auto-red;
   width: 100%;
   border: none;

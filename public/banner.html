@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+img {display: block; margin: 0 auto;}
+</style>
 <script type="text/javascript" charset="utf-8">
 //<![CDATA[
 var atp_uid;if (atp_uid) atp_uid += '-' + new Date().getTime(); else atp_uid = new Date().getTime();
@@ -8,9 +11,8 @@ document.write ('<sc' + 'ript type="text/javascript" src="http://ads.atpclick.co
 document.write('<sc' + 'ript type="text/javascript">' +
     'var $ = window.parent.$;' +
     'var link_elem = $("a")[0];' +
-    'console.log(window.document.innerHTML);' +
+    '$("a").css("height","0");' +
     'var addr = link_elem.attributes.href.value;' +
-
     '//replace the link with the image of it, and add a click handler to navigate to the address of the link' +
     'link_elem.parentElement.replaceChild(link_elem.childNodes[0],link_elem);' +
     'var img_elem = $("img",window.document)[0];' +
@@ -19,5 +21,5 @@ document.write('<sc' + 'ript type="text/javascript">' +
 //]]>
 </script>
 </head>
-<body style="margin:0 !important;"></body>
+<body style="margin:0 !important; height: 50px !important"></body>
 </html>
