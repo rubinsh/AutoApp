@@ -3,7 +3,8 @@ angular.module("main")
         function($routeProvider) {
             $routeProvider
                 .when('/articles/latest', {
-                    templateUrl: 'templates/index'
+                    templateUrl: 'templates/index',
+                    reloadOnSearch: false
                 })
                 .when('/catalog', {
                     templateUrl: 'templates/catalogView'
@@ -72,4 +73,23 @@ angular.module("main")
                     redirectTo: '/articles/latest'
                 });
         }
-    ]);
+    ])
+    .run(["$rootScope", "$route", "AdService", function($rootScope, $route, AdService) {
+      //handle ads - show ad every 3 screens in selected routes
+      var paths = ['/catalog/manufacturers/:id/models/:id','/catalog/models/:id','/articles/latest','/articles/:articleId']
+      AdService.init();
+      $rootScope.$on('$routeChangeSuccess', function() {
+        console.dir($route.current);
+        if (AdService.backFromAd())  {
+          AdService.reset();
+          AdService.advanceCounter();
+          return;
+        }
+        if ($.inArray($route.current.$$route.originalPath, paths) > -1) {
+          if (AdService.needToShowAd()) {
+            AdService.showAd();
+          }
+          AdService.advanceCounter();
+        }
+      });
+    }]);

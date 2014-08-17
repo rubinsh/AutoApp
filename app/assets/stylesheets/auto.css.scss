@@ -11,19 +11,17 @@ $state-danger-text:              white !default;
 $state-danger-bg:                #EC1B23 !default;
 @import "bootstrap";
 
-body {padding-top: 50px;}
+body {padding-top: 50px; padding-bottom: 50px;}
 .auto-ad-container {
   position: fixed;
   bottom: 0;
   height: 50px;
   padding: 0;
-  z-index: 100;
-  //margin-top: 30px;
+  z-index: 9999;
   background: white;
-  color: $auto-red;
+  //color: $auto-red;
   width: 100%;
   border: none;
-  text-align: center;
 }
 .automag-app {
   .contain {

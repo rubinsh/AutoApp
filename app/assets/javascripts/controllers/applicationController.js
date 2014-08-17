@@ -1,6 +1,6 @@
 angular.module('autoControllers')
-.controller('application', ['$scope', '$location', 'ArticlesServices',
-            function($scope, $location, ArticlesService) {
+.controller('application', ['$scope', '$location', 'ArticlesServices', 'AdService',
+            function($scope, $location, ArticlesService, AdService) {
               $scope.navigate = function(path) {
                 $location.path(path);
               };
@@ -11,6 +11,10 @@ angular.module('autoControllers')
               };
 
               $scope.isPhone = Modernizr.mq('(max-width: 767px)');
+
+              $scope.showBanner = function() {
+                return AdService.showBanner();
+              }
 
               $scope.isIOS6or5 = (/(iPhone|iPad|iPod)\sOS\s(5|6)/.test(navigator.userAgent));
             }
