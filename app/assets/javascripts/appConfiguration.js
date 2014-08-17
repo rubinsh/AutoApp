@@ -69,6 +69,9 @@ angular.module("main")
                 .when('/articles', {
                     templateUrl: 'templates/articlesListView'
                 })
+                .when('/consulting', {
+                    templateUrl: 'templates/consultingView'
+                })
                 .otherwise({
                     redirectTo: '/articles/latest'
                 });
@@ -85,7 +88,7 @@ angular.module("main")
           AdService.advanceCounter();
           return;
         }
-        if ($.inArray($route.current.$$route.originalPath, paths) > -1) {
+        if ($route.current && $.inArray($route.current.$$route.originalPath, paths) > -1) {
           if (AdService.needToShowAd()) {
             AdService.showAd();
           }

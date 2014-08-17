@@ -20,7 +20,7 @@ angular.module('autoServices')
             }, {
                 name: 'יעוץ חינם לקניית רכב',
                 img: '......',
-                route: '#'
+                route: '/consulting'
             }
               //, {
                 //name: 'מועדפים',
