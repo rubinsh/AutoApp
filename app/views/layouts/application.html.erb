@@ -11,7 +11,7 @@
     <%= favicon_link_tag "/favicon.ico" %>
   </head>
 
-  <body>
+  <body ng-app="main" ng-controller="application">
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>

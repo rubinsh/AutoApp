@@ -1,10 +1,10 @@
 angular.module('autoDirectives')
-    .directive('infinityScroll',[
+    .directive('infiniteScroll',[
         function() {
             return function(scope, elm, attr) {
                 $(window).bind('scroll', function() {
                     if ($(window).scrollTop() > $(document).height() - $(window).height() - 1000) {
-                        scope.$apply(attr.infinityScroll);
+                        scope.$apply(attr.infiniteScroll);
                         //console.log('infinity scroll fire');
                     }
                 });

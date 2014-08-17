@@ -25,12 +25,12 @@ angular.module('autoControllers')
               });
 
               if ($scope.used_id) {
-                console.log("Route with -id- routeParams & usd_id routeParams");
+                //console.log("Route with -id- routeParams & usd_id routeParams");
                 SearchServices.getModelUsedByUsedID($scope.model_id, $scope.used_id).success(function(data) {
                   setDataFromService(data);
                 });
               } else {
-                console.log("Route with -id- routeParams");
+                //console.log("Route with -id- routeParams");
                 SearchServices.getSearchResaulForModelByModelId($scope.model_id).success(function(data) {
                   setDataFromService(data);
                   GalleryServices.getAllModelGalleryByGalleryId(data[0].galleryId).success(function(images) {

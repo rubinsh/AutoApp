@@ -1,4 +1,4 @@
-<div ng-app="main" class="automag-app" ng-cloak="navs">
+<div class="automag-app" ng-cloak="navs">
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -19,9 +19,9 @@
       </div><!-- /.navbar-collapse -->
     </div>
   </nav>
-  <div class="container-fluid" ng-controller="application">
+  <div class="container-fluid">
     <div ng-view class="main-section">
     </div>
   </div>
-
 </div>
+<iframe src="banner.html" class="auto-ad-container" ng-if="showBanner()" ng-cloak="navs"></iframe>
