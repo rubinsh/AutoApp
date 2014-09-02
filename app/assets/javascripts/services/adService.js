@@ -15,6 +15,7 @@ angular.module('autoServices')
            }
 
            resource.needToShowAd = function() {
+             //(navigator.userAgent.toLowerCase().indexOf("firefox") === -1)
              return (Number.parseInt($window.localStorage.getItem("autoMag.adCounter")) === 0)
            }
 
@@ -36,7 +37,8 @@ angular.module('autoServices')
            }
 
            resource.showBanner = function() {
-             if ($route.current && $.inArray($route.current.$$route.originalPath, resource.noBannerRoutes) > -1) {
+             if ($route.current && $.inArray($route.current.$$route.originalPath, resource.noBannerRoutes) > -1)
+             {
                return false;
              }
              else {

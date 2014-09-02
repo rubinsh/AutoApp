@@ -82,8 +82,8 @@ angular.module("main")
       var paths = ['/catalog/manufacturers/:id/models/:id','/catalog/models/:id','/articles/latest','/articles/:articleId']
       AdService.init();
       $rootScope.$on('$routeChangeSuccess', function() {
-        console.dir($route.current);
         if (AdService.backFromAd())  {
+          console.debug("back from Ad");
           AdService.reset();
           AdService.advanceCounter();
           return;
