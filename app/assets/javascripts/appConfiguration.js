@@ -82,12 +82,12 @@ angular.module("main")
       var paths = ['/catalog/manufacturers/:id/models/:id','/catalog/models/:id','/articles/latest','/articles/:articleId']
       AdService.init();
       $rootScope.$on('$routeChangeSuccess', function() {
-        if (AdService.backFromAd())  {
-          console.debug("back from Ad");
-          AdService.reset();
-          AdService.advanceCounter();
-          return;
-        }
+        //if (AdService.backFromAd())  {
+        //  console.debug("back from Ad");
+        //  AdService.reset();
+        //  AdService.advanceCounter();
+        //  return;
+        //}
         if ($route.current && $.inArray($route.current.$$route.originalPath, paths) > -1) {
           if (AdService.needToShowAd()) {
             AdService.showAd();
