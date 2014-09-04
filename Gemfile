@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.19'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -37,7 +37,7 @@ group :assets do
 end
 group :production,:staging do
   gem 'pg'
-  gem 'rails_12factor', '0.0.2'
+#  gem 'rails_12factor', '0.0.2'
 end
 
 group:development do

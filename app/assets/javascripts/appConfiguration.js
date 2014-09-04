@@ -88,7 +88,7 @@ angular.module("main")
         //  AdService.advanceCounter();
         //  return;
         //}
-        if ($route.current && $.inArray($route.current.$$route.originalPath, paths) > -1) {
+        if ($route.current && $route.current.$$route && $.inArray($route.current.$$route.originalPath, paths) > -1) {
           if (AdService.needToShowAd()) {
             AdService.showAd();
           }
