@@ -24,7 +24,7 @@ angular.module('autoServices')
            };
 
            resource.getArticleById = function(articleId) {
-             return $http.get(autoApiPrefix + 'articles/' + articleId + '?links:true');
+             return $http.get(autoApiPrefix + 'articles/' + articleId + '?links=true');
              //return Restangular.one('articles', articleId).get({links: true});
            };
 
