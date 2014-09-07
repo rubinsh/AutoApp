@@ -33,10 +33,11 @@ angular.module('autoDirectives')
                    ArticlesService.getAllArticlesByCatregoryId(attrs.categoryId,8).success(function(data) {
                      scope.moreArticles = [];
                      data = shuffle(data);
+                     scope.moreArticles = data;
                      //split the carousel data into chunks according to the size of the screen
-                     while (data.length > 0) {
-                       scope.moreArticles.push(data.splice(0,chunkSize));
-                     }
+//                     while (data.length > 0) {
+//                       scope.moreArticles.push(data.splice(0,chunkSize));
+//                     }
                      scope.isLoading = false;
                      //workaround the problem of carousel rendered with width=0 because of videos
                      //$timeout(function() {

@@ -65,7 +65,7 @@ body {padding-top: 50px; padding-bottom: 50px;}
     }
   }
 
-  .model-page, .index-page, .model-gallery-page, .more-articles {
+  .model-page, .index-page, .model-gallery-page {
     .rn-carousel-control {
       margin-top: -20px;
       font-size: initial;
@@ -78,7 +78,13 @@ body {padding-top: 50px; padding-bottom: 50px;}
       content: image_url('carousel-right.png');
     }
   }
-
+  .more-articles {
+    .more-articles-item {
+      padding: 10px 0;
+      border-bottom: 1px solid;
+      border-color: #222;
+    }
+  }
 
   .list-group-item-inverse {
     color: white;
