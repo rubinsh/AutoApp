@@ -4,7 +4,7 @@ angular.module('autoControllers')
             $scope.article_id = $routeParams.articleId;
             $scope.categoryId = ArticlesServices.currentCategory ? ArticlesServices.currentCategory : 1;
 
-            ArticlesServices.getArticleById($scope.article_id).then(function(data) {
+            ArticlesServices.getArticleById($scope.article_id).success(function(data) {
                 $scope.article = data[0];
                 window.scrollTo(0,0);
             });

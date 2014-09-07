@@ -23,7 +23,6 @@
 //= require angular-cache
 //= require angular-carousel
 //= require angular-loading-bar
-//= require restangular
 //= require bootstrap
 //= require bootstrap-select
 //= require_tree ./templates

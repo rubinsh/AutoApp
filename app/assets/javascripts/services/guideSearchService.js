@@ -38,7 +38,7 @@ angular.module('autoServices')
                 self.startVal = 0;
                 //var noCacheParams = angular.copy(self.searchParams);
                 //noCacheParams._id = Date.now();
-                return $http.get('guide', {
+                return $http.get(autoApiPrefix + 'guide', {
                     headers: {
                         'Accept': 'application/json',
                         'Content-type': 'application/json'
@@ -52,7 +52,7 @@ angular.module('autoServices')
                 var moreSearchResults = angular.copy(self.searchParams);
                 moreSearchResults.start = self.startVal;
                 moreSearchResults.total = self.totalVal;
-                return $http.get('guide', {
+                return $http.get(autoApiPrefix + 'guide', {
                     headers: {
                         'Accept': 'application/json',
                         'Content-type': 'application/json'

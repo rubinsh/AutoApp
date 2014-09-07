@@ -23,7 +23,6 @@ gem 'rails-assets-angular-loading-bar'
 gem 'rails-assets-bootstrap-select'
 gem 'rails-assets-jquery', '2.1.0'
 gem 'rails-assets-matchmedia-ng'
-gem 'rails-assets-restangular', '1.4.0'
 gem 'rails-assets-underscore'
 # Gems used only for assets and not required
 # in production environments by default.

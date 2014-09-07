@@ -4,7 +4,7 @@ angular.module('autoServices')
            var resource = {};
 
            resource.getAllModelVersionsByModelId = function(modelId) {
-             return $http.get('models/' + modelId + '/versions', {
+             return $http.get(autoApiPrefix + 'models/' + modelId + '/versions', {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'
@@ -13,7 +13,7 @@ angular.module('autoServices')
            };
 
            resource.getAllModelUsedsByModelIDAndUsedID = function(modelID, usedID) {
-             return $http.get('models/' + modelID + '/usedID.json', {
+             return $http.get(autoApiPrefix + 'models/' + modelID + '/usedID.json', {
                headers: {
                  'Content-type': 'application/json'
                },
@@ -25,7 +25,7 @@ angular.module('autoServices')
            };
 
            resource.getModelVersionDetailsByModelIDAndVersionID = function(modelID, versionID) {
-             return $http.get('models/' + modelID + '/versions/' + versionID + '/', {
+             return $http.get(autoApiPrefix + 'models/' + modelID + '/versions/' + versionID + '/', {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'

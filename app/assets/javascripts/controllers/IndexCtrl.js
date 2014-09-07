@@ -29,7 +29,7 @@ angular.module('autoControllers')
                 return imageUrl.split(".jpg")[0]+"-4.jpg";
               };
 
-              $http.get('/articles/latest').success(function(data) {
+              $http.get(autoApiPrefix + 'articles/latest').success(function(data) {
                 angular.forEach(data, function(item, index) {
                   data[index].thumbUrl = data[index].imageUrl;
                   data[index].imageUrl = convertToLargeImage(data[index].imageUrl);

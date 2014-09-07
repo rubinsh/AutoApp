@@ -4,7 +4,7 @@ angular.module('autoServices')
            var resource = {};
 
            resource.getAllModelGalleryByGalleryId = function(galleryId) {
-             return $http.get('galleries/' + galleryId, {
+             return $http.get(autoApiPrefix + 'galleries/' + galleryId, {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'

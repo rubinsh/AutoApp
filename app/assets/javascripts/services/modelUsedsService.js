@@ -4,7 +4,7 @@ angular.module('autoServices')
            var source = {};
 
            source.getAllModelUsedsByModelID = function(model_id) {
-             return $http.get('models/' + model_id + '/used', {
+             return $http.get(autoApiPrefix + 'models/' + model_id + '/used', {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'
@@ -13,7 +13,7 @@ angular.module('autoServices')
            };
 
            source.getAllModelUsedsByModelIDAndUsedID = function(modelID, usedID) {
-             return $http.get('models/' + modelID + '/used/' + usedID, {
+             return $http.get(autoApiPrefix + 'models/' + modelID + '/used/' + usedID, {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'

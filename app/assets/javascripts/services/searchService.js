@@ -4,7 +4,7 @@ angular.module('autoServices')
            var resource = {};
 
            resource.getSearchResaulForAllManufacturerModels = function(manufacturerId) {
-             return $http.get('search?manufacturer=' + manufacturerId , {
+             return $http.get(autoApiPrefix + 'search?manufacturer=' + manufacturerId , {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'
@@ -13,7 +13,7 @@ angular.module('autoServices')
            };
 
            resource.getSearchResaulForModelByModelId = function(modelId) {
-             return $http.get('models/' + modelId , {
+             return $http.get(autoApiPrefix + 'models/' + modelId , {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'
@@ -22,7 +22,7 @@ angular.module('autoServices')
            };
 
            resource.getModelUsedByUsedID = function(modelId, usedId) {
-             return $http.get('models/' + modelId + '/used/' + usedId, {
+             return $http.get(autoApiPrefix + 'models/' + modelId + '/used/' + usedId, {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'

@@ -4,7 +4,7 @@ angular.module('autoServices')
            var source = {};
 
            source.getAllModelVideosByVideoId = function(videoId) {
-             return $http.get('videos/' + videoId, {
+             return $http.get(autoApiPrefix + 'videos/' + videoId, {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'

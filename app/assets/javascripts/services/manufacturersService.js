@@ -4,7 +4,7 @@ angular.module('autoServices')
             var resourcemf = {};
 
             resourcemf.getAllManufacturers = function() {
-                return $http.get('manufacturers', {
+                return $http.get(autoApiPrefix + 'manufacturers', {
                     headers: {
                         'Accept': 'application/json',
                         'Content-type': 'application/json'
@@ -13,7 +13,7 @@ angular.module('autoServices')
             };
 
             resourcemf.getAllModelsByManufacturerId = function(mId) {
-                return $http.get('manufacturers/' + mId + '/models', {
+                return $http.get(autoApiPrefix + 'manufacturers/' + mId + '/models', {
                     headers: {
                         'Accept': 'application/json',
                         'Content-type': 'application/json'

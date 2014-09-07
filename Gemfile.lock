@@ -127,13 +127,9 @@ GEM
     rails-assets-bootstrap-select (1.5.2)
       rails-assets-jquery (>= 1.7)
     rails-assets-jquery (2.1.0)
-    rails-assets-lodash (2.4.1)
     rails-assets-matchmedia (0.1.0)
     rails-assets-matchmedia-ng (1.0.2)
       rails-assets-matchmedia (~> 0.1.0)
-    rails-assets-restangular (1.4.0)
-      rails-assets-angular
-      rails-assets-lodash (>= 1.3.0, < 2.5.0)
     rails-assets-underscore (1.6.0)
     railties (3.2.19)
       actionpack (= 3.2.19)
@@ -199,7 +195,6 @@ DEPENDENCIES
   rails-assets-bootstrap-select
   rails-assets-jquery (= 2.1.0)
   rails-assets-matchmedia-ng
-  rails-assets-restangular (= 1.4.0)
   rails-assets-underscore
   sass (= 3.2.13)
   sass-rails (>= 3.2)

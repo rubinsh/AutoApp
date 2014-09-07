@@ -2,7 +2,6 @@
 var autoModuleApp = angular.module("main", [
   'ngRoute',
   'ngResource',
-  'restangular',
   'ngAnimate',
   'ngTouch',
   'jmdobry.angular-cache',
@@ -35,5 +34,4 @@ autoModuleApp.run(["$window", "$templateCache", "$http", "$angularCacheFactory",
 var autoControllers = angular.module('autoControllers', []);
 var autoDirectives = angular.module('autoDirectives', []);
 var autoServices = angular.module('autoServices', ['ngResource']);
-
 
