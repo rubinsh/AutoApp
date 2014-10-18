@@ -8,7 +8,6 @@ angular.module('autoControllers')
           };
 
           $scope.navigate = function(route) {
-            $('#menu-button').click();
             $location.path(route);
           };
         }
