@@ -3,15 +3,13 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta name="description" content="">
-		<meta content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no" name="viewport">
-       
-        <title>Auto</title>
-        <meta name="description" content="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="">
+<meta content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no" name="viewport">
+<title>Auto</title>
+<meta name="description" content="">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 <!--[if lt IE 9]>
    <script>
       document.createElement('header');
@@ -29,48 +27,71 @@
     }
   </style>
 <![endif]-->
-		<link rel="icon" type="image/x-icon" href="">
-        <link rel="stylesheet" href="style.css">
-	</head>
+<link rel="icon" type="image/x-icon" href="">
+<link rel="stylesheet" href="style.css">
+</head>
 <body>
 
 <div class="wrapper">
- <!-- <img class="ss" src="img/sss.png"/> -->
-	<div id="body">
-	<header>
-	<div class="top">
-		<div class="text">
-			<h2>קונה רכב?</h2>
-			<h1>קבל יעוץ מקצועי חינם</h1>
-			<div class="ps">
-				<p>מעל 200,000 כבר התקשרו</p>
-				<p>ממומחים של מגזין אוטו</p>
-			</div>
-		</div>
-		<div class="main_img">
-			<img src="img/rep.png" alt=""/>
-		</div>
-	</div>
-	</header>
-	<div class="main_form">
-		<h3 class="form_title">לקבלת יעוץ הכנס פרטים</h3>
-		<form id="main_form" method="post">
-			<fieldset class="inputs">
-				<input type="text" name="name" placeholder="שם מלא" onfocus="this.placeholder=''" onblur="this.placeholder='שם מלא'">
-				<input type="text" name="mail" placeholder="טלפון" onfocus="this.placeholder=''" onblur="this.placeholder='טלפון'">
-			</fieldset>
-			<fieldset class="buttons">
-				<a class="direct_call" href="tel:*3262" target="_blank"></a>
-				<input type="submit" value="start" class="submit">
-				<div class="clear"></div>
-			</fieldset>
-		</form>
-	</div>
-	</div><!--//#body-->
+  <!-- <img class="ss" src="img/sss.png"/> -->
+  <div id="body">
+    <header>
+      <div class="top">
+        <div class="text">
+          <h2>קונה רכב?</h2>
+          <h1>קבל יעוץ מקצועי חינם</h1>
+          <div class="ps">
+            <p>מעל 200,000 כבר התקשרו</p>
+            <p>ממומחים של מגזין אוטו</p>
+          </div>
+        </div>
+        <div class="main_img">
+          <img src="img/rep.png" alt=""/>
+        </div>
+      </div>
+    </header>
+    <div class="main_form">
+      <h3 class="form_title">לקבלת יעוץ הכנס פרטים</h3>
+      <form id="main_form" method="post">
+        <fieldset class="inputs">
+          <input type="text" name="name" placeholder="שם מלא" onfocus="this.placeholder=''" onblur="this.placeholder='שם מלא'">
+          <input type="tel" name="phone" placeholder="טלפון" onfocus="this.placeholder=''" onblur="this.placeholder='טלפון'">
+        </fieldset>
+        <fieldset class="buttons">
+          <a class="direct_call" href="tel:*3262" target="_blank"></a>
+          <input type="button" value="start" class="submit">
+          <div class="clear"></div>
+        </fieldset>
+      </form>
+    </div>
+  </div><!--//#body-->
 </div><!--//wrapper-->
 
-<!-- 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
- -->		
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+  $('.submit').click(function() {
+    var phone = $("input[type='tel']")[0].value;
+    var name = $("input[type='text']")[0].value;
+    var data = {"person": {"name": name, "phone": phone} };
+    if (name.trim().length === 0) {
+      alert("נא הזן שם");
+      return;
+    }
+    if (!phone.match(/^0\d([\d]{0,1})([-]{0,1})\d{7}$/)) {
+      alert("אנא הזן מספר טלפון תקין");
+      return;
+    }
+    $.ajax({
+      type: "POST",
+      url: "http://mpilot.auto.co.il/autoapi.svc/update",
+      data: data,
+      success: function() {
+        $('.main_form').html("<h3 class='form_title'>תודה רבה, נציגי אוטו יהיו עמך בקשר בהקדם</h3>");
+      },
+      dataType: "json"
+    });
+  });
+</script>
 
 </body>
 </html>
