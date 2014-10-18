@@ -72,7 +72,6 @@
   $('.submit').click(function() {
     var phone = $("input[type='tel']")[0].value;
     var name = $("input[type='text']")[0].value;
-    var data = {"person": {"name": name, "phone": phone} };
     if (name.trim().length === 0) {
       alert("נא הזן שם");
       return;
@@ -82,9 +81,13 @@
       return;
     }
     $.ajax({
-      type: "POST",
-      url: "http://mpilot.auto.co.il/autoapi.svc/update",
-      data: data,
+      type: "GET",
+      beforeSend: function (request)
+      {
+        request.setRequestHeader("Content-Type", "application/json");
+        request.setRequestHeader("charset", "utf-8");
+      },
+      url: "http://mpilot.auto.co.il/autoapi.svc/update/?name=" + name + "&phone=" + phone,
       success: function() {
         $('.main_form').html("<h3 class='form_title'>תודה רבה, נציגי אוטו יהיו עמך בקשר בהקדם</h3>");
       },
