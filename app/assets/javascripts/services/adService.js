@@ -1,6 +1,6 @@
 angular.module('autoServices')
-.factory('AdService', ['$window','$route',
-         function($window, $route) {
+.factory('AdService', ['$window','$route', '$location',
+         function($window, $route, $location) {
            var resource = {};
            resource.noBannerRoutes = ["/consulting"]
 
@@ -46,7 +46,7 @@ angular.module('autoServices')
            }
 
            resource.showBanner = function() {
-             if ($route.current && $.inArray($route.current.$$route.originalPath, resource.noBannerRoutes) > -1)
+             if ($.inArray($location.path(), resource.noBannerRoutes) > -1)
              {
                return false;
              }
