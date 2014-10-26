@@ -41,8 +41,8 @@
           <h2>קונה רכב?</h2>
           <h1>קבל יעוץ מקצועי חינם</h1>
           <div class="ps">
+            <p>מהמומחים של אוטו</p>
             <p>מעל 200,000 כבר התקשרו</p>
-            <p>ממומחים של מגזין אוטו</p>
           </div>
         </div>
         <div class="main_img">
@@ -80,6 +80,7 @@
       alert("אנא הזן מספר טלפון תקין");
       return;
     }
+    $('.submit').replaceWith('<img src="/img/ajax-loader.gif" style="margin: 15px 40px 0 0">');
     $.ajax({
       type: "GET",
       beforeSend: function (request)
@@ -90,6 +91,9 @@
       url: "http://mpilot.auto.co.il/autoapi.svc/update/?name=" + name + "&phone=" + phone,
       success: function() {
         $('.main_form').html("<h3 class='form_title'>תודה רבה, נציגי אוטו יהיו עמך בקשר בהקדם</h3>");
+      },
+      error: function() {
+        $('.main_form').html("<h3 class='form_title'>אירעה שגיאה, אנא נסו שנית מאוחר יותר</h3>");
       },
       dataType: "json"
     });
