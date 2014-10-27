@@ -43,7 +43,7 @@ angular.module('autoDirectives')
           fixLink($item, 'articleId=', '#/articles/');
           fixLink($item, 'model_id=','#/catalog/models/');
           fixLink($item, 'manufacturer=', '#/catalog/manufacturers/');
-          fixLink($item, '/?action=consulting', 'tel:*3262');
+          fixLink($item, '/?action=consulting', 'tel:035772088');
         });
         return tmpElem.innerHTML;
       };
