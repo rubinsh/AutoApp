@@ -42,6 +42,10 @@ body {padding-top: 50px; padding-bottom: 50px;}
     .hidden-xxs {
       visibility: hidden;
     }
+    .index-page .rn-carousel-control {
+      margin-top: -80px !important;
+    }
+
   }
 
   @media (min-width: 500px) and (max-width: 767px) {
