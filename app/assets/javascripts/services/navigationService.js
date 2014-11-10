@@ -13,7 +13,13 @@ angular.module('autoServices')
                 name: 'כתבות',
                 img: '......',
                 route: '/articles'
-            }, {
+            },
+            {
+              name: 'מבחני רכב',
+              img: '........',
+              route: '/articles/category/2'
+            },
+            {
                 name: 'מדריך קניה',
                 img: '......',
                 route: '/guide'
