@@ -1,7 +1,8 @@
 angular.module('autoControllers')
-    .controller('ArticleCtrl', ['$scope', '$routeParams', '$timeout', 'ArticlesServices',
-        function($scope, $routeParams, $timeout, ArticlesServices) {
+    .controller('ArticleCtrl', ['$scope', '$routeParams', '$timeout', '$sce', 'ArticlesServices',
+        function($scope, $routeParams, $timeout, $sce, ArticlesServices) {
             $scope.article_id = $routeParams.articleId;
+            $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.article_id + "&channelId=Auto&contentType=Auto_content&platform=mobile");
             $scope.categoryId = ArticlesServices.currentCategory ? ArticlesServices.currentCategory : 1;
 
             ArticlesServices.getArticleById($scope.article_id).success(function(data) {

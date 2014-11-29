@@ -1,7 +1,8 @@
 angular.module('autoControllers')
-.controller('CarModelCtrl', ['$scope', '$location', '$routeParams', 'matchmedia', 'SearchServices', 'CatalogServices', 'GalleryServices',
-            function($scope, $location, $routeParams, matchmedia, SearchServices, CatalogServices, GalleryServices) {
+.controller('CarModelCtrl', ['$scope', '$location', '$routeParams', '$sce', 'matchmedia', 'SearchServices', 'CatalogServices', 'GalleryServices',
+            function($scope, $location, $routeParams, $sce, matchmedia, SearchServices, CatalogServices, GalleryServices) {
               $scope.model_id = $routeParams.id;
+              $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.model_id + "&channelId=Auto&contentType=Auto_cars&platform=mobile");
               $scope.used_id = $routeParams.usedID;
               $scope.galleryVisible = false;
               if (Modernizr.matchmedia) {
