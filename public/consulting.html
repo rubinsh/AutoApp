@@ -88,7 +88,7 @@
         request.setRequestHeader("Content-Type", "application/json");
         request.setRequestHeader("charset", "utf-8");
       },
-      url: "http://mpilot.auto.co.il/autoapi.svc/update/?name=" + name + "&phone=" + phone,
+      url: "/autoapi.svc/update/?name=" + name + "&phone=" + phone,
       success: function() {
         $('.main_form').html("<h3 class='form_title'>תודה רבה, נציגי אוטו יהיו עמך בקשר בהקדם</h3>");
       },
