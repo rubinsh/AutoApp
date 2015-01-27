@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   respond_to :json, :html
-  HOST = 'http://m.auto.co.il/autoAPI.svc'
+  HOST = 'http://mpilot.auto.co.il/autoAPI.svc'
 
   def api
     p request.fullpath
