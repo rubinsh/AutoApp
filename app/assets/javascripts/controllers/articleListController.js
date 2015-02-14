@@ -20,6 +20,11 @@ angular.module('autoControllers')
                 angular.forEach(data, function(item, index) {
                     $scope.articlesCategoriesCollection[item.categoryId].articles.push(item);
                 });
+                $scope.articlesList = []
+                angular.forEach($scope.articlesCategoriesCollection, function(item, index) {
+                  $scope.articlesList.push(item);
+                });
+                $scope.articlesCategoriesList = null;
             });
         }
     ]);
