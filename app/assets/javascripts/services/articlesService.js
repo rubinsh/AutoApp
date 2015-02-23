@@ -28,6 +28,10 @@ angular.module('autoServices')
              //return Restangular.one('articles', articleId).get({links: true});
            };
 
+           resource.getMoreArticlesForCategory = function(categoryId,skip) {
+             return $http.get(autoApiPrefix + 'articles?category=' + categoryId + "&take=10&skip=" + skip);
+           };
+
            return resource;
          }
 ]);

@@ -17,5 +17,10 @@ angular.module('autoControllers')
               }
 
               $scope.isIOS6or5 = (/(iPhone|iPad|iPod)\sOS\s(5|6)/.test(navigator.userAgent));
+              $scope.isIOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+
+              $scope.goBack = function() {
+                history.go(-1);
+              }
             }
 ]);
