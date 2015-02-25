@@ -17,7 +17,7 @@ angular.module('autoServices')
             {
               name: 'מבחני רכב',
               img: '........',
-              route: '/articles/category/2'
+              route: '/articles/category/75'
             },
             {
                 name: 'מדריך קניה',
