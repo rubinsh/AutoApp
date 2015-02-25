@@ -1,7 +1,7 @@
 <div ng-controller="IndexCtrl" class="index-page" ng-show="latest.length" ng-cloak>
   <br/>
   <div class="row carusela-lapanim">
-    <div class="col-sm-3 col-md-2 hidden-xs">
+    <div class="col-sm-2 col-md-1 hidden-xs">
       <div ng-repeat="item in latest" ng-click="setIndex($index)" class="side-image">
         <img ng-src="{{item.thumbUrl}}" ng-class="{'active': ($parent.currIndex === $index)}" class="img-thumbnail img-responsive">
       </div>
