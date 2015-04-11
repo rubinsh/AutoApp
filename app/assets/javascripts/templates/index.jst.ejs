@@ -1,23 +1,24 @@
 <div ng-controller="IndexCtrl" class="index-page" ng-show="latest.length" ng-cloak>
   <br/>
-  <div class="row carusela-lapanim">
-    <div class="col-sm-2 col-md-1 hidden-xs">
-      <div ng-repeat="item in latest" ng-click="setIndex($index)" class="side-image">
-        <img ng-src="{{item.thumbUrl}}" ng-class="{'active': ($parent.currIndex === $index)}" class="img-thumbnail img-responsive">
+  <div class="col-sm-9 col-md-10">
+    <div class="row car-list-item" ng-click="navigate('/articles/{{mainArticle.articleId}}')" >
+      <div class="col-xs-7 col-sm-12 col-md-7 col-xxs contain main-headline">
+        <img ng-src={{mainArticle.imageUrl}} class="img-responsive pull-right"></img>
+        <span>{{mainCategoryName}}</span>
+      </div>
+      <div dir="rtl" class="col-xs-5 col-sm-12 col-md-5 col-xxs pull-right text-right">
+        <h3>{{mainArticle.title}}</h3>
+        <h4>{{mainArticle.subTitle}}</h4>
       </div>
     </div>
-    <div class="col-sm-9 col-md-10">
-      <ul rn-carousel rn-carousel-index="currIndex" rn-carousel-buffered rn-carousel-control rn-carousel-indicator>
-        <li ng-repeat="item in latest" ng-click="navigate('/articles/{{item.articleId}}')" >
-        <div class="col-xs-7 col-sm-12 col-md-7 col-xxs carousel-item">
-          <img ng-src={{item.imageUrl}} class="img-responsive img-thumbnail pull-right"></img>
-        </div>
-        <div dir="rtl" class="col-xs-5 col-sm-12 col-md-5 col-xxs carousel-item pull-right text-right">
-          <h3>{{item.title}}</h3>
-          <h4>{{item.subTitle}}</h4>
-        </div>
-        </li>
-      </ul>
+    <div ng-repeat="item in latest" class="row car-list-item" ng-click="navigate('/articles/{{item.articleId}}')" >
+      <div class="col-xs-7 col-sm-12 col-md-7 col-xxs">
+        <img ng-src={{item.imageUrl}} class="img-responsive pull-right"></img>
+      </div>
+      <div dir="rtl" class="col-xs-5 col-sm-12 col-md-5 col-xxs pull-right text-right">
+        <h3>{{item.title}}</h3>
+        <h4>{{item.subTitle}}</h4>
+      </div>
     </div>
   </div>
 
