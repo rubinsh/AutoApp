@@ -74,6 +74,23 @@ body {padding-top: 50px; padding-bottom: 50px;}
     }
   }
 
+  .index-page {
+    .main-headline {
+      position:relative;
+      span {
+        position: absolute;
+        font-weight: bold;
+        font-size: 15px;
+        bottom: 0;
+        right: 0px;
+        background: $auto-red;
+        margin: 0 13px 2px 0;
+        color: white;
+        padding: 3px 5px;
+      }
+    }
+  }
+
   .model-page, .index-page, .model-gallery-page {
     .rn-carousel-control {
       margin-top: -20px;
