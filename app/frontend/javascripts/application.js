@@ -32,7 +32,6 @@
 //= require_tree ./directives
 //= require appConfiguration
 //= require  fbInit
-"use strict";
 
 $(document).ready(function () {
     $(document).click(function (event) {

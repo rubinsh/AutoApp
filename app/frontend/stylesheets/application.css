@@ -8,11 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require auto
- *= require bootstrap-select
- *= require bootstrap-rtl
- *= require loading_bar
- *= require angular-carousel
+ * require_self
+ * require auto
+ * require bootstrap-select
+ * require bootstrap-rtl
+ * require loading_bar
+ * require angular-carousel
  */
+@import "auto.css.scss";
+@import "./lib/bootstrap-select.css";
+@import "bootstrap-rtl.css.scss";
+@import "./lib/loading-bar.css";
+@import "./lib/angular-carousel.css";
 
