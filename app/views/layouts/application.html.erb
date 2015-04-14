@@ -33,21 +33,20 @@
    </script>
    <!-- End of Google Analytics Universal API script -->
    <!-- Start of Zoom Analytics Code -->
-   <script type="text/javascript">
+   <!--<script type="text/javascript">
         var _zaVer = 4, _zaq = _zaq || [];
         (function () {
             var w = window, d = document; w.__za_api = function (a) { _zaq.push(a); if (typeof __ZA != 'undefined' && typeof __ZA.sendActions != 'undefined') __ZA.sendActions(a); }
             var e = d.createElement('script'); e.type = 'text/javascript'; e.async = true; e.src = ('https:' == d.location.protocol ? 'https://d2xerlamkztbb1.cloudfront.net/' : 'http://wcdn.zoomanalytics.co/') + '19760853-8309/3/widget.js';
             var ssc = d.getElementsByTagName('script')[0]; ssc.parentNode.insertBefore(e, ssc);
         })();
-    </script>
+    </script> -->
     <!-- End of Zoom Analytics Code -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <title><%= content_for?(:title) ? yield(:title) : "מגזין אוטו" %> </title>
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= stylesheet_link_tag    "/assets/application" %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag "/favicon.ico" %>
     <script type="text/javascript">
@@ -57,7 +56,7 @@
 
   <body ng-app="main" ng-controller="application">
     <%= yield %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "/assets/application" %>
   </body>
 
 </html>

@@ -3,74 +3,74 @@ angular.module("main")
         function($routeProvider) {
             $routeProvider
                 .when('/articles/latest', {
-                    templateUrl: 'templates/index',
+                    templateUrl: 'index',
                     reloadOnSearch: false
                 })
                 .when('/catalog', {
-                    templateUrl: 'templates/catalogView'
+                    templateUrl: 'catalogView'
                 })
                 .when('/catalog/manufacturers', {
-                    templateUrl: 'templates/manufacturersView'
+                    templateUrl: 'manufacturersView'
                 })
                 .when('/catalog/manufacturers/:id', {
-                    templateUrl: 'templates/allManufacturerModelsView'
+                    templateUrl: 'allManufacturerModelsView'
                 })
                 .when('/catalog/manufacturers/:id/models/:id', {
-                    templateUrl: 'templates/carModelView'
+                    templateUrl: 'carModelView'
                 })
                 .when('/catalog/manufacturers/:id/models', {
-                    templateUrl: 'templates/modelsView'
+                    templateUrl: 'modelsView'
                 })
                 .when('/catalog/models/:id', {
-                    templateUrl: 'templates/carModelView'
+                    templateUrl: 'carModelView'
                 })
                 .when('/catalog/models/:id/used', {
-                    templateUrl: 'templates/carModelView'
+                    templateUrl: 'carModelView'
                 })
                 .when('/catalog/model/review/:id', {
-                    templateUrl: 'templates/modelReviewView'
+                    templateUrl: 'modelReviewView'
                 })
                 .when('/catalog/model/versions/:id', {
-                    templateUrl: 'templates/modelVersionsView'
+                    templateUrl: 'modelVersionsView'
                 })
                 .when('/catalog/model/versions/', {
-                    templateUrl: 'templates/modelVersionsView'
+                    templateUrl: 'modelVersionsView'
                 })
                 .when('/catalog/model/version/details/', {
-                    templateUrl: 'templates/modelVersionDetailsView'
+                    templateUrl: 'modelVersionDetailsView'
                 })
                 .when('/catalog/model/gallery/:id', {
-                    templateUrl: 'templates/modelGalleryView'
+                    templateUrl: 'modelGalleryView'
                 })
                 .when('/catalog/model/videos/:id', {
-                    templateUrl: 'templates/modelVideosView'
+                    templateUrl: 'modelVideosView'
                 })
                 .when('/catalog/model/competitors/:id', {
-                    templateUrl: 'templates/modelCompetitorsView'
+                    templateUrl: 'modelCompetitorsView'
                 })
                 .when('/catalog/models/:id/useds', {
-                    templateUrl: 'templates/modelUsedsView'
+                    templateUrl: 'modelUsedsView'
                 })
                 .when('/articles', {
-                    templateUrl:'templates/ArticlesListView'
+                    templateUrl:'ArticlesListView'
                 })
                 .when('/articles/:articleId', {
-                    templateUrl: 'templates/articleView'
+                    templateUrl: 'articleView'
                 })
                 .when('/articles/category/:categoryId', {
-                    templateUrl: 'templates/allArticlesOfCategoryView'
+                    templateUrl: 'allArticlesOfCategoryView'
                 })
                 .when('/guide', {
-                    templateUrl: 'templates/buyingGuideView'
+                    templateUrl: 'buyingGuideView'
                 })
                 .when('/guide/search', {
-                    templateUrl: 'templates/guideSearchResultView'
+                    templateUrl: 'guideSearchResultView'
                 })
                 .when('/articles', {
-                    templateUrl: 'templates/articlesListView'
+                    templateUrl: 'articlesListView'
                 })
                 .when('/consulting', {
-                    templateUrl: 'templates/consultingView'
+                    templateUrl: 'consultingView'
                 })
                 .otherwise({
                     redirectTo: '/articles/latest'

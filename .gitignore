@@ -6,7 +6,9 @@
 
 # Ignore bundler config
 /.bundle
-
+node_modules
+bower_components
+public/assets
 # Ignore the default SQLite database.
 /db/*.sqlite3
 

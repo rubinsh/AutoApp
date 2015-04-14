@@ -9,7 +9,7 @@ $brand-danger:          #EC1B23 !default;
 $auto-red: $brand-danger;
 $state-danger-text:              white !default;
 $state-danger-bg:                #EC1B23 !default;
-@import "bootstrap";
+@import "./lib/bootstrap.css";
 
 body {padding-top: 50px; padding-bottom: 50px;}
 .back-button {
