@@ -89,7 +89,7 @@ gulp.task("fonts", function() {
 gulp.task("watch", function() {
   liveReload.listen
   // gulp.watch("app/frontend/stylesheets", { interval: 500 }, ["scss"]);
-  gulp.watch("app/frontend/javascripts/**/*",  { interval: 500 }, ["js","ejs"]);
+  gulp.watch("./app/frontend/javascripts/**/*",  { interval: 500 }, ["js","jst"]);
 });
 
 gulp.task("default", ["bower-files","jst","js", "sass", "images"]);
