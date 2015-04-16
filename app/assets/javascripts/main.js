@@ -2,6 +2,7 @@
 var autoModuleApp = angular.module("main", [
   'ngRoute',
   'ngResource',
+  'restangular',
   'ngAnimate',
   'ngTouch',
   'jmdobry.angular-cache',
@@ -25,6 +26,10 @@ autoModuleApp.run(["$window", "$templateCache", "$http", "$angularCacheFactory",
   });
 
   $http.defaults.cache = $angularCacheFactory.get('defaultCache'); //set all requests done with $http to work with this cache...
+  $http.defaults.headers.get = {
+    'Accept': 'application/json',
+    'Content-type': 'application/json'
+  };
 }]);
 /* App Module Dependencies*/
 var autoControllers = angular.module('autoControllers', []);

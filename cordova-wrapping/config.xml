@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.rubysoft.auto" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>AutoApp</name>
+    <description>
+        Launcher application for the auto magazine
+    </description>
+    <author email="support@rubysoft.co.il" href="">
+        RubySoft
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>

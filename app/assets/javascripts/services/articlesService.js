@@ -1,6 +1,6 @@
 angular.module('autoServices')
-.factory('ArticlesServices', ['$http',
-         function($http) {
+.factory('ArticlesServices', ['$http', 'Restangular',
+         function($http, Restangular) {
            var resource = {};
 
            resource.categories = {
@@ -13,33 +13,18 @@ angular.module('autoServices')
            };
 
            resource.getAllArticles = function() {
-             return $http.get('articles', {
-               headers: {
-                 'Accept': 'application/json',
-                 'Content-type': 'application/json'
-               }
-             });
+             return $http.get('articles');
            };
 
            resource.getAllArticlesByCatregoryId = function(categoryId, count) {
              if (typeof(count) === "undefined") {
                count = 10;
              }
-             return $http.get('articles?category=' + categoryId + "&count=" + count, {
-               headers: {
-                 'Accept': 'application/json',
-                 'Content-type': 'application/json'
-               }
-             });
+             return $http.get('articles?category=' + categoryId + "&count=" + count);
            };
 
            resource.getArticleById = function(articleId) {
-             return $http.get('articles/' + articleId, {
-               headers: {
-                 'Accept': 'application/json',
-                 'Content-type': 'application/json'
-               }
-             });
+             return Restangular.one('articles', articleId).get({links: true});
            };
 
            return resource;

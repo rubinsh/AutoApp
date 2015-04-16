@@ -10,6 +10,7 @@ $auto-red: $brand-danger;
 $state-danger-text:              white !default;
 $state-danger-bg:                #EC1B23 !default;
 @import "bootstrap";
+
 body {padding-top: 50px;}
 
 .automag-app {
@@ -54,7 +55,7 @@ body {padding-top: 50px;}
     }
   }
 
-  .model-page, .index-page, .model-gallery-page {
+  .model-page, .index-page, .model-gallery-page, .more-articles {
     .rn-carousel-control {
       margin-top: -20px;
       font-size: initial;
@@ -122,6 +123,27 @@ body {padding-top: 50px;}
     }
     h4 { font-weight: bold; }
     div { font-size: 18px !important; }
+
+    .share-col {
+      text-align: left;
+
+      .share-btn {
+        background-color: rgb(255,0,0); // Old browsers
+        background: -webkit-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* Standard syntax */
+        border: none;
+        border-radius: 5px;
+        margin-top: 25px;
+        padding: 2px 13px;
+        height: 26px;
+
+        .glyphicon-share {
+          color: white;
+        }
+      }
+    }
   }
 
   .model-page {
@@ -159,52 +181,6 @@ body {padding-top: 50px;}
   }
 
 }
-/*.nonDraggableImage{*/
-/*-webkit-user-drag: none;*/
-/*-moz-user-drag: none;*/
-/*-khtml-user-drag: none;*/
-/*-o-user-drag: none;*/
-/*user-drag: none;*/
-/*}*/
-
-
-.arrow {
-  position: absolute;
-  z-index: 1002;
-  display: block;
-  top: 40%;
-  margin-top: -35px;
-  width: 36px;
-  height: 71px;
-  outline: none;
-  cursor: pointer;
-  background: url(../assets/img/blank.gif) no-repeat;
-}
-
-.arrow.prev {
-  opacity: 0.2;
-  left: 20px;
-  background-image: url(http://onehungrymind.com/demos/slider-touch/assets/img/paddle_prev_999.png);
-  transition: 0.2s linear all;
-}
-
-.arrow.next {
-  opacity: 0.2;
-  right: 20px;
-  background-image: url(http://onehungrymind.com/demos/slider-touch/assets/img/paddle_next_999.png);
-  transition: 0.2s linear all;
-}
-
-.arrow.prev:hover {
-  opacity: 1;
-  background-image: url(http://onehungrymind.com/demos/slider-touch/assets/img/paddle_prev_fff.png);
-}
-
-.arrow.next:hover {
-  opacity: 1;
-  background-image: url(http://onehungrymind.com/demos/slider-touch/assets/img/paddle_next_fff.png);
-}
-
 
 
 /// sahar css

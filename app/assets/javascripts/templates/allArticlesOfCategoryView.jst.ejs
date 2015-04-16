@@ -7,7 +7,7 @@
 
   <div ng-repeat="article in articles" class="row car-list-item" ng-click="showArticle(article)">
     <div class="col-xs-6 col-xxs">
-      <img  class="img-responsive img-thumbnail" ng-src="{{getBigImage(article.imageUrl)}}">
+      <img  class="img-responsive img-thumbnail" ng-src="{{article.imageUrl}}">
     </div>
     <div class="col-xs-6 col-xxs">
       <h4>{{article.title}}</h4>

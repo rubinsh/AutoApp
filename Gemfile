@@ -9,6 +9,7 @@ gem 'thin'
 gem 'foundation-rails'
 gem 'ejs'
 gem 'sass-rails', '>= 3.2'
+gem 'sass', '3.2.13'
 gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'rails-assets-angular', '1.2.16'
@@ -22,6 +23,8 @@ gem 'rails-assets-angular-loading-bar'
 gem 'rails-assets-bootstrap-select'
 gem 'rails-assets-jquery', '2.1.0'
 gem 'rails-assets-matchmedia-ng'
+gem 'rails-assets-restangular', '1.4.0'
+gem 'rails-assets-underscore'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -34,6 +37,7 @@ group :assets do
 end
 group :production,:staging do
   gem 'pg'
+  gem 'rails_12factor', '0.0.2'
 end
 
 group:development do

@@ -26,11 +26,34 @@ angular.module('autoDirectives')
         return tmpElem.innerHTML; //strip the outer section and return the modified html
       };
 
+      var fixLinks = function(newContent) {
+
+        var fixLink = function(linkElem ,searchStr, urlPrefix) {
+          var href = linkElem.attr('href');
+          if (href.indexOf(searchStr) > -1) {
+            linkElem.attr('href', urlPrefix + href.split(searchStr)[1]);
+            linkElem.removeAttr('target');
+          }
+        };
+
+        tmpElem = document.createElement('section');
+        $(tmpElem).html(newContent);
+        angular.forEach($('a',tmpElem), function(item, index) {
+          $item = $(item);
+          fixLink($item, 'articleId=', '#/articles/');
+          fixLink($item, 'model_id=','#/catalog/models/');
+          fixLink($item, 'manufacturer=', '#/catalog/manufacturers/');
+          fixLink($item, '/?action=consulting', 'tel:*3262');
+        });
+        return tmpElem.innerHTML;
+      };
+
       scope.$watch('trustedhtml', function(newContent) {
         if (typeof(newContent) !== 'undefined' && newContent !== "") {
           newContent = '<div>' + newContent + '<div>';
           newContent = fixIframes(newContent);
           newContent = fixImages(newContent);
+          newContent = fixLinks(newContent);
           element.html(newContent);
         }
       });

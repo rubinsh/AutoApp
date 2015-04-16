@@ -1,6 +1,6 @@
 angular.module('autoControllers')
-.controller('IndexCtrl', ['$scope', '$interval', '$templateCache', 'IndexServices', 'NavServices',
-            function($scope, $interval, $templateCache, IndexService, NavServices) {
+.controller('IndexCtrl', ['$scope', '$interval', '$templateCache', 'Restangular', 'NavServices',
+            function($scope, $interval, $templateCache, Restangular, NavServices) {
               var stop;
               $scope.navs = NavServices.navs;
               $scope.currIndex = 0;
@@ -29,7 +29,7 @@ angular.module('autoControllers')
                 return imageUrl.split(".jpg")[0]+"-4.jpg";
               };
 
-              IndexService.getAllLatestArticles().success(function(data) {
+              Restangular.all('articles').customGET('latest').then(function(data) {
                 angular.forEach(data, function(item, index) {
                   data[index].thumbUrl = data[index].imageUrl;
                   data[index].imageUrl = convertToLargeImage(data[index].imageUrl);

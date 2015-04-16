@@ -10,7 +10,7 @@ angular.module('autoControllers')
 
               $scope.getBigImage = function(imageUrl) {
                 var name = imageUrl.split('.jpg')[0];
-                return name + "-4.jpg";
+                return imageUrl;
               };
 
             }

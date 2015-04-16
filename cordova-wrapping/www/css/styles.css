@@ -1,0 +1,30 @@
+body {
+	background-color: white;
+}
+
+#container {
+	display: none;
+	text-align: center;
+	font-size: 18px;
+	color: black;
+	margin-top: 50px;
+	direction: rtl;
+}
+
+.offline { 
+	padding: 20px 0;
+	font-size: 24px;
+}
+
+.call-now {
+	color: #BC1316;
+} 
+
+a.call-now:link ,a.call-now:active, a.call-now:visited {
+	text-decoration: none;
+	color: #BC1316;
+} 
+
+a.call-now:hover {
+	color: #cd2427;
+}
