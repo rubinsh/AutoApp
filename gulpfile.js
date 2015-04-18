@@ -22,7 +22,7 @@ gulp.task("bower-files", function(){
 
 gulp.task('jst', function () {
   gulp.src('./app/frontend/javascripts/templates/**/*.ejs')
-    .pipe(jst({ prepend: 'JST["%s"] = ' }))
+    .pipe(jst({ prepend: "JST['%s'] = " }))
     .pipe(concat('jst.js', { newLine: ';\n' }))
     .pipe(insert.prepend('window.JST = {};\n\n'))
     .pipe(insert.append(';\n\n'))
