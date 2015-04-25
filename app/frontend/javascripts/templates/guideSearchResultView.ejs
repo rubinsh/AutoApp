@@ -1,6 +1,6 @@
 <div ng-controller="GuideSearchResultCtrl" infinite-scroll="addMoreItems()">
   <div ng-show="models.length" ng-cloak>
-    <div ng-include=" 'templates/_modelsList' "></div>
+    <div ng-include=" '_modelsList' "></div>
   </div>
   <div ng-hide="empty" class="text-center">אין מידע לערכים הנוכחיים, שינוי ערכים מביא לשינוי תוצאות.</div>
   <div ng-show="busy"  class="text-center"><h4>טוען תוצאות נוספות...</h4></div>

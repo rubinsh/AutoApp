@@ -5,24 +5,17 @@ angular.module('autoControllers')
               $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.model_id + "&channelId=Auto&contentType=Auto_cars&platform=mobile");
               $scope.used_id = $routeParams.usedID;
               $scope.galleryVisible = false;
-              if (Modernizr.matchmedia) {
+              // if (Modernizr.matchmedia) {
                 var removeXXSListener = matchmedia.on('(max-width: 499px)', function(mediaQueryList){
                   $scope.isXXS = mediaQueryList.matches;
                 });
-                //var removeXSListener = matchmedia.on('(min-width: 500px) and (max-width: 1023px)', function(mediaQueryList){
-                //$scope.isXS = mediaQueryList.matches;
-                //});
-                //var removeMDListener = matchmedia.on('(min-width: 1024px)', function(mediaQueryList){
-                //$scope.isMD = mediaQueryList.matches;
-                //});
-              }
+              // }
 
               $scope.$on('$destroy', function() {
-                if (Modernizr.matchmedia) {
+                // if (Modernizr.matchmedia) {
                   removeXXSListener();
-                  //removeXSListener();
                   //removeMDListener();
-                }
+                // }
               });
 
               if ($scope.used_id) {
