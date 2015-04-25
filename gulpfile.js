@@ -103,7 +103,7 @@ gulp.task('html',["js","sass"], function () {
 
 gulp.task("watch", function() {
   liveReload.listen();
-  gulp.watch("./app/frontend/stylesheets", { interval: 500 }, ["html"]);
+  gulp.watch("./app/frontend/stylesheets/**/*", { interval: 500 }, ["html"]);
   gulp.watch(["./app/frontend/javascripts/**/*","gulpfile.js"],  { interval: 500 }, ["html"]);
 });
 
