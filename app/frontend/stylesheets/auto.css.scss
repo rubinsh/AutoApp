@@ -11,6 +11,13 @@ $state-danger-text:              white !default;
 $state-danger-bg:                #EC1B23 !default;
 @import "./lib/bootstrap.css";
 
+#loading-bar .bar {
+  background: $brand-danger;
+}
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  $brand-danger;
+  border-left-color: $brand-danger;
+}
 body {padding-top: 50px; padding-bottom: 50px;}
 .back-button {
   color: #fff;
@@ -29,6 +36,7 @@ body {padding-top: 50px; padding-bottom: 50px;}
   border: none;
 }
 .automag-app {
+
   .contain {
     display: block;
     overflow: hidden;

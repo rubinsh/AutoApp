@@ -11,16 +11,31 @@
         <h4>{{mainArticle.subTitle}}</h4>
       </div>
     </div>
-    <div ng-repeat="item in latest" class="row car-list-item" ng-click="navigate('/articles/{{item.articleId}}')" >
-      <div class="col-xs-7 col-sm-12 col-md-7 col-xxs">
-        <img ng-src={{item.imageUrl}} class="img-responsive pull-right"></img>
+    <div  ng-repeat="category in articlesList">
+      <div class="row article-header">
+        <div class="col-xs-12 text-right">
+          <h3>{{category.categoryName}}</h3>
+        </div>
       </div>
-      <div dir="rtl" class="col-xs-5 col-sm-12 col-md-5 col-xxs pull-right text-right">
-        <h3>{{item.title}}</h3>
-        <h4>{{item.subTitle}}</h4>
+
+      <div ng-repeat="article in category.articles" class="row car-list-item" ng-click="showArticle(article)">
+        <div class="col-xs-6 col-xxs">
+          <img  class="img-responsive img-thumbnail" ng-src="{{article.imageUrl}}">
+        </div>
+        <div class="col-xs-6 col-xxs">
+          <h4>{{article.title}}</h4>
+          <p>{{article.subTitle}}</p>
+        </div>
+      </div>
+
+      <div class="row border-bottom">
+        <div class="col-xs-12 text-left more-in-category">
+          <a href="#articles/category/{{category.categoryId}}" >
+            <h3>עוד ב{{category.categoryName}}...</h3>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
   <div class="row">
     <ul class="list-group col-xs-12">
