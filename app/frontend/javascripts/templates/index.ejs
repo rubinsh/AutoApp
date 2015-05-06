@@ -1,4 +1,4 @@
-<div ng-controller="IndexCtrl" class="index-page" ng-show="latest.length" ng-cloak>
+<div ng-controller="IndexCtrl" class="index-page" ng-show="latest" ng-cloak>
   <br/>
   <div class="col-sm-9 col-md-10">
     <div class="row car-list-item" ng-click="navigate('/articles/{{mainArticle.articleId}}')" >
@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div ng-repeat="article in category.articles" class="row car-list-item" ng-click="showArticle(article)">
+      <div ng-repeat="article in articlesList" class="row car-list-item" ng-click="showArticle(article)">
         <div class="col-xs-6 col-xxs">
           <img  class="img-responsive img-thumbnail" ng-src="{{article.imageUrl}}">
         </div>
