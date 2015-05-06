@@ -9,7 +9,10 @@
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
-
+/node_modules
+/bower_components
+/auto-mobile.herokuapp.com
+npm-debug.log
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp

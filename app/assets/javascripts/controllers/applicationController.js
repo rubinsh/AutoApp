@@ -1,6 +1,12 @@
 angular.module('autoControllers')
 .controller('application', ['$scope', '$location', 'ArticlesServices', 'AdService',
             function($scope, $location, ArticlesService, AdService) {
+
+              $scope.$on('$viewContentLoaded', function(event) {
+                ga('set', { page: $location.path()});
+                ga('send', 'pageview');
+              });
+
               $scope.navigate = function(path) {
                 $location.path(path);
               };
