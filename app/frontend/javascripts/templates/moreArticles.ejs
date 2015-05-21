@@ -1,0 +1,14 @@
+<div class="row more-articles" ng-if="!isLoading" >
+  <div class="col-xs-12"><h3 style="margin: 0 0 5px">אולי גם זה יעניין אותך:</h3></div>
+  <!--<ul rn-carousel rn-carousel-indicator rn-carousel-control>-->
+  <div ng-repeat="article in moreArticles" ng-click="showArticle(article)" class="pull-right col-xs-12 more-articles-item">
+    <div class="col-xs-5 col-sm-3">
+      <img ng-src="{{article.imageUrl}}" class="img-responsive"></img>
+    </div>
+    <div class="col-xs-7 col-sm-9 pull-right">
+      <h4>{{article.title}}</h4>
+    </div>
+    <hr>
+  </div>
+</div>
+<div class="row" ng-if="isLoading"><div class="col-xs-12" style="min-height: 100px"><h3 style="margin: 0 0 5px">טוען כתבות נוספות...</h3></div></div>

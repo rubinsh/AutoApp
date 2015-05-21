@@ -1,0 +1,284 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// this is for -webkit browser to remove the darg event.
+// this is needed for the angular slider for the ng-touch event to work
+
+$brand-danger:          #EC1B23 !default;
+$auto-red: $brand-danger;
+$state-danger-text:              white !default;
+$state-danger-bg:                #EC1B23 !default;
+$auto-dark: #222;
+// $icon-font-path: "../fonts/" !default;
+
+#loading-bar .bar {
+  background: $brand-danger;
+}
+#loading-bar-spinner .spinner-icon {
+  border-top-color:  $brand-danger;
+  border-left-color: $brand-danger;
+}
+body {padding-top: 50px; padding-bottom: 50px;}
+.back-button {
+  color: #fff;
+  float: left;
+  margin: 17px 0 0 10px;
+}
+
+.inline-ad {
+  padding: 10px;
+  text-align: center;
+  min-height: 100px;
+}
+.auto-ad-container {
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  min-height: 40px !important;
+  padding: 0;
+  z-index: 9999;
+  background: white;
+  //color: $auto-red;
+  width: 100%;
+  border: none;
+}
+.automag-app {
+
+  .contain {
+    display: block;
+    overflow: hidden;
+    height: 1%;
+  }
+
+  .auto-menu-item {
+    font-size: 1.2em;
+  }
+
+  @media (max-width: 499px) {
+    .col-xxs {
+      display:block;
+      float:none;
+      width: 100%;
+      &.carousel-item {
+        padding: 0;
+      }
+    }
+    .hidden-xxs {
+      visibility: hidden;
+    }
+    .index-page .rn-carousel-control {
+      margin-top: -80px !important;
+    }
+
+  }
+
+  @media (min-width: 500px) and (max-width: 767px) {
+    .carousel-item {
+      padding-right: 0px;
+    }
+  }
+
+  .rn-carousel-container {
+    direction: ltr;
+  }
+  .rn-carousel-indicator {
+    display: inline-block;
+    background: none;
+    height: initial;
+    span {
+      display: inline-block;
+      &.active {
+        color: red;
+      }
+    }
+  }
+
+  .index-page {
+    .main-headline {
+      position:relative;
+      span {
+        position: absolute;
+        font-weight: bold;
+        font-size: 15px;
+        bottom: 0;
+        right: 0px;
+        background: $auto-red;
+        margin: 0 13px 2px 0;
+        color: white;
+        padding: 3px 5px;
+      }
+    }
+    .car-list-item {
+      border-bottom: 2px solid #ddd;
+    }
+    .articles-list {
+      padding: 0;
+    }
+    .bottom-menu {
+      padding-top: 10px;
+      border-top: solid #444 2px;
+      background-color: $auto-dark;
+      .bottom-menu-item {
+        padding: 10px 0;
+        color: white;
+        font-size: 1.1em;
+        line-height: 1.3em;
+        text-align: center;
+      }
+    }
+  }
+
+  .model-page, .index-page, .model-gallery-page {
+    .rn-carousel-control {
+      margin-top: -20px;
+      font-size: initial;
+      opacity: 1;
+    }
+    .rn-carousel-control.rn-carousel-control-prev:before {
+      content: url('images/carousel-left.png');
+    }
+    .rn-carousel-control.rn-carousel-control-next:before {
+      content: url('images/carousel-right.png');
+    }
+  }
+  .more-articles {
+    .more-articles-item {
+      padding: 10px 0;
+      border-bottom: 1px solid;
+      border-color: #222;
+    }
+  }
+
+  .list-group-item-inverse {
+    color: white;
+    background-color: #222;
+    border-color: #090909;
+  }
+
+  //override bootstrap select values to make it rtl
+  .bootstrap-select.btn-group .btn {
+    .caret {
+      left: 12px;
+      right: initial;
+    }
+
+    .filter-option {
+      float: right;
+      text-align: right;
+      &.pull-left {
+        float: right !important;
+      }
+    }
+  }
+
+  .car-list-item {
+    h4 { margin: 0; }
+    padding: 5px 0px;
+    border-bottom: solid 1px #222;
+  }
+
+  .articles-list {
+    h4 { margin: 0; }
+    .article-header {
+      h3 { margin: 0; }
+      background-color: $auto-red;
+      color: white;
+    }
+
+    .more-in-category {
+      background-color: #222;
+      a {
+        color: white;//#EC1B23;
+      }
+      margin-bottom: 2px;
+      &.last_category {
+        margin-bottom: 0;
+        padding-bottom: 20px;
+      }
+      //padding: 5px 0;
+      h3 {margin:0}
+    }
+  }
+
+  .article {
+    hr {
+      border-top: 1px solid #222;
+    }
+    h4 { font-weight: bold; }
+    div { font-size: 18px !important; }
+
+    .share-col {
+      text-align: left;
+
+      .share-btn {
+        background-color: rgb(255,0,0); // Old browsers
+        background: -webkit-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* Standard syntax */
+        border: none;
+        border-radius: 5px;
+        margin-top: 25px;
+        padding: 2px 13px;
+        height: 26px;
+
+        .glyphicon-share {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .model-page {
+    hr {
+      margin: 0 0 10px 0;
+      border-top: 1px solid #ddd;
+    }
+
+    .sub-header {
+      margin-bottom: 10px;
+      display: block;
+      overflow: hidden;
+      height: 1%;
+      div,h4 { display: inline;}
+      .text-right { float: right; }
+      .text-left {float: left; }
+    }
+  }
+  .carusela-lapanim {
+    .img-thumbnail.active {
+      border-color: #222;
+    }
+    .side-image {
+      padding: 0 0 5px;
+    }
+
+    .carousel-item {
+      h3 { margin-top: 0; }
+    }
+  }
+
+  .index-header {
+    h4 {margin: 0; }
+    //    background-color: $auto-red;
+  }
+
+}
+
+
+/// sahar css
+
+.auto-version-included-item{
+  background-image: url(http://auto.co.il/Layouts/default/bgImages/extra_adv.gif) !important;
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+  height: 10px;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+
+
