@@ -21,12 +21,29 @@ angular.module('autoControllers')
 
       var res = ArticlesServices.getAllArticles()
       .success(function(data) {
+          var dicTypes = ArticlesServices.categories;
           console.dir(data);
 
-          $scope.articlesList = []
-          angular.forEach(data, function(item, index) {
-            $scope.articlesList.push(item);
+          // $scope.articlesList = []
+          // angular.forEach(data, function(item, index) {
+          //   $scope.articlesList.push(item);
+          // });
+          $scope.articlesCategoriesCollection = {};
+          angular.forEach(dicTypes, function(item, key) {
+              $scope.articlesCategoriesCollection[key] = {
+                  categoryName: item,
+                  categoryId: key,
+                  articles: []
+              };
           });
+          angular.forEach(data, function(item, index) {
+              $scope.articlesCategoriesCollection[item.categoryId].articles.push(item);
+          });
+          $scope.articlesList = [];
+          angular.forEach($scope.articlesCategoriesCollection, function(item, index) {
+              $scope.articlesList.push(item);
+          });
+$scope.articlesCategoriesList = null;
       });
       promises.push(res);
       
@@ -44,6 +61,8 @@ angular.module('autoControllers')
           $scope.mainArticle = data.shift();
         });  
       });
+
+      
 
       promises.push(res);
       return $q.all(promises);

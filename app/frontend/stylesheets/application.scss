@@ -15,10 +15,12 @@
  * require loading_bar
  * require angular-carousel
  */
-
+@import "auto.css.scss";
+@import "bootstrap";
+@import "bootstrap/theme";
 @import "./lib/bootstrap-select.css";
 @import "bootstrap-rtl.css.scss";
 @import "./lib/loading-bar.css";
 @import "./lib/angular-carousel.css";
-@import "auto.css.scss";
+
 

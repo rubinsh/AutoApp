@@ -9,7 +9,7 @@ $brand-danger:          #EC1B23 !default;
 $auto-red: $brand-danger;
 $state-danger-text:              white !default;
 $state-danger-bg:                #EC1B23 !default;
-@import "./lib/bootstrap.css";
+// $icon-font-path: "../fonts/" !default;
 
 #loading-bar .bar {
   background: $brand-danger;
@@ -96,6 +96,12 @@ body {padding-top: 50px; padding-bottom: 50px;}
         color: white;
         padding: 3px 5px;
       }
+    }
+    .car-list-item {
+      border-bottom: none;
+    }
+    .articles-list {
+      padding: 0;
     }
   }
 

@@ -1,47 +1,46 @@
 <div ng-controller="IndexCtrl" class="index-page" ng-show="latest" ng-cloak>
-  <br/>
-  <div class="col-sm-9 col-md-10">
-    <div class="row car-list-item" ng-click="navigate('/articles/{{mainArticle.articleId}}')" >
-      <div class="col-xs-7 col-sm-12 col-md-7 col-xxs contain main-headline">
-        <img ng-src={{mainArticle.imageUrl}} class="img-responsive pull-right"></img>
-        <span>{{mainCategoryName}}</span>
-      </div>
-      <div dir="rtl" class="col-xs-5 col-sm-12 col-md-5 col-xxs pull-right text-right">
-        <h3>{{mainArticle.title}}</h3>
-        <h4>{{mainArticle.subTitle}}</h4>
-      </div>
-    </div>
-    <div  ng-repeat="category in articlesList">
-      <div class="row article-header">
-        <div class="col-xs-12 text-right">
-          <h3>{{category.categoryName}}</h3>
-        </div>
-      </div>
+  	<br/>
+  	<div class="col-sm-9 col-md-10 articles-list">
+		<div class="row car-list-item" ng-click="navigate('/articles/{{mainArticle.articleId}}')">
+			<div class="col-xs-7 col-sm-12 col-md-7 col-xxs contain main-headline">
+				<img ng-src={{mainArticle.imageUrl}} class="img-responsive pull-right"></img>
+				<span>{{mainCategoryName}}</span>
+			</div>
+			<div dir="rtl" class="col-xs-5 col-sm-12 col-md-5 col-xxs pull-right text-right">
+				<h3>{{mainArticle.title}}</h3>
+				<h4>{{mainArticle.subTitle}}</h4>
+			</div>
+		</div>
+		<div ng-repeat="category in articlesList">
+	  		<div class="row article-header">
+				<div class="col-xs-12 text-right">
+		  			<h3>{{category.categoryName}}</h3>
+				</div>
+	  		</div>
 
-      <div ng-repeat="article in articlesList" class="row car-list-item" ng-click="showArticle(article)">
-        <div class="col-xs-6 col-xxs">
-          <img  class="img-responsive img-thumbnail" ng-src="{{article.imageUrl}}">
-        </div>
-        <div class="col-xs-6 col-xxs">
-          <h4>{{article.title}}</h4>
-          <p>{{article.subTitle}}</p>
-        </div>
-      </div>
+	  		<div ng-repeat="article in category.articles" class="row car-list-item" ng-click="showArticle(article)">
+				<div class="col-xs-6 col-xxs">
+		  			<img  class="img-responsive" ng-src="{{article.imageUrl}}">
+				</div>
+				<div class="col-xs-6 col-xxs">
+		  			<h4>{{article.title}}</h4>
+		  			<p>{{article.subTitle}}</p>
+				</div>
+			</div>
 
-      <div class="row border-bottom">
-        <div class="col-xs-12 text-left more-in-category">
-          <a href="#articles/category/{{category.categoryId}}" >
-            <h3>עוד ב{{category.categoryName}}...</h3>
-          </a>
-        </div>
-      </div>
-    </div>
+			<div class="row border-bottom">
+				<div class="col-xs-12 text-left more-in-category">
+		  			<a href="#articles/category/{{category.categoryId}}" ><h3>עוד ב{{category.categoryName}}...</h3></a>
+				</div>
+	  		</div>
+		</div>
 
-  <div class="row">
-    <ul class="list-group col-xs-12">
-      <li class="list-group-item list-group-item-inverse index-header"><h4>עוד באוטו</h4></li>
-      <li ng-repeat="nav in navs" class="list-group-item" ng-click="navigate('{{nav.route}}')" >{{nav.name}}</li>
-    </ul>
-  </div>
+		<div class="row">
+			<ul class="list-group col-xs-12">
+	  			<li class="list-group-item list-group-item-inverse index-header"><h4>עוד באוטו</h4></li>
+	  			<li ng-repeat="nav in navs" class="list-group-item" ng-click="navigate('{{nav.route}}')" >{{nav.name}}</li>
+			</ul>
+  		</div>
+	</div>
 </div>
 <iframe src="http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_782087275&channelId=Auto&contentType=Auto_homepage&platform=mobile" frameBorder="0" height="1" width="1"></iframe>
