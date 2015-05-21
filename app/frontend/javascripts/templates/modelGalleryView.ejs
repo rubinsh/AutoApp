@@ -1,15 +1,15 @@
 <div ng-controller="ModelGalleryCtrl" class="model-gallery-page" ng-show="gallery.length" ng-cloak>
-
-  <slick ng-if="!isPhone" init-onload=true data="gallery" slides-to-show="1" slides-to-scroll="1" rtl="true">
+  <slick ng-if="!isPhone"  init-onload=true data="gallery" slides-to-show="1" slides-to-scroll="1" rtl="true" lazyload="progressive">
+    
+    <!-- data-toggle="modal" data-target="#modal-{{$parent.carouselIndex}}" -->
     <div ng-repeat="item in gallery">
       <img ng-src={{item.bigImageUrl}}  class="img-responsive" style="margin: auto"></img>
     </div>
   </slick>
 
-  <slick ng-if="isPhone"  init-onload=true data="gallery" slides-to-show="1" slides-to-scroll="1" rtl="true" adaptive-height=true>
+  <slick ng-if="isPhone"  init-onload=true data="gallery" slides-to-show="1" slides-to-scroll="1" rtl="true" lazyload="progressive">
     <div ng-repeat="item in gallery">
-      <img ng-src={{item.imageUrl}} class="img-responsive" style="margin: auto"></img>
+      <img ng-src={{item.imageUrl}} class="img-responsive" data-toggle="modal" data-target="#modal-{{$parent.carouselIndex}}" style="margin: auto"></img>
     </div>
   </slick>
-
 </div>
