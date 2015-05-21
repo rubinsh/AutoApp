@@ -3,7 +3,7 @@ angular.module('autoDirectives')
            function($templateCache, $timeout, ArticlesService) {
              return {
                restrict: 'E',
-               template: $templateCache.get('templates/moreArticles'),
+               template: $templateCache.get('moreArticles'),
                link: function(scope, elem, attrs) {
                  var isPhone = Modernizr.mq('(max-width: 767px)');
                  var chunkSize = isPhone ? 2 : 4;
@@ -30,15 +30,11 @@ angular.module('autoDirectives')
                  };
 
                  var loadMoreArticles = function() {
-                   ArticlesService.getAllArticlesByCatregoryId(attrs.categoryId,8).success(function(data) {
-                     scope.moreArticles = [];
-                     data = shuffle(data);
-                     scope.moreArticles = data;
-                     //split the carousel data into chunks according to the size of the screen
-//                     while (data.length > 0) {
-//                       scope.moreArticles.push(data.splice(0,chunkSize));
-//                     }
-                     scope.isLoading = false;
+                    ArticlesService.getAllArticlesByCatregoryId(attrs.categoryId,8).success(function(data) {
+                       scope.moreArticles = [];
+                       data = shuffle(data);
+                       scope.moreArticles = data;
+                       scope.isLoading = false;
                      //workaround the problem of carousel rendered with width=0 because of videos
                      //$timeout(function() {
                      //  if ($('.rn-carousel-container').width() === 0) {

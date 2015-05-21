@@ -1,42 +1,15 @@
 <div ng-controller="ModelGalleryCtrl" class="model-gallery-page" ng-show="gallery.length" ng-cloak>
-  <ul ng-if="!isIOS6or5 && !isPhone" rn-carousel rn-carousel-indicator rn-carousel-control rn-carousel-buffered>
-    <!--<li ng-repeat="item in doubleGallery">-->
-    <!--<ul class="list-inline">-->
-    <!--<li class="col-xs-6"><img ng-src="{{item.image1}}" class="img-responsive pull-left"></img></li>-->
-    <!--<li class="col-xs-6"><img ng-src="{{item.image2}}" class="img-responsive pull-right"></img></li>-->
-    <!--</ul>-->
-    <!--</li>-->
-    <!-- data-toggle="modal" data-target="#modal-{{$parent.carouselIndex}}" -->
-    <li ng-repeat="item in gallery">
-    <img ng-src={{item.bigImageUrl}}  class="img-responsive" style="margin: auto"></img>
-    </li>
-  </ul>
-  <!--<div ng-if="!isIOS6or5 && !isPhone" ng-repeat="item in gallery" class="modal fade" id="modal-{{$index}}" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">-->
-    <!--<div class="modal-dialog modal-lg">-->
-      <!--<div class="modal-content">-->
-        <!--<img ng-src={{item.bigImageUrl}} class="img-responsive"></img>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
 
-  <ul ng-if="!isIOS6or5 && isPhone" rn-carousel rn-carousel-indicator rn-carousel-control rn-carousel-buffered>
-    <li ng-repeat="item in gallery">
-    <img ng-src={{item.imageUrl}} class="img-responsive" data-toggle="modal" data-target="#modal-{{$parent.carouselIndex}}" style="margin: auto"></img>
-    </li>
-  </ul>
-  <!--<div><h3>לחץ על תמונה בכדי לראות אותה בגודל מלא</h3></div>-->
-  <!--<div ng-if="!isIOS6or5 && isPhone" ng-repeat="item in gallery" class="modal fade" id="modal-{{$index}}" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">-->
-    <!--<div class="modal-dialog modal-lg">-->
-      <!--<div class="modal-content">-->
-        <!--<img ng-src={{item.bigImageUrl}} id="modal-image-{{$index}}" style="max-width: 100%; height: auto;"></img>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
+  <slick ng-if="!isPhone" init-onload=true data="gallery" slides-to-show="1" slides-to-scroll="1" rtl="true">
+    <div ng-repeat="item in gallery">
+      <img ng-src={{item.bigImageUrl}}  class="img-responsive" style="margin: auto"></img>
+    </div>
+  </slick>
 
-  <!-- remove buffering if we are on IOS6 -->
-  <ul ng-if="isIOS6or5" rn-carousel rn-carousel-indicator rn-carousel-control>
-    <li ng-repeat="item in gallery">
-    <img ng-src="{{item.imageUrl}}" class="img-responsive" style="margin: auto;"></img>
-    </li>
-  </ul>
+  <slick ng-if="isPhone"  init-onload=true data="gallery" slides-to-show="1" slides-to-scroll="1" rtl="true" adaptive-height=true>
+    <div ng-repeat="item in gallery">
+      <img ng-src={{item.imageUrl}} class="img-responsive" style="margin: auto"></img>
+    </div>
+  </slick>
+
 </div>

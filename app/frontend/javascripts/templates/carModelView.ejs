@@ -2,20 +2,20 @@
   <div class="row" >
     <div class="col-xs-12"><h3>{{model.name}}</h3></div>
     <div ng-if="false" class="col-xxs col-xs-6 col-sm-6">
-      <img ng-src="{{model.image_url}}" class="img-responsive img-thumbnail">
+      <img ng-src="{{model.image_url}}" class="img-responsive">
     </div>
     <div ng-class="{'col-xs-12': isXXS, 'col-xs-6': !isXXS}">
-      <div rn-carousel rn-carousel-control rn-carousel-buffered>
+      <slick init-onload=true data="images" slides-to-show="1" slides-to-scroll="1" rtl="true" lazyload="progressive" adaptive-height: ="true">
           <div ng-repeat="item in images">
-            <img ng-src={{item.imageUrl}} class="img-responsive img-thumbnail" style="display: block; margin: auto;" ></img>
+            <img ng-src={{item.imageUrl}} class="img-responsive"  ></img>
           </div>
-      </div>
+      </slick>
     </div>
     <!-- keeping this code for reference with ng-if false to demonstrate several images -->
     <!-- <div ng-if="false" class="col-xs-12" rn-carousel rn-carousel-control rn-carousel-buffered>
       <div ng-repeat="images in images3" >
         <div ng-repeat="item in images" class="col-xs-4">
-          <img ng-src={{item.imageUrl}} class="img-responsive img-thumbnail" style="display: block; margin: auto;" ></img>
+          <img ng-src={{item.imageUrl}} class="img-responsive" style="display: block; margin: auto;" ></img>
         </div>
       </div>
     </div> -->

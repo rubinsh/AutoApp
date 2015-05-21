@@ -19,6 +19,7 @@ var cachebust = new CacheBuster();
 
 var config = {
     bootstrapDir: './bower_components/bootstrap-sass',
+    slickFontsDir: './bower_components/slick-carousel/slick/fonts',
     publicDir: './public',
 };
 
@@ -51,7 +52,8 @@ gulp.task("js", ["jst","bower-files"], function() {
 		"public/assets/lib/angular-animate.js",
 		"public/assets/lib/angular-touch.js",
 		"public/assets/lib/angular-cache.js",
-		"public/assets/lib/angular-carousel.js",
+		"public/assets/lib/slick.js",
+		"public/assets/lib/slick.min.js", //different file!
 		"public/assets/lib/loading-bar.js",
 		"public/assets/lib/bootstrap.js",
 		"public/assets/lib/bootstrap-select.js",
@@ -84,13 +86,12 @@ gulp.task("sass", ["bower-files","images","fonts"], function() {
 
 gulp.task("images", function() {
 	return gulp.src("app/frontend/images/**/*")
-		.pipe(cachebust.resources())
 		.pipe(gulp.dest("./public/assets/images/"))
 		// .pipe(liveReload());
 });
 
 gulp.task("fonts", function() {
-	return gulp.src(config.bootstrapDir + '/assets/fonts/**/*')
+	return gulp.src([config.bootstrapDir + '/assets/fonts/**/*',config.slickFontsDir + "/*"])
 		.pipe(gulp.dest("./public/fonts/"))
 		// .pipe(liveReload());
 });
@@ -108,8 +109,7 @@ gulp.task('webserver', function() {
 		.pipe(webserver({
 				port: 8000,
 				host: '0.0.0.0',
-				proxies: [{source: '/autoapi.svc', target: 'http://m.auto.co.il/autoapi.svc'}],
-				fallback: 'index.html'
+				proxies: [{source: '/autoapi.svc', target: 'http://m.auto.co.il/autoapi.svc'}]				
 		}));
 });
 

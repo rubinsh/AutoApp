@@ -13,7 +13,7 @@
   </div>
   <div class="row" >
     <div class="col-xxs col-xs-6 col-lg-5 col-md-6 col-sm-6">
-      <img src="{{article.imageUrl}}" class="img-responsive img-thumbnail">
+      <img src="{{article.imageUrl}}" class="img-responsive">
     </div>
     <div class="col-xxs col-xs-6 col-lg-7 col-md-6 col-sm-6 text-right aricle-subtitle">
       <h4>{{article.subTitle}}</h4>
@@ -26,6 +26,6 @@
     </div>
   </div>
   <hr/>
-  <more-articles category-id="{{categoryId}}"></more-articles>
+  <more-articles category-id="{{article.categoryId}}"></more-articles>
   <iframe ng-src="{{mako_url}}" frameBorder="0" height="1" width="1"></iframe>
 </div>

@@ -9,6 +9,7 @@ $brand-danger:          #EC1B23 !default;
 $auto-red: $brand-danger;
 $state-danger-text:              white !default;
 $state-danger-bg:                #EC1B23 !default;
+$auto-dark: #222;
 // $icon-font-path: "../fonts/" !default;
 
 #loading-bar .bar {
@@ -24,10 +25,17 @@ body {padding-top: 50px; padding-bottom: 50px;}
   float: left;
   margin: 17px 0 0 10px;
 }
+
+.inline-ad {
+  padding: 10px;
+  text-align: center;
+  min-height: 100px;
+}
 .auto-ad-container {
   position: fixed;
   bottom: 0;
-  height: 50px;
+  height: 40px;
+  min-height: 40px !important;
   padding: 0;
   z-index: 9999;
   background: white;
@@ -41,6 +49,10 @@ body {padding-top: 50px; padding-bottom: 50px;}
     display: block;
     overflow: hidden;
     height: 1%;
+  }
+
+  .auto-menu-item {
+    font-size: 1.2em;
   }
 
   @media (max-width: 499px) {
@@ -98,10 +110,22 @@ body {padding-top: 50px; padding-bottom: 50px;}
       }
     }
     .car-list-item {
-      border-bottom: none;
+      border-bottom: 2px solid #ddd;
     }
     .articles-list {
       padding: 0;
+    }
+    .bottom-menu {
+      padding-top: 10px;
+      border-top: solid #444 2px;
+      background-color: $auto-dark;
+      .bottom-menu-item {
+        padding: 10px 0;
+        color: white;
+        font-size: 1.1em;
+        line-height: 1.3em;
+        text-align: center;
+      }
     }
   }
 
@@ -112,10 +136,10 @@ body {padding-top: 50px; padding-bottom: 50px;}
       opacity: 1;
     }
     .rn-carousel-control.rn-carousel-control-prev:before {
-      content: image_url('carousel-left.png');
+      content: url('images/carousel-left.png');
     }
     .rn-carousel-control.rn-carousel-control-next:before {
-      content: image_url('carousel-right.png');
+      content: url('images/carousel-right.png');
     }
   }
   .more-articles {
@@ -168,6 +192,10 @@ body {padding-top: 50px; padding-bottom: 50px;}
         color: white;//#EC1B23;
       }
       margin-bottom: 2px;
+      &.last_category {
+        margin-bottom: 0;
+        padding-bottom: 20px;
+      }
       //padding: 5px 0;
       h3 {margin:0}
     }

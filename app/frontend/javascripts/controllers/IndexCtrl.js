@@ -24,10 +24,6 @@ angular.module('autoControllers')
           var dicTypes = ArticlesServices.categories;
           console.dir(data);
 
-          // $scope.articlesList = []
-          // angular.forEach(data, function(item, index) {
-          //   $scope.articlesList.push(item);
-          // });
           $scope.articlesCategoriesCollection = {};
           angular.forEach(dicTypes, function(item, key) {
               $scope.articlesCategoriesCollection[key] = {
@@ -43,14 +39,14 @@ angular.module('autoControllers')
           angular.forEach($scope.articlesCategoriesCollection, function(item, index) {
               $scope.articlesList.push(item);
           });
-$scope.articlesCategoriesList = null;
+          $scope.articlesCategoriesList = null;
       });
       promises.push(res);
       
       
       res = CategoriesService.getCategories()
       .then(function(categories) {
-        $http.get(autoApiPrefix + 'articles/latest?limit=4')
+        $http.get(autoApiPrefix + 'articles/latest?limit=1')
         .then(function(result) {
           var data = result.data;
           $scope.mainCategoryName = articleServices.categories[data[0].categoryId];
