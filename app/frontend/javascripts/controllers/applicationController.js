@@ -7,6 +7,8 @@ angular.module('autoControllers')
                 ga('send', 'pageview');
               });
 
+              $scope.digest = Date.now();
+
               $scope.navigate = function(path) {
                 $location.path(path);
               };
@@ -20,6 +22,10 @@ angular.module('autoControllers')
 
               $scope.showBanner = function() {
                 return AdService.showBanner();
+              }
+
+              $scope.getBannerUrl = function(seed) {
+                return AdService.getBannerUrl(seed);
               }
 
               $scope.isIOS6or5 = (/(iPhone|iPad|iPod)\sOS\s(5|6)/.test(navigator.userAgent));

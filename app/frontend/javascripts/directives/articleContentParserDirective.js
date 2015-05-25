@@ -22,7 +22,7 @@ angular.module('autoDirectives')
       var fixImages = function(newContent) {
         tmpElem = document.createElement('section'); //create a pseodu element in the dom in order to manipulate it with jQuery
         $(tmpElem).html(newContent);
-        $('img',tmpElem).attr('class','img-responsive img-thumbnail').removeAttr('height').removeAttr('width');
+        $('img',tmpElem).attr('class','img-responsive').removeAttr('height').removeAttr('width');
         return tmpElem.innerHTML; //strip the outer section and return the modified html
       };
 

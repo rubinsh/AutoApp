@@ -1,4 +1,5 @@
 <div ng-controller="IndexCtrl" class="index-page" ng-show="latest" ng-cloak>
+	<iframe src="http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_782087275&channelId=Auto&contentType=Auto_homepage&platform=mobile" frameBorder="0" height="1" width="1"></iframe>
   <br/>
   <div class="col-sm-12 col-md-12 articles-list">
 		<div class="row car-list-item" ng-click="showArticle(mainArticle)">
@@ -19,8 +20,10 @@
 	  		</div>
 
 	  		<div ng-repeat="article in category.articles" class="row car-list-item" ng-click="showArticle(article)">
-	  			<div ng-if="$parent.$index%3 == 1 && $index%2 == 1" class="inline-ad">
-						<h1>פה תהיה פרסומת!!!</h1>
+	  			<div ng-if="$parent.$index%2 == 0 && $index%2 == 1" class="inline-ad">
+	  				<div class="auto-ad-container inline" ng-if="showBanner()">
+  						<iframe ng-src="{{getBannerUrl($id+digest)}}" style="width: 100%; border: none; height:40px;"></iframe>
+						</div>
 					</div>
 
 				<div class="col-xs-6 col-xxs">
@@ -39,17 +42,16 @@
 				</div>
 	  		</div>
 		</div>
-
-		<div class="row">
-			<div class="col-xs-12 bottom-menu">
-					<div class="col-xs-6">
-						<div ng-repeat="nav in navs" class="bottom-menu-item" ng-click="navigate('{{nav.route}}')" ng-if="$even" >{{nav.name}}</div>
-					</div>
-					<div class="col-xs-6">
-						<div ng-repeat="nav in navs" class="bottom-menu-item" ng-click="navigate('{{nav.route}}')" ng-if="$odd">{{nav.name}}</div>
-					</div>
-			</div>
-  	</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 bottom-menu">
+				<div class="col-xs-6">
+					<div ng-repeat="nav in navs" class="bottom-menu-item" ng-click="navigate('{{nav.route}}')" ng-if="$even" >{{nav.name}}</div>
+				</div>
+				<div class="col-xs-6">
+					<div ng-repeat="nav in navs" class="bottom-menu-item" ng-click="navigate('{{nav.route}}')" ng-if="$odd">{{nav.name}}</div>
+				</div>
+		</div>
 	</div>
 </div>
-<iframe src="http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_782087275&channelId=Auto&contentType=Auto_homepage&platform=mobile" frameBorder="0" height="1" width="1"></iframe>
+

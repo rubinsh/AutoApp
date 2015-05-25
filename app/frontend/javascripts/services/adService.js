@@ -1,6 +1,6 @@
 angular.module('autoServices')
 .factory('AdService', ['$window','$route', '$location',
-         function($window, $route, $location) {
+        function($window, $route, $location) {
            var resource = {};
            resource.noBannerRoutes = ["/consulting"]
 
@@ -18,6 +18,10 @@ angular.module('autoServices')
            resource.needToShowAd = function() {
              //(navigator.userAgent.toLowerCase().indexOf("firefox") === -1)
              return (Number.parseInt($window.localStorage.getItem("autoMag.adCounter")) === 1)
+           }
+
+           resource.getBannerUrl = function(seed) {
+              return "banner.html?cachebust=" + seed;
            }
 
            resource.showAd = function() {
