@@ -16,10 +16,9 @@ angular.module('autoControllers')
             });
 
             $scope.selectMF = function(manufacturer) {
-                console.log(manufacturer);
                 CatalogServices.setManufacturer(manufacturer);
                 CatalogServices.setModel('');
-                $location.path('catalog');
+                $location.path('catalog/manufacturers/' + manufacturer.id + '/name/' + manufacturer.name);
             };
         }
     ]);

@@ -10,6 +10,7 @@ node_modules
 bower_components
 public/assets
 public/fonts
+public/index.html
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /node_modules

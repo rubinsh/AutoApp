@@ -1,13 +1,13 @@
 angular.module('autoControllers')
-.controller('CatalogCtrl', ['$scope', '$location', 'ManufacturersServices', 'CatalogServices',
-            function($scope, $location, ManufacturersServices, CatalogServices) {
+.controller('CatalogCtrl', ['$scope', '$location', '$routeParams', 'ManufacturersServices', 'CatalogServices',
+            function($scope, $location, $routeParams, ManufacturersServices, CatalogServices) {
               //$scope.manufacturer = '';
               //$scope.model = '';
               //$scope.modelId = 0;
               $scope.newOrUsed = '';
-
-              $scope.manufacturerName = 'כל היצרנים  >';
+              $scope.manufacturerName = $routeParams.name ? $routeParams.name + ' >' : 'כל היצרנים  >';
               $scope.modelName = 'כל הדגמים  >';
+              $scope.showLoading = $routeParams.id;
 
               $scope.$watch(CatalogServices.manufacturer, function() {
                 $scope.manufacturerSelected = false;
@@ -19,20 +19,19 @@ angular.module('autoControllers')
                 }
               }, true);
 
-              $scope.$watch(CatalogServices.model, function() {
-                $scope.model = CatalogServices.getModel();
-                $scope.newOrUsed = CatalogServices.getNewOrUsed();
+              // $scope.$watch(CatalogServices.model, function() {
+              //   $scope.model = CatalogServices.getModel();
+              //   $scope.newOrUsed = CatalogServices.getNewOrUsed();
 
-                if ($scope.model && $scope.model.name) {
-                  $scope.modelId = $scope.model.id;
-                  $scope.modelName = $scope.model.name + '  >';
+              //   if ($scope.model && $scope.model.name) {
+              //     $scope.modelId = $scope.model.id;
+              //     $scope.modelName = $scope.model.name + '  >';
 
-                }
-              }, true);
+              //   }
+              // }, true);
 
               var getSearchUrl = function() {
                 if (!$scope.manufacturer) return "";
-                console.log($scope.model);
                 var modelUrl = $scope.model !== "" ? "/models/" + $scope.model.model_id : "";
                 return 'catalog/manufacturers/' + $scope.manufacturer.id + modelUrl;
                 //if ($scope.newOrUsed === '' || $scope.newOrUsed === 'new=true') {

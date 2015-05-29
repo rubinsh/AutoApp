@@ -17,12 +17,10 @@ angular.module('autoControllers')
 
     var articleServices = ArticlesServices;
     var getData = function() {
-      var promises = [];
 
-      var res = ArticlesServices.getAllArticles()
+      return ArticlesServices.getAllArticles()
       .success(function(data) {
           var dicTypes = ArticlesServices.categories;
-          console.dir(data);
 
           $scope.articlesCategoriesCollection = {};
           angular.forEach(dicTypes, function(item, key) {
@@ -40,28 +38,10 @@ angular.module('autoControllers')
               $scope.articlesList.push(item);
           });
           $scope.articlesCategoriesList = null;
+          $scope.mainArticle = $scope.articlesList[0].articles.shift();
+          $scope.mainCategoryName = articleServices.categories[$scope.mainArticle.categoryId];
       });
-      promises.push(res);
       
-      
-      res = CategoriesService.getCategories()
-      .then(function(categories) {
-        $http.get(autoApiPrefix + 'articles/latest?limit=1')
-        .then(function(result) {
-          var data = result.data;
-          $scope.mainCategoryName = articleServices.categories[data[0].categoryId];
-          angular.forEach(data, function(item, index) {
-            data[index].thumbUrl = data[index].imageUrl;
-            data[index].imageUrl = convertToLargeImage(data[index].imageUrl);
-          });
-          $scope.mainArticle = data.shift();
-        });  
-      });
-
-      
-
-      promises.push(res);
-      return $q.all(promises);
     };
 
     getData().then(function() {

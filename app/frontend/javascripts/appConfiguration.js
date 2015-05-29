@@ -13,7 +13,10 @@ angular.module("main")
                     templateUrl: 'manufacturersView'
                 })
                 .when('/catalog/manufacturers/:id', {
-                    templateUrl: 'allManufacturerModelsView'
+                    templateUrl: 'catalogView'
+                })
+                .when('/catalog/manufacturers/:id/name/:name', {
+                    templateUrl: 'catalogView'
                 })
                 .when('/catalog/manufacturers/:id/models/:id', {
                     templateUrl: 'carModelView'

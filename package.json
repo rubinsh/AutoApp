@@ -16,6 +16,7 @@
     "gulp-concat": "^2.5.2",
     "gulp-ejs": "^1.1.0",
     "gulp-filter": "*",
+    "gulp-gzip": "^1.1.0",
     "gulp-html-replace": "^1.4.5",
     "gulp-imagemin": "^2.2.1",
     "gulp-insert": "^0.4.0",

@@ -15,6 +15,7 @@ liveReload      = require("gulp-livereload"),
 jst             = require('gulp-jst2'),
 uglify          = require('gulp-uglify');
 
+
 var cachebust = new CacheBuster();
 
 var config = {
@@ -65,7 +66,7 @@ gulp.task("js", ["jst","bower-files"], function() {
 		"app/frontend/javascripts/appConfiguration.js"])
 		.pipe(sourceMaps.init())
 		.pipe(concat("application.js"))
-		// .pipe(uglify())
+		.pipe(uglify())
 		.pipe(cachebust.resources())
 		.pipe(sourceMaps.write("."))
 		.pipe(gulp.dest("./public/assets"))

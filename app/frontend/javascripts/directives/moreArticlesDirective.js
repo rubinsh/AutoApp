@@ -30,19 +30,14 @@ angular.module('autoDirectives')
                  };
 
                  var loadMoreArticles = function() {
-                    ArticlesService.getAllArticlesByCatregoryId(attrs.categoryId,8).success(function(data) {
-                       scope.moreArticles = [];
-                       data = shuffle(data);
-                       scope.moreArticles = data;
-                       scope.isLoading = false;
-                     //workaround the problem of carousel rendered with width=0 because of videos
-                     //$timeout(function() {
-                     //  if ($('.rn-carousel-container').width() === 0) {
-                     //    console.log('resize');
-                         //force a reflow
-                     //    $(window).trigger('resize');
-                     //  }
-                     //});
+                    ArticlesService.getAllArticlesByCatregoryId(attrs.categoryId,9).success(function(data) {
+                      scope.moreArticles = [];
+                      data = _.filter(data,function(item) {
+                        return item.articleId != attrs.currentArticleId;
+                      })
+                      data = shuffle(data);
+                      scope.moreArticles = data;
+                      scope.isLoading = false;
                    });
 
                  };
