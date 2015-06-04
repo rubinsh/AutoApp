@@ -13,7 +13,12 @@
   </div>
   <div class="row" >
     <div class="col-xxs col-xs-6 col-lg-5 col-md-6 col-sm-6">
-      <img src="{{article.imageUrl}}" class="img-responsive">
+      <div ng-if="!iFrameId(article)">
+        <img src="{{article.imageUrl}}" class="img-responsive">
+      </div>
+      <div ng-if="iFrameId(article)">
+        <iframe ng-src="{{iFrameSrc(article)}}" width="100%" frameborder="0" scrolling="no"></iframe>
+      </div>
     </div>
     <div class="col-xxs col-xs-6 col-lg-7 col-md-6 col-sm-6 text-right aricle-subtitle">
       <h4>{{article.subTitle}}</h4>

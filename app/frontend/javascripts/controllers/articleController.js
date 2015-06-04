@@ -10,6 +10,23 @@ angular.module('autoControllers')
                 window.scrollTo(0,0);
             });
 
+            var articlesWithIframe = {
+                26420: '70631046',
+                25588: '14507171',
+                31189: '23924656',
+                32310: '52307411',
+                31996: '81979374',
+                31889: '24605803'
+            }
+
+            $scope.iFrameId = function(article) {
+                return (typeof(articlesWithIframe[article.articleId]) !== "undefined");
+            }
+
+            $scope.iFrameSrc = function(article) {
+                return $scope.mako_url = $sce.trustAsResourceUrl("https://rotaryview.com/player?id=" + articlesWithIframe[article.articleId]);
+            }
+
             $scope.fbShare = function () {
                 FB.ui({
                   method: 'share',
