@@ -32,15 +32,6 @@
 
    </script>
    <!-- End of Google Analytics Universal API script -->
-  <!-- Google Tag Manager -->
-  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MSM9JV"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-MSM9JV');</script>
-  <!-- End Google Tag Manager -->
    <!-- Start of Zoom Analytics Code -->
    <script type="text/javascript">
         var _zaVer = 4, _zaq = _zaq || [];
@@ -67,39 +58,40 @@
 
   <body ng-app="main" ng-controller="application">
     <div class="auto-maavron" style="position: fixed; z-index: 3000; top: 0; left:0; width: 100%; height: 100%; display: none;">
-  <iframe src="maavron.html" style="position: absolute; top:0;left:0; width: 100%; height: 100%; border: none;"></iframe>
-</div>
-<div class="automag-app" ng-cloak="navs">
-  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-          <span ng-show="isIOS && isPhone" class="glyphicon glyphicon-chevron-left back-button" ng-click="goBack()"></span>
-          <button type="button" class="navbar-toggle" id="menu-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" style="padding-top: 10px;" href="index.html#/articles/latest"><img alt="Auto" height="30px" src="assets/images/auto.png" /></a>
-        </div>
+      <iframe src="maavron.html" style="position: absolute; top:0;left:0; width: 100%; height: 100%; border: none;"></iframe>
+    </div>
+    <consulting></consulting>
+    <div class="automag-app" ng-cloak="navs">
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+              <span ng-show="isIOS && isPhone" class="glyphicon glyphicon-chevron-left back-button" ng-click="goBack()"></span>
+              <button type="button" class="navbar-toggle" id="menu-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" style="padding-top: 10px;" href="index.html#/articles/latest"><img alt="Auto" height="30px" src="assets/images/auto.png" /></a>
+            </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="NavCtrl">
-        <ul class="nav navbar-nav">
-          <li ng-repeat="nav in navs" class="{{isActive($index)}} auto-menu-item"><a ng-click="navigate(nav.route)">{{nav.name}}</a></li>
-        </ul>
-        <span ng-show="isIOS && !isPhone" class="glyphicon glyphicon-chevron-left back-button" ng-click="goBack()"></span>
-      </div><!-- /.navbar-collapse -->
-    </div>
-  </nav>
-  <div class="container-fluid">
-    <div ng-view class="main-section">
-    </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="NavCtrl">
+            <ul class="nav navbar-nav">
+              <li ng-repeat="nav in navs" class="{{isActive($index)}} auto-menu-item"><a ng-click="navigate(nav.route)">{{nav.name}}</a></li>
+            </ul>
+            <span ng-show="isIOS && !isPhone" class="glyphicon glyphicon-chevron-left back-button" ng-click="goBack()"></span>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div ng-view class="main-section">
+        </div>
+      </div>
   </div>
-</div>
-<div class="auto-ad-container navbar navbar-default navbar-fixed-bottom" ng-if="showBanner()">
-  <iframe src="banner.html" style="position: absolute; top: 0; left: 0; width: 100%; border: none;"></iframe>
-</div>
+  <div class="auto-ad-container navbar navbar-default navbar-fixed-bottom" ng-if="showBanner()">
+    <iframe src="banner.html" style="position: absolute; top: 0; left: 0; width: 100%; border: none;"></iframe>
+  </div>
 </body>
 
 </html>

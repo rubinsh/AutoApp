@@ -1,7 +1,6 @@
 var gulp        = require('gulp');
 var ejs         = require("gulp-ejs");
 var filter      = require("gulp-filter");
-var coffee      = require("gulp-coffee");
 var concat      = require("gulp-concat");
 var insert      = require('gulp-insert');
 var sass        = require("gulp-sass");
@@ -13,7 +12,9 @@ sourceMaps      = require("gulp-sourcemaps"),
 CacheBuster     = require('gulp-cachebust'),
 liveReload      = require("gulp-livereload"),
 jst             = require('gulp-jst2'),
-uglify          = require('gulp-uglify');
+uglify          = require('gulp-uglify'),
+del 						= require('del'),
+gulpif 					= require('gulp-if');
 
 
 var cachebust = new CacheBuster();
@@ -23,6 +24,8 @@ var config = {
     slickFontsDir: './bower_components/slick-carousel/slick/fonts',
     publicDir: './public',
 };
+
+var useUglify = true;
 
 gulp.task("bower-files", function(){
 		return gulp.src(mainBowerFiles())
@@ -66,7 +69,7 @@ gulp.task("js", ["jst","bower-files"], function() {
 		"app/frontend/javascripts/appConfiguration.js"])
 		.pipe(sourceMaps.init())
 		.pipe(concat("application.js"))
-		.pipe(uglify())
+		.pipe(gulpif(useUglify,uglify()))
 		.pipe(cachebust.resources())
 		.pipe(sourceMaps.write("."))
 		.pipe(gulp.dest("./public/assets"))
@@ -92,7 +95,7 @@ gulp.task("images", function() {
 });
 
 gulp.task("fonts", function() {
-	return gulp.src([config.bootstrapDir + '/assets/fonts/**/*',config.slickFontsDir + "/*"])
+	return gulp.src([config.bootstrapDir + '/assets/fonts/**/*',config.slickFontsDir + "/*","app/frontend/fonts/**/*"])
 		.pipe(gulp.dest("./public/fonts/"))
 		// .pipe(liveReload());
 });
@@ -107,14 +110,15 @@ gulp.task('html',["js","sass"], function () {
 
 gulp.task('webserver', function() {
 	gulp.src('public')
-		.pipe(webserver({
-				port: 8000,
-				host: '0.0.0.0',
-				proxies: [{source: '/autoapi.svc', target: 'http://m.auto.co.il/autoapi.svc'}]				
-		}));
+	.pipe(webserver({
+			port: 8000,
+			host: '0.0.0.0',
+			proxies: [{source: '/autoapi.svc', target: 'http://m.auto.co.il/autoapi.svc'}]				
+	}));
 });
 
 gulp.task("watch", function() {
+	useUglify = false;
 	liveReload.listen();
 	gulp.watch("./app/frontend/stylesheets/**/*", { interval: 500 }, ["html"]);
 	gulp.watch(["./app/frontend/javascripts/**/*","gulpfile.js"],  { interval: 500 }, ["html"]);

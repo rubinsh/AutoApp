@@ -30,7 +30,8 @@ angular.module('autoDirectives')
                  };
 
                  var loadMoreArticles = function() {
-                    ArticlesService.getAllArticlesByCatregoryId(attrs.categoryId,9).success(function(data) {
+                    var skip = Math.floor(Math.random() * 90); //take any number from the first 100 articles
+                    ArticlesService.getAllArticlesByCatregoryId(attrs.categoryId,9,skip).success(function(data) {
                       scope.moreArticles = [];
                       data = _.filter(data,function(item) {
                         return item.articleId != attrs.currentArticleId;

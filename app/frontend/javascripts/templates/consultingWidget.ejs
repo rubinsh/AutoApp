@@ -1,0 +1,33 @@
+<div class="consulting-widget animated" ng-show="showConsulting">
+  <div class="close-button" ng-click="hideConsulting()">
+    <img src="/assets/images/button-close.svg" height="40" width="40"/>
+  </div>
+  <div id="widget-container">
+    <div style='padding: 0 15px;' ng-show="afterSubmit">
+      <h1 class='special-writing'>תודה רבה, נציגי <span class='red'>אוטו</span> יהיו עמך בקשר בהקדם</h1>
+    </div>
+    <div ng-hide="afterSubmit">
+      <div id="direct-call">
+        <h2 class="special-writing">לחץ כאן לשיחה עם נציג <span class="red">אוטו</span></h2>
+        <div class="direct-call-wrapper contain">
+          <a class="direct_call" href="tel:035772088" target="_blank"></a>
+        </div>
+        <h2 class="separator special-writing red">או</h2>
+      </div>
+      <div class="main_form">
+        <h3 class="special-writing">השאר פרטיך ונציג יצור עמך קשר בהקדם</h3>
+        <form id="main_form" method="post">
+          <fieldset class="inputs">
+            <input type="text" name="name" placeholder="שם מלא" onfocus="this.placeholder=''" onblur="this.placeholder='שם מלא'">
+            <input type="tel" name="phone" placeholder="טלפון" onfocus="this.placeholder=''" onblur="this.placeholder='טלפון'">
+          </fieldset>
+          <fieldset class="buttons" style="text-align:center;">
+            <img ng-show="submitClick" src="/img/ajax-loader.gif" style="margin: 15px 0 0 0">
+            <button ng-hide="submitClick" class="submit btn btn-danger" style="border-radius: 10px; font-family: extazy; font-weight: bold; font-size: 1.5em;">שלח</button>
+            <!-- <div class="clear"></div> -->
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

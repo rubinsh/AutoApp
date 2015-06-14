@@ -21,7 +21,6 @@
     </div> -->
     <!-- end of demo code -->
 
-
     <div class="col-xs-6 col-xxs sub-header">
       <hr class="hidden-xxs"></hr>
       <div class="text-right">
@@ -54,9 +53,10 @@
       <h4 texthtmlparser texthtml="{{model.review.summary}}">{{model.review.summary}}</h4>
     </div>
   </div>
+  
   <div class="row" style="margin-top: 10px;">
     <div class="col-xs-12 text-center">
-      <a href="tel:035772088" class="btn btn-danger btn-block"><h4>לחץ כאן ליעוץ חינם על {{model.name}}</h4></a>
+      <a href="javascript:void(0)" ng-click="displayConsulting()" class="btn btn-danger btn-block"><h4>לחץ כאן ליעוץ חינם על {{model.name}}</h4></a>
     </div>
   </div>
   <br/>

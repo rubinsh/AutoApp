@@ -20,7 +20,7 @@ angular.module('autoControllers')
             }
 
             $scope.iFrameId = function(article) {
-                return (typeof(articlesWithIframe[article.articleId]) !== "undefined");
+                return ((typeof(article) !== "undefined") && (typeof(articlesWithIframe[article.articleId]) !== "undefined"));
             }
 
             $scope.iFrameSrc = function(article) {
