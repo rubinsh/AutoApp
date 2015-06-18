@@ -1,11 +1,9 @@
 angular.module('autoDirectives')
-.directive('articlecontentparser', [
-  function() {
+.directive('articlecontentparser', [ '$compile',
+  function($compile) {
   return {
     restrict: 'E',
-    scope: {
-      trustedhtml: '@'
-    },
+
     link: function(scope, element) {
       var fixIframes = function(newContent) {
 
@@ -36,6 +34,16 @@ angular.module('autoDirectives')
           }
         };
 
+        var convertToConsulting = function(linkElem,searchStr) {
+          var href = linkElem.attr('href');
+          if (href.indexOf(searchStr) > -1) {
+            linkElem.attr('href', "javascript:void(0)");
+            linkElem.attr('ng-click',"displayConsulting()");
+            linkElem.attr('class','article-consulting-link');
+            linkElem.removeAttr('target');
+          }
+        }
+
         tmpElem = document.createElement('section');
         $(tmpElem).html(newContent);
         angular.forEach($('a',tmpElem), function(item, index) {
@@ -43,18 +51,21 @@ angular.module('autoDirectives')
           fixLink($item, 'articleId=', '#/articles/');
           fixLink($item, 'model_id=','#/catalog/models/');
           fixLink($item, 'manufacturer=', '#/catalog/manufacturers/');
-          fixLink($item, '/?action=consulting', 'tel:035772088');
+          convertToConsulting($item, '/?action=consulting');
         });
         return tmpElem.innerHTML;
       };
 
-      scope.$watch('trustedhtml', function(newContent) {
+      scope.$watch('article.content', function(newContent) {
         if (typeof(newContent) !== 'undefined' && newContent !== "") {
           newContent = '<div>' + newContent + '<div>';
           newContent = fixIframes(newContent);
           newContent = fixImages(newContent);
           newContent = fixLinks(newContent);
-          element.html(newContent);
+          var el = angular.element(newContent);
+          var compiledContent = $compile(el);
+          element.append(el);
+          compiledContent(scope);
         }
       });
     }

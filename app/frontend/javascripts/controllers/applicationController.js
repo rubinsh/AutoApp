@@ -28,8 +28,18 @@ angular.module('autoControllers')
                 return AdService.getBannerUrl(seed);
               }
 
+              function iOSversion() {
+                if (/iP(hone|od|ad)/.test(navigator.platform)) {
+                  var v = (navigator.appVersion).match(/OS (\d+).(\d+).?(\d+)?/);
+                  return parseFloat(parseInt(v[1], 10) + "." + parseInt(v[2], 10) + "." + parseInt(v[3] || 0, 10));
+                }
+              }
+
+              var version = iOSversion();
+              $scope.modernIOS = version && version >= 8.2;
               $scope.isIOS6or5 = (/(iPhone|iPad|iPod)\sOS\s(5|6)/.test(navigator.userAgent));
               $scope.isIOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+
 
               $scope.goBack = function() {
                 history.go(-1);

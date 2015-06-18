@@ -8,27 +8,33 @@ angular.module('autoDirectives')
 			   		scope.afterSubmit = false;
 			   		scope.submitClick = false;
             scope.hideConsulting = function() {
-			   			
-              $timeout(function() { 
-                $('.consulting-widget').removeClass('slideInUp').addClass('slideOutDown');
-                scope.showConsulting = false; 
-              },300);
+            	function hide() {
+            		$('.consulting-widget').removeClass('zoomIn').addClass('zoomOut');
+	              scope.showConsulting = false; 
+            	};
+
+			   			if (!scope.modernIOS) {	
+	              $timeout(hide,300);
+	            }
+	            else {
+	            	hide();
+	            }
             };
 
             scope.displayConsulting = function() {
             	scope.afterSubmit = false;
-            	$('.consulting-widget').removeClass('slideOutDown').addClass('slideInUp');
+            	$('.consulting-widget').removeClass('zoomOut').addClass('zoomIn');
               scope.showConsulting = true;
             };
-            $("input").on('focus',function(event) {
-              console.log('focus');
-              $('#direct-call').hide();
-            });
+            if (!scope.modernIOS) {
+	            $("input").on('focus',function(event) {	              
+	              $('#direct-call').hide();
+	            });
 
-            $("input").on('blur',function(event) {
-              console.log('focus out');
-              $('#direct-call').show();
-            });
+	            $("input").on('blur',function(event) {
+	              $('#direct-call').show();
+	            });
+	          }
 
 						$('#main_form button.btn').on('mousedown',function() {
 								var phone = $("input[type='tel']")[0].value;
