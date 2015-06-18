@@ -1,7 +1,7 @@
 <div ng-controller="BuyingGuideCtrl" class="buying-guide-page">
   <div ng-repeat="menu in menus">
     <br/>
-    <select id="guide-dropdown-{{$index}}" class="col-xs-12">
+    <select id="guide-dropdown-{{$index}}" class="col-xs-12" data-size="5" data-header="גלול מטה בשביל עוד תוצאות">
       <option ng-repeat="item in menu">{{item}}</option>
     </select>
   </div>

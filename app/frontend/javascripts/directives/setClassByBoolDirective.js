@@ -11,7 +11,7 @@ angular.module('autoDirectives')
                     scope.$watch('condition', function(newContent) {
                         if (newContent === true) {
                             $(elm).addClass(scope.classname);
-                            $(elm).text('');
+                            $(elm).text('יש');
                         }
                     });
                 }

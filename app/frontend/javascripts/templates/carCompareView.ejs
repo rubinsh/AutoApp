@@ -1,0 +1,44 @@
+<div ng-controller="CarCompareController" class="car-compare-page">
+  <div class="row selectors-container">
+    <div style="margin: 0 auto; text-align: center;">
+    <select class="selectpicker" id="compare-manf-1" data-size="auto" data-mobile="true" data-title="בחר יצרן" data-width="45%" data-header="גלול מטה בשביל עוד יצרנים">
+      <option class="select-option" ng-repeat="manufacturer in manufacturers" data-id="{{manufacturer.id}}">{{manufacturer.name}}</option>
+    </select>
+    <select class="selectpicker" id="compare-manf-2" data-size="auto" data-mobile="true" data-title="בחר יצרן" data-width="45%" data-header="גלול מטה בשביל עוד יצרנים">
+      <option class="select-option" ng-repeat="manufacturer in manufacturers" data-id="{{manufacturer.id}}">{{manufacturer.name}}</option>
+    </select>
+    </div>
+  </div>
+
+  <div class="row selectors-container">
+    <div style="margin: 0 auto; text-align: center;">
+    <select disabled class="selectpicker" id="compare-model-1" data-size="auto" data-mobile="true" data-title="בחר דגם" data-width="45%" data-header="גלול מטה בשביל עוד דגמים">
+      <option class="select-option" ng-repeat="model in models1" data-image="{{model.image_url}}" data-id="{{model.model_id}}">{{model.name}}</option>
+    </select>
+    <select disabled class="selectpicker" id="compare-model-2" data-size="auto" data-mobile="true" data-title="בחר דגם" data-width="45%" data-header="גלול מטה בשביל עוד דגמים">
+      <option class="select-option" ng-repeat="model in models2" data-image="{{model.image_url}}" data-id="{{model.model_id}}">{{model.name}}</option>
+    </select>
+    </div>
+  </div>
+
+  <div class="row selectors-container">
+    <div style="margin: 0 auto; text-align: center;">
+    <select disabled class="selectpicker" id="compare-version-1" data-size="auto" data-mobile="true"  data-title="בחר גרסא" data-width="45%" data-header="גלול מטה בשביל עוד גרסאות">
+      <option class="select-option" ng-repeat="version in versions1" data-id="{{version.versionId}}">{{version.name}}</option>
+    </select>
+    <select disabled class="selectpicker" id="compare-version-2" data-size="auto" data-mobile="true"  data-title="בחר גרסא" data-width="45%" data-header="גלול מטה בשביל עוד גרסאות">
+      <option class="select-option" ng-repeat="version in versions2" data-id="{{version.versionId}}">{{version.name}}</option>
+    </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <br/>
+    <div class="col-xs-1"></div>
+    <button type="button" class="col-xs-4 btn btn-danger text-center" ng-click="compare()">השווה גרסאות</button>
+    <div class="col-xs-2"></div>
+    <button type="button" ng-click="clearFilter()" class="col-xs-4 btn btn-default text-center">נקה בחירה</button>
+  </div>
+  <br/>
+  <iframe src="http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_-1608082197&channelId=Auto&contentType=Auto_buy-guide&platform=mobile" frameBorder="0" width="1" height="1"></iframe>
+</div>

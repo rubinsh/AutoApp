@@ -7,6 +7,11 @@
     </div>
 
     <div ng-repeat="article in category.articles" class="row car-list-item" ng-click="showArticle(article)">
+      <div ng-if="$index%3 == 1" class="inline-ad" style="margin-bottom:5px;border-bottom: #222 solid 1px;">
+        <div class="auto-ad-container big-ad inline" style="height: 250px;" ng-if="showBanner()">
+          <iframe ng-src="{{getBigBannerUrl($id+digest)}}" style="width: 100%; border: none; height:250px;"></iframe>
+        </div>
+      </div>
       <div class="col-xs-6 col-xxs">
         <img  class="img-responsive" ng-src="{{article.imageUrl}}">
       </div>

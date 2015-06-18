@@ -7,10 +7,48 @@
 
 $brand-danger:          #EC1B23 !default;
 $auto-red: $brand-danger;
+$auto-border-color: #ddd;
+$auto-red-darker: #ba1016;
 $state-danger-text:              white !default;
 $state-danger-bg:                #EC1B23 !default;
 $auto-dark: #222;
 // $icon-font-path: "../fonts/" !default;
+.headhesive {
+    /* Required styles */
+  position: fixed;
+  z-index: 1;
+  top: 50;
+  left: 0;
+  width: 100%;
+
+  /* Additional styles */
+  background: #fff;
+
+  /* Translate -100% to move off screen */
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+
+  /* Animations */
+  -webkit-transition: all 200ms ease-in-out;
+     -moz-transition: all 200ms ease-in-out;
+          transition: all 200ms ease-in-out;
+  // border-bottom: 1px solid $auto-border-color;
+
+}
+.headhesive--stick {
+
+  /* Translate back to 0%; */
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+
+    height: 50px;
+    padding: 0 15px 0 15px;
+    // box-shadow: 0 0 10px black;
+    border-bottom: 2px solid $auto-border-color;
+}
+
 
 #loading-bar .bar {
   background: $brand-danger;
@@ -135,9 +173,46 @@ body {padding-top: 50px; padding-bottom: 40px; }
     }
   }
 
-  .buying-guide-page {
+  .buying-guide-page, .car-compare-page {
     .dropdown-menu {
       text-align: right;
+      .select-option {
+        line-height: 2em;
+      }
+    }
+  }
+
+  .car-compare-page {
+    .selectors-container {
+      padding-top: 15px;
+    }
+  }
+
+  .compare-result-page {
+
+    .header-cell {
+      line-height: 30px;
+      font-size: 1.1em;
+      min-height: 30px;
+      font-weight: bold; 
+      //border-bottom: solid 1px $auto-red-darker;
+      // background-image: linear-gradient(to bottom, $auto-red 0%, $auto-red-darker 100%);
+      background: $auto-border-color;
+      color: $auto-dark;
+    }
+    .value-cell {
+      font-size: 1.1em;
+      min-height: 30px;
+      line-height: 30px;
+    }
+    .border-right {
+      border-right: solid 2px $auto-border-color;
+    }
+    .border-left {
+      border-left: solid 2px $auto-border-color;
+    }
+    .border-bottom {
+      border-bottom: solid 2px $auto-border-color;
     }
   }
 
@@ -295,10 +370,7 @@ body {padding-top: 50px; padding-bottom: 40px; }
 /// sahar css
 
 .auto-version-included-item{
-  background-image: url(http://auto.co.il/Layouts/default/bgImages/extra_adv.gif) !important;
-  background-repeat: no-repeat;
-  background-position: 0% 50%;
-  height: 10px;
+  padding-left: 2em !important;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {

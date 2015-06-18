@@ -66,6 +66,12 @@ angular.module("main")
                 .when('/guide', {
                     templateUrl: 'buyingGuideView'
                 })
+                .when('/compare', {
+                    templateUrl: 'carCompareView'
+                })
+                .when('/compare-result/model1/:model1Id/version1/:version1Id/model2/:model2Id/version2/:version2Id/image1/:model1ImageUrl/image2/:model2ImageUrl', {
+                    templateUrl: 'compareResultView'
+                })
                 .when('/guide/search', {
                     templateUrl: 'guideSearchResultView'
                 })

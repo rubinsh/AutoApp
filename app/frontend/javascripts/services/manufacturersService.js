@@ -1,9 +1,9 @@
 angular.module('autoServices')
     .factory('ManufacturersServices', ['$http',
         function($http) {
-            var resourcemf = {};
+            var resource = {};
 
-            resourcemf.getAllManufacturers = function() {
+            resource.getAllManufacturers = function() {
                 return $http.get(autoApiPrefix + 'manufacturers', {
                     headers: {
                         'Accept': 'application/json',
@@ -12,7 +12,7 @@ angular.module('autoServices')
                 });
             };
 
-            resourcemf.getAllModelsByManufacturerId = function(mId) {
+            resource.getAllModelsByManufacturerId = function(mId) {
                 return $http.get(autoApiPrefix + 'manufacturers/' + mId + '/models', {
                     headers: {
                         'Accept': 'application/json',
@@ -21,6 +21,6 @@ angular.module('autoServices')
                 });
             };
 
-            return resourcemf;
+            return resource;
         }
     ]);

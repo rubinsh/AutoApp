@@ -27,12 +27,16 @@ var config = {
 
 var useUglify = true;
 
-gulp.task("bower-files", function(){
+gulp.task("bower-files",["clean-assets"], function(){
 		return gulp.src(mainBowerFiles())
 		.pipe(gulp.dest("./public/assets/lib"));
 });
 
-gulp.task('jst', function () {
+gulp.task("clean-assets", function(cb) {
+	del(['./public/assets/**/*'],cb);
+});
+
+gulp.task('jst', ["clean-assets"], function () {
 	return gulp.src('./app/frontend/javascripts/templates/**/*.ejs')
 		.pipe(jst({ prepend: "JST['%s'] = " }))
 		.pipe(concat('jst.js', { newLine: ';\n' }))
@@ -49,6 +53,7 @@ gulp.task("js", ["jst","bower-files"], function() {
 		"app/frontend/modernizrAdditions.js",
 		"public/assets/lib/modernizr.js",
 		"public/assets/lib/underscore.js",
+		"public/assets/lib/headhesive.js",
 		"public/assets/lib/angular.js",
 		"public/assets/lib/matchmedia-ng.js",
 		"public/assets/lib/angular-route.js",
@@ -88,13 +93,13 @@ gulp.task("sass", ["bower-files","images","fonts"], function() {
 		// .pipe(liveReload());
 });
 
-gulp.task("images", function() {
+gulp.task("images",["clean-assets"], function() {
 	return gulp.src("app/frontend/images/**/*")
 		.pipe(gulp.dest("./public/assets/images/"))
 		// .pipe(liveReload());
 });
 
-gulp.task("fonts", function() {
+gulp.task("fonts", ["clean-assets"], function() {
 	return gulp.src([config.bootstrapDir + '/assets/fonts/**/*',config.slickFontsDir + "/*","app/frontend/fonts/**/*"])
 		.pipe(gulp.dest("./public/fonts/"))
 		// .pipe(liveReload());
@@ -124,7 +129,7 @@ gulp.task("watch", function() {
 	gulp.watch(["./app/frontend/javascripts/**/*","gulpfile.js"],  { interval: 500 }, ["html"]);
 });
 
-gulp.task("default", ["bower-files","jst","js", "sass", "images","html"]);
+gulp.task("default", ["clean-assets","bower-files","jst","js", "sass", "images","html"]);
 gulp.task("reload", ["watch","bower-files","jst", "js", "sass", "images","html"]);
 gulp.task("server", ["watch","bower-files","jst", "js", "sass", "images","html","webserver"]);
 

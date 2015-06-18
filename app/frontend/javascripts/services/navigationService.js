@@ -23,16 +23,17 @@ angular.module('autoServices')
                 name: 'מדריך קניה',
                 img: '......',
                 route: '/guide'
-            }, {
+            }, 
+            {
+                name: 'השוואת רכבים',
+                img: '......',
+                route: '/compare'
+            },
+            {
                 name: 'יעוץ חינם לקניית רכב',
                 img: '......',
                 route: '/consulting'
             }
-              //, {
-                //name: 'מועדפים',
-                //img: '......',
-                //route: '#'
-            //}
             ];
 
             return sharedService;

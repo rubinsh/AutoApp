@@ -1,0 +1,36 @@
+<div ng-controller="CompareResultController" class="compare-result-page"  ng-show="showContent" ng-cloak >
+  <div class="animated bounceInRight col-xs-6 text-center" style="border-left: 2px solid #ddd; padding: 10px 15px 0 15px;">
+    <img ng-src="{{model1Image}}"/>
+    <br/>
+  </div> 
+  <div class="animated bounceInLeft col-xs-6 text-center" style="padding: 10px 15px 0 15px;">
+    <img ng-src="{{model2Image}}"/>
+    <br/>
+  </div>
+  <div id="result-header">
+    <div class="row border-bottom">
+      <div class="animated bounceInRight col-xs-6 text-center" style="height: 50px; border-left: 2px solid #ddd; padding: 10px 15px 0 15px;">
+        {{name1}}
+      </div>
+      <div class="animated bounceInLeft col-xs-6 text-center" style="padding: 10px 15px 0 15px;">
+        {{name2}}
+      </div>
+    </div>
+  </div>
+    <div class="list-group" ng-repeat="version in versionDetails1" >
+      <h2 class="text-center">{{version.key}}</h2>
+      <div ng-repeat="version_item in version.items"  class="contain">
+        <div class="row header-cell" >
+          <div class="col-xs-12 text-center" >{{version_item.title}}</div>
+        </div>
+        <div class="row border-bottom" style="color: #222;">
+          <div setclass condition="version_item.value" classname="auto-version-included-item" class="value-cell col-xs-6 text-left border-left">{{version_item.value}}</div>
+          <div setclass condition="version_item.value" classname="auto-version-included-item" class="value-cell col-xs-6 text-right">{{versionDetails2[$parent.$index].items[$index].value}}</div>
+        </div>
+      </div>
+      <div style="width=100%; text-align: center; padding: 10px 0;">
+        <button ng-click="displayConsulting()" class="btn btn-danger" style="font-size: 1.4em;">מתלבט? לייעוץ חינם לחץ כאן</button>
+      </div>
+    </div>
+
+</div>
