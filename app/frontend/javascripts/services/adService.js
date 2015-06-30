@@ -17,11 +17,15 @@ angular.module('autoServices')
 
            resource.needToShowAd = function() {
              //(navigator.userAgent.toLowerCase().indexOf("firefox") === -1)
-             return (Number.parseInt($window.localStorage.getItem("autoMag.adCounter")) === 1)
+             return (parseInt($window.localStorage.getItem("autoMag.adCounter")) === 1)
            }
 
            resource.getBannerUrl = function(seed) {
               return "banner.html?cachebust=" + seed;
+           }
+
+           resource.getBigBannerUrl = function(seed) {
+            return "big-banner.html?cachebust=" + seed;
            }
 
            resource.showAd = function() {
@@ -38,7 +42,7 @@ angular.module('autoServices')
            }
 
            resource.advanceCounter = function() {
-             var counter = Number.parseInt($window.localStorage.getItem("autoMag.adCounter")) || 0;
+             var counter = parseInt($window.localStorage.getItem("autoMag.adCounter")) || 0;
              counter += 1;
              counter %= 3;
              $window.localStorage.setItem("autoMag.adCounter",counter);

@@ -30,6 +30,9 @@
       <articlecontentparser trustedhtml="{{article.content}}"></articlecontentparser>
     </div>
   </div>
+  <div class="auto-ad-container big-ad inline" style="margin-top: 20px;" ng-if="showBanner()">
+    <iframe ng-src="{{getBigBannerUrl($id+digest)}}" style="width: 100%; border: none; height:300px;"></iframe>
+  </div>
   <hr/>
   <more-articles category-id="{{article.categoryId}}" current-article-id="{{article.articleId}}"></more-articles>
   <iframe ng-src="{{mako_url}}" frameBorder="0" height="1" width="1"></iframe>

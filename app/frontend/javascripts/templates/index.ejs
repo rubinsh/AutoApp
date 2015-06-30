@@ -1,5 +1,5 @@
 <div ng-controller="IndexCtrl" class="index-page" ng-show="latest" ng-cloak>
-	<iframe src="http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_782087275&channelId=Auto&contentType=Auto_homepage&platform=mobile" frameBorder="0" height="1" width="1"></iframe>
+ 	<iframe src="http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_782087275&channelId=Auto&contentType=Auto_homepage&platform=mobile" frameBorder="0" height="1" width="1"></iframe>
   <br/>
   <div class="col-sm-12 col-md-12 articles-list">
 		<div class="row car-list-item" ng-click="showArticle(mainArticle)">
@@ -21,8 +21,8 @@
 
 	  		<div ng-repeat="article in category.articles" class="row car-list-item" ng-click="showArticle(article)">
 	  			<div ng-if="$parent.$index%2 == 0 && $index%2 == 1" class="inline-ad">
-	  				<div class="auto-ad-container inline" ng-if="showBanner()">
-  						<iframe ng-src="{{getBannerUrl($id+digest)}}" style="width: 100%; border: none; height:40px;"></iframe>
+	  				<div class="auto-ad-container big-ad inline" ng-if="showBanner()">
+  						<iframe ng-src="{{getBigBannerUrl($id+digest)}}" style="width: 100%; border: none; height:300px;"></iframe>
 						</div>
 					</div>
 

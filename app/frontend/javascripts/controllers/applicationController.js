@@ -28,6 +28,10 @@ angular.module('autoControllers')
                 return AdService.getBannerUrl(seed);
               }
 
+              $scope.getBigBannerUrl = function(seed) {
+                return AdService.getBigBannerUrl(seed);
+              }
+
               function iOSversion() {
                 if (/iP(hone|od|ad)/.test(navigator.platform)) {
                   var v = (navigator.appVersion).match(/OS (\d+).(\d+).?(\d+)?/);
