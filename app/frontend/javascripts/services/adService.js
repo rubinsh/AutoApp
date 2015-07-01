@@ -5,7 +5,6 @@ angular.module('autoServices')
            resource.noBannerRoutes = ["/consulting"]
 
            resource.init = function() {
-             console.debug("init");
              $window.localStorage.setItem("autoMag.adCounter",0);
              $window.localStorage.setItem("autoMag.showingAd",false);
            }
