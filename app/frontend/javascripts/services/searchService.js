@@ -12,7 +12,7 @@ angular.module('autoServices')
              });
            };
 
-           resource.getSearchResaulForModelByModelId = function(modelId) {
+           resource.getModelInfo = function(modelId) {
              return $http.get(autoApiPrefix + 'models/' + modelId , {
                headers: {
                  'Accept': 'application/json',

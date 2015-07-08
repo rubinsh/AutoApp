@@ -1,6 +1,7 @@
 angular.module('autoControllers')
-.controller('CarModelCtrl', ['$scope', '$location', '$routeParams', '$sce', 'matchmedia', 'SearchServices', 'CatalogServices', 'GalleryServices',
-            function($scope, $location, $routeParams, $sce, matchmedia, SearchServices, CatalogServices, GalleryServices) {
+.controller('CarModelCtrl', ['$scope', '$location', '$routeParams', '$sce', '$q', 'matchmedia', 'SearchServices', 
+                             'CatalogServices', 'GalleryServices', 'VersionsServices',
+            function($scope, $location, $routeParams, $sce, $q, matchmedia, SearchServices, CatalogServices, GalleryServices, VersionsServices) {
               $scope.model_id = $routeParams.id;
               $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.model_id + "&channelId=Auto&contentType=Auto_cars&platform=mobile");
               $scope.used_id = $routeParams.usedID;
@@ -24,25 +25,18 @@ angular.module('autoControllers')
                   setDataFromService(data);
                 });
               } else {
-                //console.log("Route with -id- routeParams");
-                SearchServices.getSearchResaulForModelByModelId($scope.model_id).success(function(data) {
-                  setDataFromService(data);
-                  GalleryServices.getAllModelGalleryByGalleryId(data[0].galleryId).success(function(images) {
-                    //var buildChunks = function(array, chunkSize) {
-                    //var arrayBck = angular.copy(array);
-                    //$scope['images' + chunkSize] = [];
-                    //while (images.length > 0) {
-                    //$scope['images' + chunkSize].push(images.splice(0,chunkSize));
-                    //}
-                    //images = arrayBck;
-                    //};
-                    //buildChunks(images,1);
-                    //buildChunks(images,2);
-                    //buildChunks(images,3);
+                promise1 = VersionsServices.getAllModelVersionsByModelId($routeParams.id)
+                .then(function(data) {
+                  $scope.versions = data;
+                });
+                promise2 = SearchServices.getModelInfo($scope.model_id)
+                .then(function(data) {
+                  $scope.carModelData = data;
+                  GalleryServices.getAllModelGalleryByGalleryId($scope.carModelData.data[0].galleryId).success(function(images) {
                     angular.forEach(images, function(item, index) {
                       var str = item.imageUrl;
                       var imageId = str.split("_t/")[1].split("-")[0];
-                      item.imageUrl = "http://www.auto.co.il//modules/mpicture/server/imagethumb.ashx?i=" + imageId + "&w=500&h=10000";
+                      item.imageUrl = "http://www.auto.co.il//modules/mpicture/server/imagethumb.ashx?i=" + imageId + "&w=390&h=280";
 
                     });
                     $scope.images = images;

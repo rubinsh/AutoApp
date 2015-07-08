@@ -36,9 +36,6 @@ angular.module("main")
                 .when('/catalog/model/versions/:id', {
                     templateUrl: 'modelVersionsView'
                 })
-                .when('/catalog/model/versions/', {
-                    templateUrl: 'modelVersionsView'
-                })
                 .when('/catalog/model/version/details/', {
                     templateUrl: 'modelVersionDetailsView'
                 })
