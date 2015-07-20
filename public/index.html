@@ -7,7 +7,7 @@
         _gaq.push(['_setAccount', 'UA-548830-2']);
         _gaq.push(['_setDomainName', 'auto.co.il']);
         _gaq.push(['_setAllowLinker', true]);
-        // _gaq.push(['_trackPageview']);
+        _gaq.push(['_trackPageview']);
         setTimeout("_gaq.push(['_trackEvent', '15_seconds', 'read'])", 15000);
         (function () {
             var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
@@ -27,7 +27,7 @@
 
       ga('create', 'UA-548830-9', 'auto.co.il');
       ga('require', 'displayfeatures');
-      // ga('send', 'pageview');
+      ga('send', 'pageview');
       setTimeout("ga('send', 'event', 'unbounce', '15_sec')", 15000);
 
    </script>
@@ -46,14 +46,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <title>מגזין אוטו </title>
-    <link href="assets/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="assets/application.fbef90b9.css" media="screen" rel="stylesheet" type="text/css" />
     <meta content="authenticity_token" name="csrf-param" />
     <meta content="HU8iLMEkRktd2jU0/8MvWiUni0+fur2SdMoM8/978Gk=" name="csrf-token" />
     <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
     <script type="text/javascript">
       var autoApiPrefix = "/autoapi.svc/";
     </script>
-    <script type="text/javascript" src="assets/application.js" ></script>
+    <script type="text/javascript" src="assets/application.9080016f.js" ></script>
   </head>
 
   <body ng-app="main" ng-controller="application">
@@ -89,7 +89,7 @@
         </div>
       </div>
   </div>
-  <div id="auto-ad-container" class="navbar navbar-default navbar-fixed-bottom" ng-if="showBanner()">
+  <div class="auto-ad-container navbar navbar-default navbar-fixed-bottom" ng-if="showBanner()">
     <iframe src="banner.html" style="position: absolute; top: 0; left: 0; width: 100%; border: none;"></iframe>
   </div>
 </body>
