@@ -109,7 +109,7 @@ $(document).ready(function () {
             if (_opened === true && !clickover.hasClass("navbar-toggle")) {
                 $("button.navbar-toggle").click();
             }    
-        },0);
+        },300);
         
         // return false;
     };
