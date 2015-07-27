@@ -3,7 +3,7 @@ var autoModuleApp = angular.module("main", [
   'ngRoute',
   'ngResource',
   'ngAnimate',
-  'ngTouch',
+  // 'ngTouch',
   'angular-cache',
   'slick',
   'matchmedia-ng',

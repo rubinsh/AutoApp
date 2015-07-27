@@ -101,11 +101,20 @@ angular.module("main")
     }]);
 
 $(document).ready(function () {
-    $(document).click(function (event) {
+    var menuClickHandler = function(event) {
+        // alert('tap');
         var clickover = $(event.target);
-        var _opened = $(".navbar-collapse").hasClass("collapsing") || $('.navbar-collapse').hasClass("collapse in");
-        if (_opened === true && !clickover.hasClass("navbar-toggle")) {
-            $("button.navbar-toggle").click();
-        }
-    });
+        setTimeout(function() {
+            var _opened = $(".navbar-collapse").hasClass("collapsing") || $('.navbar-collapse').hasClass("collapse in");
+            if (_opened === true && !clickover.hasClass("navbar-toggle")) {
+                $("button.navbar-toggle").click();
+            }    
+        },0);
+        
+        // return false;
+    };
+
+    var el = document.querySelector("#bs-example-navbar-collapse-1");
+    var hammertime = new Hammer(el);
+    hammertime.on("tap", menuClickHandler);
 });

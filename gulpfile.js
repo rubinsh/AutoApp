@@ -55,6 +55,7 @@ gulp.task("js", ["jst","bower-files"], function() {
 		"public/assets/lib/underscore.js",
 		"public/assets/lib/headhesive.js",
 		"public/assets/lib/angular.js",
+		"public/assets/lib/hammer.js",
 		"public/assets/lib/matchmedia-ng.js",
 		"public/assets/lib/angular-route.js",
 		"public/assets/lib/angular-resource.js",
@@ -126,7 +127,7 @@ gulp.task("watch", function() {
 	useUglify = false;
 	liveReload.listen();
 	gulp.watch("./app/frontend/stylesheets/**/*", { interval: 500 }, ["html"]);
-	gulp.watch(["./app/frontend/javascripts/**/*","gulpfile.js"],  { interval: 500 }, ["html"]);
+	gulp.watch(["./app/frontend/javascripts/**/*","gulpfile.js","./public/index-orig.html"],  { interval: 500 }, ["html"]);
 });
 
 gulp.task("default", ["clean-assets","bower-files","jst","js", "sass", "images","html"]);

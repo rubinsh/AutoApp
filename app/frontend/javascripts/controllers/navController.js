@@ -6,9 +6,5 @@ angular.module('autoControllers')
           $scope.isActive = function(index) {
             if ($location.url() === $scope.navs[index].route) return "active";
           };
-
-          $scope.navigate = function(route) {
-            $location.path(route);
-          };
         }
     ]);
