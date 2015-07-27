@@ -2,12 +2,25 @@
 <html>
 <head>
 <style>
-img {display: block; margin: 0 auto;}
+	img {display: block; margin: 0 auto;}
 </style>
 <script type="text/javascript" charset="utf-8">
 //<![CDATA[
-var atp_uid;if (atp_uid) atp_uid += '-' + new Date().getTime(); else atp_uid = new Date().getTime();
-document.write ('<sc' + 'ript type="text/javascript" src="http://ads.atpclick.com/atpClick.aspx?z=607&a=552&t=_blank&uid='+atp_uid+'&c=script"></scri'+'pt>');
+	var openLink = function(url) {
+		if (window.parent.SharedObject) {  
+			window.parent.SharedObject.openInBrowser(url); 
+		}
+	  else { window.open(url, '_blank');} 
+	};
+	var atp_uid;if (atp_uid) atp_uid += '-' + new Date().getTime(); else atp_uid = new Date().getTime();
+	document.write ('<sc' + 'ript type="text/javascript" src="http://ads.atpclick.com/atpClick.aspx?z=607&a=552&t=_blank&uid='+atp_uid+'&c=script"></scri'+'pt>');
+	document.write ('<sc' + 'ript type="text/javascript">' +
+		'var linkElem = document.getElementsByTagName("a")[0];' +
+		'var url = linkElem.attributes["href"].value;' +
+		'linkElem.parentElement.replaceChild(linkElem.childNodes[0],linkElem);' +
+		'var elem = document.getElementsByTagName("img")[0];' +
+		'elem.setAttribute("onclick","openLink(url)");' +
+		'</scri' + 'pt>');
 //]]>
 </script>
 </head>
