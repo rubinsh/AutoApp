@@ -55,7 +55,6 @@ gulp.task("js", ["jst","bower-files"], function() {
 		"public/assets/lib/underscore.js",
 		"public/assets/lib/headhesive.js",
 		"public/assets/lib/angular.js",
-		"public/assets/lib/hammer.js",
 		"public/assets/lib/matchmedia-ng.js",
 		"public/assets/lib/angular-route.js",
 		"public/assets/lib/angular-resource.js",

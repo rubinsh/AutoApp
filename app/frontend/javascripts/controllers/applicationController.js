@@ -13,6 +13,11 @@ angular.module('autoControllers')
                 $location.path(path);
               };
 
+              $scope.navigateNavBar = function(path) {
+                $("button.navbar-toggle").click();
+                $location.path(path);
+              }
+
               $scope.showArticle = function(article) {
                 ArticlesService.currentCategory = article.categoryId !== 0 ? article.categoryId : 1;
                 $location.path("/articles/" + article.articleId);

@@ -100,21 +100,21 @@ angular.module("main")
       });
     }]);
 
-$(document).ready(function () {
-    var menuClickHandler = function(event) {
-        // alert('tap');
-        var clickover = $(event.target);
-        setTimeout(function() {
-            var _opened = $(".navbar-collapse").hasClass("collapsing") || $('.navbar-collapse').hasClass("collapse in");
-            if (_opened === true && !clickover.hasClass("navbar-toggle")) {
-                $("button.navbar-toggle").click();
-            }    
-        },300);
+// $(document).ready(function () {
+//     var menuClickHandler = function(event) {
+//         // alert('tap');
+//         var clickover = $(event.target);
+//         setTimeout(function() {
+//             var _opened = $(".navbar-collapse").hasClass("collapsing") || $('.navbar-collapse').hasClass("collapse in");
+//             if (_opened === true && !clickover.hasClass("navbar-toggle")) {
+//                 $("button.navbar-toggle").click();
+//             }    
+//         },300);
         
-        // return false;
-    };
+//         // return false;
+//     };
 
-    var el = document.querySelector("#bs-example-navbar-collapse-1");
-    var hammertime = new Hammer(el);
-    hammertime.on("tap", menuClickHandler);
-});
+//     var el = document.querySelector("#bs-example-navbar-collapse-1");
+//     var hammertime = new Hammer(el);
+//     hammertime.on("tap", menuClickHandler);
+// });

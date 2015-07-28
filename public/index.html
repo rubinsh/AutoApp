@@ -37,7 +37,7 @@
     <script type="text/javascript">
       var autoApiPrefix = "/autoapi.svc/";
     </script>
-    <script type="text/javascript" src="assets/application.5c19f97a.js" ></script>
+    <script type="text/javascript" src="assets/application.0e4866cf.js" ></script>
   </head>
 
   <body ng-app="main" ng-controller="application">
@@ -62,7 +62,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="NavCtrl">
             <ul class="nav navbar-nav">
-              <li ng-repeat="nav in navs" class="{{isActive($index)}} auto-menu-item"><a href="javascript:void(0);" ng-click="navigate(nav.route)">{{nav.name}}</a></li>
+              <li ng-repeat="nav in navs" class="{{isActive($index)}} auto-menu-item"><a href="javascript:void(0);" ng-click="navigateNavBar(nav.route)">{{nav.name}}</a></li>
             </ul>
             <span ng-show="isIOS && !isPhone" class="glyphicon glyphicon-chevron-left back-button" ng-click="goBack()"></span>
           </div><!-- /.navbar-collapse -->
