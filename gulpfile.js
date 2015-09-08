@@ -17,7 +17,7 @@ del 						= require('del'),
 gulpif 					= require('gulp-if');
 
 
-var cachebust = new CacheBuster();
+var cachebust = new CacheBuster({checksumLength: 16, random: true});
 
 var config = {
     bootstrapDir: './bower_components/bootstrap-sass',

@@ -16,7 +16,7 @@ angular.module('autoServices')
    };
 
    resource.needToShowAd = function() {
-     return (parseInt($window.localStorage.getItem("autoMag.adCounter")) === 1);
+     return (parseInt($window.localStorage.getItem("autoMag.adCounter")) === 0);
    };
 
    resource.getBannerUrl = function(seed) {
