@@ -55,6 +55,7 @@ angular.module('autoControllers')
               function setDataFromService(data) {
                 $scope.reviews = [];
                 $scope.model = data[0];
+                $scope.model.consultingText = $scope.model.name.length > 10 ? "ליעוץ חינם על " + $scope.model.name : "לחץ כאן ליעוץ חינם על " + $scope.model.name; 
                 if (data[0].review) {
                   $scope.reviews.push({
                     title: 'חוות דעת',
