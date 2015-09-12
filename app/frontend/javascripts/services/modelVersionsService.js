@@ -57,9 +57,6 @@ angular.module('autoServices')
                     title: 'מקומות ישיבה:',
                     value: data[0].seats
                 }, {
-                    title: 'מקומות ישיבה:',
-                    value: data[0].seats
-                }, {
                     title: 'כריות אוויר:',
                     value: data[0].airbags
                 }, {
@@ -164,7 +161,7 @@ angular.module('autoServices')
 
                 obj.key = 'צריכת דלק (יצרן)';
                 obj.items = [{
-                    title: 'ביהעירוני:',
+                    title: 'בין עירוני:',
                     value: data[0].fuelConsumption.longDistance
                 }, {
                     title: 'עירוני:',

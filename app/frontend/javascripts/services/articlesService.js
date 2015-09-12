@@ -4,7 +4,7 @@ angular.module('autoServices')
     var resource = {};
 
     resource.categories = {
-      "74": 'חדשות הרכב',
+      "74": 'חדשות רכב',
       "75": 'מבחני רכב',
       "76": 'שטח',
       "1294": 'ירוק',
