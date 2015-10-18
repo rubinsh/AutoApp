@@ -171,9 +171,14 @@ body {padding-top: 50px; padding-bottom: 40px; }
         text-align: center;
       }
     }
+    .catalog-component {
+      margin-top: 20px;
+      border-bottom: 2px solid #ddd;
+      .bootstrap-select { margin-top: 20px;}
+    }
   }
 
-  .buying-guide-page, .car-compare-page {
+  .buying-guide-page, .car-compare-page, .index-page {
     .dropdown-menu {
       text-align: right;
       .select-option {

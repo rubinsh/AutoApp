@@ -12,16 +12,33 @@
 				<h4>{{mainArticle.subTitle}}</h4>
 			</div>
 		</div>
+
+		<div class="row catalog-component">
+				<!-- <h3 style="margin-right: 15px"></h3> -->
+				<div class="row article-header">
+					<div class="col-xs-12 text-right">
+		  			<h3 style="margin-right: 15px;">קטלוג הרכב של אוטו</h3>
+					</div>
+	  		</div>
+		    <select id="maufacturer-select" class="col-xs-12" data-size="5" title='בחר יצרן' data-header="גלול מטה בשביל עוד יצרנים">
+  				<option ng-repeat="item in manufacturerList" data-manufacturer-id="{{item.id}}">{{item.name}}</option>
+				</select>
+				<select id="model-select" class="col-xs-12" data-size="5" title='בחר דגם' ng-disabled="disableModelsDropdown" data-header="גלול מטה בשביל עוד דגמים">
+  				<option ng-repeat="item in modelsList" data-model-id="{{item.id}}">{{item.name}}</option>
+				</select>
+				<br>
+				<br>
+		</div>
 		<div ng-repeat="category in articlesList">
 	  	<div class="row article-header">
 				<div class="col-xs-12 text-right">
 		  			<h3>{{category.categoryName}}</h3>
 				</div>
-	  		</div>
+	  	</div>
 
 	  		<div ng-repeat="article in category.articles" class="row car-list-item" ng-click="showArticle(article)">
 	  			<div ng-if="$parent.$index%2 == 0 && $index%2 == 1" class="inline-ad">
-	  				<div class="auto-ad-container big-ad inline" ng-if="showBanner()">
+	  				<div class="auto-ad-container big-ad inline">
   						<iframe ng-src="{{getBigBannerUrl($id+digest)}}" style="width: 100%; border: none; height:300px;"></iframe>
 						</div>
 					</div>

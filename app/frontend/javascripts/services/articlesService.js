@@ -1,6 +1,6 @@
 angular.module('autoServices')
-.factory('ArticlesServices', ['$http',
-  function($http) {
+.factory('ArticlesServices', ['$http', '$q',
+  function($http,$q) {
     var resource = {};
 
     resource.categories = {
@@ -14,6 +14,18 @@ angular.module('autoServices')
 
     resource.getAllArticles = function() {
       return $http.get(autoApiPrefix + 'articles/grouped?categories=74,75,76,1294,1297,1374&groupcount=3');
+    };
+
+    resource.getAllArticlesForMainPage = function() {
+      var deferred = $q.defer();
+      promise1 = $http.get(autoApiPrefix + 'articles/grouped?categories=75,76,1294,1297,1374&groupcount=3');
+      promise2 = $http.get(autoApiPrefix + 'articles/grouped?categories=74&groupcount=6');
+      
+      $q.all([promise1,promise2]).then(function(promises) {
+        deferred.resolve(promises[1].data.concat(promises[0].data));
+      });
+
+      return deferred.promise;
     };
 
     resource.getAllArticlesByCatregoryId = function(categoryId, take, skip) {
