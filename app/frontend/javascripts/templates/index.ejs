@@ -20,14 +20,14 @@
 
 		
 		<div ng-repeat="category in articlesList">
-	  	<div class="row article-header">
+	  	<div class="row article-header" ng-if="category.categoryName != 'חדשות רכב'">
 				<div class="col-xs-12 text-right">
 		  			<h3>{{category.categoryName}}</h3>
 				</div>
 	  	</div>
 
 	  		<div ng-repeat="article in category.articles" class="row car-list-item" ng-click="showArticle(article)">
-	  			<div ng-if="$parent.$index%2 == 0 && $index%2 == 1" class="inline-ad">
+	  			<div ng-if="($parent.$index%2 == 1 && $index%2 == 1) || ($index == 3)" class="inline-ad">
 	  				<div class="auto-ad-container big-ad inline">
   						<iframe ng-src="{{getBigBannerUrl($id+digest)}}" style="width: 100%; border: none; height:300px;"></iframe>
 						</div>
