@@ -1,8 +1,8 @@
 'use strict';
 angular.module('autoControllers')
 .controller('IndexCtrl', ['$scope', '$interval', '$templateCache', '$http','$q', '$timeout', '$location',
-  'NavServices','CategoriesService','ArticlesServices', 'ManufacturersServices',
-  function($scope, $interval, $templateCache, $http, $q, $timeout, $location, NavServices,CategoriesService,ArticlesServices, ManufacturersServices) {
+  'NavServices','CategoriesService','ArticlesServices',
+  function($scope, $interval, $templateCache, $http, $q, $timeout, $location, NavServices,CategoriesService,ArticlesServices) {
     var stop;
 
     $scope.navs = NavServices.navs;
@@ -10,30 +10,30 @@ angular.module('autoControllers')
     $scope.disableModelsDropdown = true;
     $scope.modelsList = [];
 
-    $timeout(function() {
-      $('select').selectpicker();
-      $('#maufacturer-select').on('change',function(event) {
+    // $timeout(function() {
+    //   $('select').selectpicker();
+    //   $('#maufacturer-select').on('change',function(event) {
 
-        var manfId = $(this).find("option:selected").attr('data-manufacturer-id');
-        $scope.disableModelsDropdown = true;
-        $timeout(function() {
-          $("#model-select").selectpicker('refresh');
-        });
-        ManufacturersServices.getAllModelsByManufacturerId(manfId).success(function(data) {
-          $scope.modelsList =  data;
-          $scope.disableModelsDropdown = false;
-          $timeout(function() {
-            $("#model-select").selectpicker('refresh');
-          })
-        });
-      });
+    //     var manfId = $(this).find("option:selected").attr('data-manufacturer-id');
+    //     $scope.disableModelsDropdown = true;
+    //     $timeout(function() {
+    //       $("#model-select").selectpicker('refresh');
+    //     });
+    //     ManufacturersServices.getAllModelsByManufacturerId(manfId).success(function(data) {
+    //       $scope.modelsList =  data;
+    //       $scope.disableModelsDropdown = false;
+    //       $timeout(function() {
+    //         $("#model-select").selectpicker('refresh');
+    //       })
+    //     });
+    //   });
 
-      $('#model-select').on('change',function(event) {
-        var modelId = $(this).find("option:selected").attr('data-model-id');
-        $location.path("/catalog/models/" + modelId);
-        $scope.$apply();
-      })
-    });
+    //   $('#model-select').on('change',function(event) {
+    //     var modelId = $(this).find("option:selected").attr('data-model-id');
+    //     $location.path("/catalog/models/" + modelId);
+    //     $scope.$apply();
+    //   })
+    // });
     $scope.setIndex = function(index) {
       $scope.currIndex = index;
     };
@@ -42,20 +42,17 @@ angular.module('autoControllers')
       return imageUrl.split(".jpg")[0]+"-4.jpg";
     };
 
-    
-
-
     var articleServices = ArticlesServices;
     var getData = function() {
       var promises = [];
       promises.push(ArticlesServices.getAllArticlesForMainPage());
-      promises.push(ManufacturersServices.getAllManufacturers());
+      // promises.push(ManufacturersServices.getAllManufacturers());
       
 
       return $q.all(promises)
       .then(function(promiseResults) {
           var data = promiseResults[0];
-          $scope.manufacturerList = promiseResults[1].data;
+          // $scope.manufacturerList = promiseResults[1].data;
           var dicTypes = ArticlesServices.categories;
 
           $scope.articlesCategoriesCollection = {};
@@ -82,11 +79,6 @@ angular.module('autoControllers')
 
     getData().then(function() {
       $scope.latest=true;
-    });
-    
-
-    
-
-    
+    });    
   }
 ]);

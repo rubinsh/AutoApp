@@ -1,4 +1,9 @@
 <div ng-controller="IndexCtrl" class="index-page" ng-show="latest" ng-cloak>
+	<div class="">
+		<div style="margin-top: 10px">
+	  	<button ng-click="navigate('/catalog')" class="btn btn-danger btn-block btn-lg" style="padding: 10px 0 8px"><span style="font-family: extazy; font-size: 24px;">חפש את הרכב הבא שלך </span><i style="font-size:18px;"class="glyphicon glyphicon-chevron-left"></i></button>
+		</div>
+	</div>
  	<iframe src="http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_782087275&channelId=Auto&contentType=Auto_homepage&platform=mobile" frameBorder="0" height="1" width="1"></iframe>
   <br/>
   <div class="col-sm-12 col-md-12 articles-list">
@@ -13,22 +18,7 @@
 			</div>
 		</div>
 
-		<div class="row catalog-component">
-				<!-- <h3 style="margin-right: 15px"></h3> -->
-				<div class="row article-header">
-					<div class="col-xs-12 text-right">
-		  			<h3 style="margin-right: 15px;">קטלוג הרכב של אוטו</h3>
-					</div>
-	  		</div>
-		    <select id="maufacturer-select" class="col-xs-12" data-size="5" title='בחר יצרן' data-header="גלול מטה בשביל עוד יצרנים">
-  				<option ng-repeat="item in manufacturerList" data-manufacturer-id="{{item.id}}">{{item.name}}</option>
-				</select>
-				<select id="model-select" class="col-xs-12" data-size="5" title='בחר דגם' ng-disabled="disableModelsDropdown" data-header="גלול מטה בשביל עוד דגמים">
-  				<option ng-repeat="item in modelsList" data-model-id="{{item.id}}">{{item.name}}</option>
-				</select>
-				<br>
-				<br>
-		</div>
+		
 		<div ng-repeat="category in articlesList">
 	  	<div class="row article-header">
 				<div class="col-xs-12 text-right">
