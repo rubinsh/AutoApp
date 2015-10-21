@@ -66,7 +66,7 @@ gulp.task("js", ["jst","bower-files"], function() {
 		"public/assets/lib/loading-bar.js",
 		"public/assets/lib/bootstrap.js",
 		"public/assets/lib/bootstrap-select.js",
-		
+		"app/frontend/javascripts/ios9-webview-patch.js",
 		"app/frontend/javascripts/main.js",
 		"app/frontend/javascripts/services/**/*",
 		"app/frontend/javascripts/controllers/**/*",

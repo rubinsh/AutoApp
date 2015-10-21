@@ -1,6 +1,7 @@
 /* App Module */
 var autoModuleApp = angular.module("main", [
   'ngRoute',
+  'ngIOS9UIWebViewPatch',
   'ngResource',
   'ngAnimate',
   // 'ngTouch',
