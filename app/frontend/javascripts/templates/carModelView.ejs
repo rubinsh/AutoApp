@@ -71,5 +71,10 @@
     {{td.title}}
     </li>
   </ul>
+  <input type="hidden" value="http://static.auto.co.il/Content/CustomCarModelsImages/{{model_id}}-1.jpg" id="customImageUrl1"/>
+  <input type="hidden" value="http://static.auto.co.il/Content/CustomCarModelsImages/{{model_id}}-1.jpg" id="customImageUrl2"/>
+  <input type="hidden" value="{{model_id}}" id="modelId"/>
+  <input type="hidden" value="{{model.BrandID}}" id="brandId"/>
+  <input type="hidden" value="{{model.name}}" id="modelName"/>
   <iframe ng-src="{{mako_url}}" frameBorder="0" width="1" height="1"></iframe>
 </div>
