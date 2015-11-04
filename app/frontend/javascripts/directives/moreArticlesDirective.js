@@ -5,10 +5,15 @@ angular.module('autoDirectives')
                restrict: 'E',
                template: $templateCache.get('moreArticles'),
                link: function(scope, elem, attrs) {
+
                  var isPhone = Modernizr.mq('(max-width: 767px)');
                  var chunkSize = isPhone ? 2 : 4;
                  var scrollBounded = false;
                  scope.isLoading = true;
+                 scope.moreText = "אולי גם זה יעניין אותך:";
+                 if (typeof(attrs.moreText) !== "undefined") {
+                  scope.moreText = attrs.moreText;
+                 }
 
                  var shuffle = function(array) {
                    var currentIndex = array.length, temporaryValue, randomIndex;
@@ -30,7 +35,10 @@ angular.module('autoDirectives')
                  };
 
                  var loadMoreArticles = function() {
-                    var skip = Math.floor(Math.random() * 90); //take any number from the first 100 articles
+                    var skip = 0;
+                    if (typeof(attrs.noSkip) === "undefined") {
+                      skip = Math.floor(Math.random() * 90); //take any number from the first 100 articles
+                    }
                     ArticlesService.getAllArticlesByCatregoryId(attrs.categoryId,9,skip).success(function(data) {
                       scope.moreArticles = [];
                       data = _.filter(data,function(item) {

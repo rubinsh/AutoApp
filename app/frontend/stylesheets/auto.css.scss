@@ -5,13 +5,35 @@
 // this is for -webkit browser to remove the darg event.
 // this is needed for the angular slider for the ng-touch event to work
 
-$brand-danger:          #EC1B23 !default;
+$brand-danger:      #bb0000 !default;//    #EC1B23 !default;
 $auto-red: $brand-danger;
 $auto-border-color: #ddd;
 $auto-red-darker: #ba1016;
+$auto-dark-red: #BB0000;
 $state-danger-text:              white !default;
 $state-danger-bg:                #EC1B23 !default;
 $auto-dark: #222;
+
+@font-face {
+  font-family: 'extazy';
+  src: url('/fonts/extazyregularwebfont.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/extazyregularwebfont.eot?') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/extazyregularwebfont.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/extazyregularwebfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/extazyregularwebfont.svg') format('svg'); /* Legacy iOS */
+     font-weight: normal;
+}
+
+@font-face {
+  font-family: 'extazy';
+  src: url('/fonts/extazyboldwebfont.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/extazyboldwebfont.eot?') format('embedded-opentype'), /* IE6-IE8 */
+       url('/fonts/extazyboldwebfont.woff') format('woff'), /* Modern Browsers */
+       url('/fonts/extazyboldwebfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/fonts/extazyboldwebfont.svg') format('svg'); /* Legacy iOS */
+    font-weight: bold;
+}
+
 // $icon-font-path: "../fonts/" !default;
 .headhesive {
     /* Required styles */
@@ -88,7 +110,24 @@ body {padding-top: 50px; padding-bottom: 40px; }
   }
 }
 .automag-app {
-  
+  .special-writing {
+    text-align: center;
+    font-family: extazy;
+    // font-weight: bold;
+    // background-color: 
+    color: #fff;
+    // font-size: 1.99em;   
+    letter-spacing: -0.025em;
+  }
+  .red {
+      color: $auto-red; 
+  }
+  .dark-red {
+    color: $auto-dark-red;
+  }
+  .dark {
+    color: $auto-dark;
+  }
   .contain {
     display: block;
     overflow: hidden;

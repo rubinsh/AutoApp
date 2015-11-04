@@ -78,6 +78,9 @@ angular.module("main")
                 .when('/articles', {
                     templateUrl: 'articlesListView'
                 })
+                .when('/leasing', {
+                    templateUrl: 'leasingView'
+                })
                 .when('/consulting', {
                     templateUrl: 'consultingView'
                 })

@@ -1,5 +1,5 @@
 <div class="row more-articles" ng-if="!isLoading" >
-  <div class="col-xs-12"><h3 style="margin: 0 0 5px">אולי גם זה יעניין אותך:</h3></div>
+  <div class="col-xs-12"><h3 style="margin: 0 0 5px">{{moreText}}</h3></div>
   <!--<ul rn-carousel rn-carousel-indicator rn-carousel-control>-->
   <div ng-repeat="article in moreArticles" ng-click="showArticle(article)" class="pull-right col-xs-12 more-articles-item">
     <div class="col-xs-5 col-sm-3">

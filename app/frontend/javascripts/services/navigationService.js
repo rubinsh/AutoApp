@@ -30,6 +30,11 @@ angular.module('autoServices')
                 route: '/compare'
             },
             {
+                name: 'ליסינג',
+                img: '......',
+                route: '/leasing'
+            },
+            {
                 name: 'יעוץ חינם לקניית רכב',
                 img: '......',
                 route: '/consulting'
