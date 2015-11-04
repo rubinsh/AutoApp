@@ -37,7 +37,7 @@ angular.module('autoServices')
      $('.auto-maavron').css('display','none');
      $('.automag-app').css('visibility','visible');
      $('.auto-ad-container').css('display','block');
-   },5000);
+   },500);
  };
 
  resource.advanceCounter = function() {
