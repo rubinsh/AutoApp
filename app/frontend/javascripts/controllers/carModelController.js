@@ -42,7 +42,7 @@ angular.module('autoControllers')
                     angular.forEach(images, function(item, index) {
                       var str = item.imageUrl;
                       var imageId = str.split("_t/")[1].split("-")[0];
-                      item.imageUrl = "http://www.auto.co.il//modules/mpicture/server/imagethumb.ashx?i=" + imageId + "&w=500&h=10000";
+                      item.imageUrl = "http://www.auto.co.il//modules/mpicture/server/imagethumb.ashx?i=" + imageId + "&w=390&h=250";
 
                     });
                     $scope.images = images;
