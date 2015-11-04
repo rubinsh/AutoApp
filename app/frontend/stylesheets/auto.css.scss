@@ -287,6 +287,10 @@ body {padding-top: 50px; padding-bottom: 40px; }
     border-color: #090909;
   }
 
+  .list-group-item-danger {
+    background-color: $auto-dark-red;
+  }
+
   //override bootstrap select values to make it rtl
   .bootstrap-select.btn-group .btn {
     .caret {
