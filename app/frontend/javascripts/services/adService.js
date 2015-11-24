@@ -32,11 +32,13 @@ angular.module('autoServices')
    $('.automag-app').css('visibility','hidden');
    $('.auto-maavron').css('display','block');
    $('.auto-ad-container').css('display','none');
+   $('#auto-bottom-ad-container').addClass('hidden');
    window.setTimeout(function() {
      $window.showingMaavron = false;
      $('.auto-maavron').css('display','none');
      $('.automag-app').css('visibility','visible');
      $('.auto-ad-container').css('display','block');
+     $('#auto-bottom-ad-container').removeClass('hidden');
    },5000);
  };
 

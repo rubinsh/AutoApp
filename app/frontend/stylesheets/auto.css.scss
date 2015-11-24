@@ -79,7 +79,7 @@ $auto-dark: #222;
   border-top-color:  $brand-danger;
   border-left-color: $brand-danger;
 }
-body {padding-top: 50px; padding-bottom: 40px; }
+body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
 .back-button {
   color: #fff;
   float: left;
@@ -91,6 +91,22 @@ body {padding-top: 50px; padding-bottom: 40px; }
   text-align: center;
   min-height: 50px;
 }
+
+@media (orientation: landscape) {
+  #auto-bottom-ad-container {
+    display: none;
+  }
+  body {
+    padding-bottom: 0;
+  }
+}
+
+#auto-bottom-ad-container {
+    height: 50px;
+    height: 10vh;
+    min-height: 50px;
+}
+
 .auto-ad-container {
   position: fixed;
   bottom: 0;

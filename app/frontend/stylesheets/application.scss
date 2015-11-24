@@ -46,3 +46,10 @@
 .slick-next {
 	right: 0px;
 }
+
+@media (min-width: 768px) and (max-width: 940px) {
+    .navbar .navbar-nav li a {
+        padding: 15px 6px !important;
+        font-size: 0.9em;
+    }
+}
