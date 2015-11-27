@@ -1,9 +1,6 @@
-<div ng-controller="CarModelCtrl" class="model-page" ng-show="tableData.length" ng-cloak>
+<div ng-controller="CarModelCtrl" class="model-page" ng-show="images">
   <div class="row" >
-    <div class="col-xs-12"><h3>{{model.name}}</h3></div>
-    <div ng-if="false" class="col-xxs col-xs-6 col-sm-6">
-      <img ng-src="{{model.image_url}}" class="img-responsive">
-    </div>
+    <div class="col-xs-12"><h1 class="special-writing dark-red">{{model.name}}</h1></div>
     <div ng-class="{'col-xs-12': isXXS, 'col-xs-6': !isXXS}">
       <slick init-onload=true data="images" slides-to-show="1" slides-to-scroll="1" rtl="true" lazyload="progressive" adaptive-height: ="true">
           <div ng-repeat="item in images">
@@ -11,15 +8,6 @@
           </div>
       </slick>
     </div>
-    <!-- keeping this code for reference with ng-if false to demonstrate several images -->
-    <!-- <div ng-if="false" class="col-xs-12" rn-carousel rn-carousel-control rn-carousel-buffered>
-      <div ng-repeat="images in images3" >
-        <div ng-repeat="item in images" class="col-xs-4">
-          <img ng-src={{item.imageUrl}} class="img-responsive" style="display: block; margin: auto;" ></img>
-        </div>
-      </div>
-    </div> -->
-    <!-- end of demo code -->
 
     <div class="col-xs-6 col-xxs sub-header">
       <hr class="hidden-xxs"></hr>
@@ -39,7 +27,7 @@
         <h4 >{{model.price}}</h4>
       </div>
     </div>
-    <div class="col-xs-6 col-xxs sub-header">
+    <div class="col-xs-6 col-xxs sub-header" ng-show="model.hasSafetyStars">
       <hr/>
       <div class="text-right">
         <h4>מבחני ריסוק:</h4>
@@ -48,9 +36,20 @@
         <div startsimage starstext="{{model.safetyStars}}"></div>
       </div>
     </div>
-    <div class="col-xs-6 col-xxs text-right">
+
+    <div class="col-xs-12 text-center">
+      <a href="javascript:void(0)" ng-click="displayConsulting()" class="btn btn-danger btn-block"><h4>{{model.consultingText}}</h4></a>
+    </div>
+    
+    <!-- <div class="col-xs-6 col-xxs text-right">
       <hr/>
       <h4 texthtmlparser texthtml="{{model.review.summary}}">{{model.review.summary}}</h4>
+    </div> -->
+    <div class="col-xs-12" ng-repeat="review in reviews">
+      <header class="small-12 columns text-right">
+        <h4 class="special-writing dark" style="font-weight: bolder; text-align: right;">{{review.title}}</h4>
+      </header>
+      <p class="text-right" texthtmlparser texthtml="{{review.content}}"></p>
     </div>
   </div>
   
@@ -60,17 +59,54 @@
     </div>
   </div>
   <br/>
-  <!--<div class="row">-->
-  <!--<div class="col-xs-12 text-center">-->
-  <!--<button type="button" class="btn btn-default btn-block">הוספה למועדפים</button>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--<br/>-->
-  <ul class="list-group" style="margin-bottom: 15px">
+  <div class="row">
+    <div id="model-versions" class="col-xs-12" ng-if="versions">
+      <hr>
+      <h2 class="special-writing dark-red">גרסאות {{model.name}}</h2>
+      <ul class="list-group">
+        <li ng-repeat="version in versions" class="list-group-item">
+          <a href="#/catalog/model/version/details?modelId={{version.modelId}}&versionId={{version.versionId}}">
+            <div class="text-right" style="color: black">
+              {{version.name}}
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div id="model-videos" class="col-xs-12" ng-if="videos">
+      <hr>
+      <h2 class="special-writing dark-red">וידיאו {{model.name}}</h2>
+      <div ng-repeat="video in videos" class="col-xs-12 car-list-item">
+        <iframe title="YouTube video player" class="youtube-player" type="text/html"
+          width="100%" max-width="450" height="300" ng-src="{{trustUrl(video.videoUrl)}}"
+          frameborder="0" allowFullScreen></iframe>
+        <div class="col-xs-12 text-right"><h4>{{video.title}}</h4></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row more-articles" ng-if="images" >
+    <div class="col-xs-12"><h2 class="special-writing dark-red">כתבות על {{model.name}}</h2></div>
+    <!--<ul rn-carousel rn-carousel-indicator rn-carousel-control>-->
+    <div ng-repeat="article in model.modelArticles" ng-click="navigate('/articles/' + article.ItemID)" class="pull-right col-xs-12 more-articles-item">
+      <div class="col-xs-5 col-sm-3">
+        <img ng-src="http://www.auto.co.il/{{article.ImageUrl}}" class="img-responsive"></img>
+      </div>
+      <div class="col-xs-7 col-sm-9 pull-right">
+        <h4>{{article.Title}}</h4>
+      </div>
+      <hr>
+    </div>
+  </div>
+  
+
+<!--   <ul class="list-group" style="margin-bottom: 15px">
     <li ng-repeat="td in tableData" ng-click="navigate(td.link)" class="list-group-item">
     {{td.title}}
     </li>
-  </ul>
+  </ul> -->
   <input type="hidden" value="http://static.auto.co.il/Content/CustomCarModelsImages/{{model_id}}-1.jpg" id="customImageUrl1"/>
   <input type="hidden" value="http://static.auto.co.il/Content/CustomCarModelsImages/{{model_id}}-1.jpg" id="customImageUrl2"/>
   <input type="hidden" value="{{model_id}}" id="modelId"/>

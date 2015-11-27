@@ -1,14 +1,16 @@
 angular.module('autoControllers')
-.controller('CarModelCtrl', ['$scope', '$location', '$routeParams', '$sce', 'matchmedia', 'SearchServices', 'CatalogServices', 'GalleryServices',
-            function($scope, $location, $routeParams, $sce, matchmedia, SearchServices, CatalogServices, GalleryServices) {
+.controller('CarModelCtrl', ['$scope', '$location', '$routeParams','$q', '$sce', '$timeout', 'matchmedia', 'SearchServices', 
+            'CatalogServices', 'GalleryServices', 'VersionsServices', 'ModelVideosServices', 'ModelCompetitorsServices',
+            function($scope, $location, $routeParams, $q, $sce, $timeout, matchmedia, SearchServices, 
+              CatalogServices, GalleryServices, VersionsServices, ModelVideosServices, ModelCompetitorsServices) {
               $scope.model_id = $routeParams.id;
               $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.model_id + "&channelId=Auto&contentType=Auto_cars&platform=mobile");
               $scope.used_id = $routeParams.usedID;
               $scope.galleryVisible = false;
               // if (Modernizr.matchmedia) {
-                var removeXXSListener = matchmedia.on('(max-width: 499px)', function(mediaQueryList){
-                  $scope.isXXS = mediaQueryList.matches;
-                });
+              var removeXXSListener = matchmedia.on('(max-width: 499px)', function(mediaQueryList){
+                $scope.isXXS = mediaQueryList.matches;
+              });
               // }
 
               $scope.$on('$destroy', function() {
@@ -18,38 +20,62 @@ angular.module('autoControllers')
                 // }
               });
 
+              $scope.trustUrl = function(videoUrl) {
+                return $sce.trustAsResourceUrl(videoUrl);
+              };
+
+
               if ($scope.used_id) {
                 //console.log("Route with -id- routeParams & usd_id routeParams");
                 SearchServices.getModelUsedByUsedID($scope.model_id, $scope.used_id).success(function(data) {
-                  setDataFromService(data);
+                  handleResults(data).then(function() {
+                    $scope.resultReady = true;
+                    $timeout(function() { window.scrollTo(0,0); });
+                  });
                 });
               } else {
                 //console.log("Route with -id- routeParams");
                 SearchServices.getSearchResaulForModelByModelId($scope.model_id).success(function(data) {
-                  setDataFromService(data);
-                  GalleryServices.getAllModelGalleryByGalleryId(data[0].galleryId).success(function(images) {
-                    //var buildChunks = function(array, chunkSize) {
-                    //var arrayBck = angular.copy(array);
-                    //$scope['images' + chunkSize] = [];
-                    //while (images.length > 0) {
-                    //$scope['images' + chunkSize].push(images.splice(0,chunkSize));
-                    //}
-                    //images = arrayBck;
-                    //};
-                    //buildChunks(images,1);
-                    //buildChunks(images,2);
-                    //buildChunks(images,3);
-                    angular.forEach(images, function(item, index) {
-                      var str = item.imageUrl;
-                      var imageId = str.split("_t/")[1].split("-")[0];
-                      item.imageUrl = "http://www.auto.co.il//modules/mpicture/server/imagethumb.ashx?i=" + imageId + "&w=390&h=250";
-
-                    });
-                    $scope.images = images;
-
-                    $scope.galleryVisible = true;
+                  handleResults(data).then(function() {
+                    $scope.resultReady = true;
+                    $timeout(function() { window.scrollTo(0,0); });
                   });
                 });
+              }
+
+              function handleResults(data) {
+                setDataFromService(data);
+                var promises = [];
+                promises.push(GalleryServices.getAllModelGalleryByGalleryId(data[0].galleryId).success(function(images) {
+                  angular.forEach(images, function(item, index) {
+                    var str = item.imageUrl;
+                    var imageId = str.split("_t/")[1].split("-")[0];
+                    item.imageUrl = "http://www.auto.co.il//modules/mpicture/server/imagethumb.ashx?i=" + imageId + "&w=390&h=250";
+
+                  });
+                  $scope.images = images;
+                  $scope.galleryVisible = true;
+                }));
+                promises.push(VersionsServices.getAllModelVersionsByModelId($scope.model_id).success(function(data) {
+                  $scope.versions = data;
+                
+                }));
+                $scope.videos = false;
+                promises.push(ModelVideosServices.getAllModelVideosByVideoId($scope.model.videoId).success(function(data) {
+                  if (data.length > 0) {
+                    $scope.videos = data;
+                  }
+                }));
+                $scope.competitors = false;
+                // promises.push(ModelCompetitorsServices.getAllModelCompetitorsByCompetitorId($scope.model.competitorsId)
+                // .success(function(data) {
+                //   debugger;
+                //   if (data.length > 0) {
+                //     $scope.competitors = data;
+                //   }
+                // }));
+                    
+                return $q.all(promises);
               }
 
               function pushIfNotEmpty(data, title, field) {
@@ -64,6 +90,7 @@ angular.module('autoControllers')
               function setDataFromService(data) {
                 $scope.reviews = [];
                 $scope.model = data[0];
+                $scope.model.hasSafetyStars = ($scope.model.safetyStars != "");
                 $scope.model.consultingText = $scope.model.name.length > 10 ? "ליעוץ חינם על " + $scope.model.name : "לחץ כאן ליעוץ חינם על " + $scope.model.name; 
                 if (data[0].review) {
                   pushIfNotEmpty(data,'חוות דעת','text');
