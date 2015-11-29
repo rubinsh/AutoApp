@@ -1,7 +1,7 @@
 angular.module('autoControllers')
-.controller('CarModelCtrl', ['$scope', '$location', '$routeParams','$q', '$sce', '$timeout', 'matchmedia', 'SearchServices', 
+.controller('CarModelCtrl', ['$scope', '$location', '$routeParams','$q', '$sce', '$filter', '$timeout', 'matchmedia', 'SearchServices', 
             'CatalogServices', 'GalleryServices', 'VersionsServices', 'ModelVideosServices', 'ModelCompetitorsService',
-            function($scope, $location, $routeParams, $q, $sce, $timeout, matchmedia, SearchServices, 
+            function($scope, $location, $routeParams, $q, $sce, $filter, $timeout, matchmedia, SearchServices, 
               CatalogServices, GalleryServices, VersionsServices, ModelVideosServices, ModelCompetitorsService) {
               $scope.model_id = $routeParams.id;
               $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.model_id + "&channelId=Auto&contentType=Auto_cars&platform=mobile");
@@ -23,6 +23,29 @@ angular.module('autoControllers')
               $scope.trustUrl = function(videoUrl) {
                 return $sce.trustAsResourceUrl(videoUrl);
               };
+
+              $scope.getCarModelPriceStr = function() {
+                if (!$scope.model.MinPrice && !$scope.model.MaxPrice) {
+                  return $filter('number')(Number($scope.model.price),0);
+                }
+                if ($scope.model.MinPrice == $scope.model.MaxPrice) {
+                  return $filter('number')($scope.model.MinPrice,0);
+                }
+
+                else {
+                  if ($scope.model.MinPrice && $scope.model.MaxPrice) {
+                    return $filter('number')($scope.model.MaxPrice,0) + " - " + $filter('number')($scope.model.MinPrice,0);
+                  }
+                  else {
+                    if ($scope.model.MinPrice) {
+                      return $filter('number')($scope.model.MinPrice,0);
+                    }
+                    else {
+                      return $filter('number')($scope.model.MaxPrice,0);
+                    }
+                  }
+                }
+              }
 
 
               if ($scope.used_id) {
