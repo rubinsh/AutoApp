@@ -117,6 +117,7 @@ angular.module('autoControllers')
                 $scope.model = data[0];
                 $scope.model.hasSafetyStars = ($scope.model.safetyStars != "");
                 $scope.model.consultingText = $scope.model.name.length > 10 ? "ליעוץ חינם על " + $scope.model.name : "לחץ כאן ליעוץ חינם על " + $scope.model.name; 
+                $scope.showArticles = ($scope.model.modelArticles && $scope.model.modelArticles.length > 0);
                 if (data[0].review) {
                   pushIfNotEmpty(data,'חוות דעת','text');
                   pushIfNotEmpty(data,'עיצוב ונוכחות','design');

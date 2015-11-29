@@ -87,7 +87,7 @@
     </div>
   </div>
   
-  <div class="row more-articles" ng-if="images" >
+  <div class="row more-articles" ng-if="showArticles" >
     <div class="col-xs-12"><h2 class="special-writing dark-red">{{model.name}} - כתבות</h2></div>
     <!--<ul rn-carousel rn-carousel-indicator rn-carousel-control>-->
     <div ng-repeat="article in model.modelArticles" ng-click="navigate('/articles/' + article.ItemID)" class="pull-right col-xs-12 more-articles-item">
