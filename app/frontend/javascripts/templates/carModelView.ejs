@@ -46,10 +46,10 @@
       <h4 texthtmlparser texthtml="{{model.review.summary}}">{{model.review.summary}}</h4>
     </div> -->
     <div class="col-xs-12" ng-repeat="review in reviews">
-      <header class="small-12 columns text-right">
+      <header class="text-right">
         <h4 class="special-writing dark" style="font-weight: bolder; text-align: right;">{{review.title}}</h4>
       </header>
-      <p class="text-right" texthtmlparser texthtml="{{review.content}}"></p>
+      <p class="text-right" style="font-size: 120%" texthtmlparser texthtml="{{review.content}}"></p>
     </div>
   </div>
   
@@ -98,6 +98,30 @@
         <h4>{{article.Title}}</h4>
       </div>
       <hr>
+    </div>
+  </div>
+
+  <div class="row competitors" ng-if="competitors" >
+    <div class="col-xs-12"><h2 class="special-writing dark-red">דגמים מתחרים ל{{model.name}}</h2></div>
+    <!--<ul rn-carousel rn-carousel-indicator rn-carousel-control>-->
+    <div ng-repeat="competitor in competitors" ng-if="competitor.model_id != model.id" 
+    ng-click="navigate('/catalog/models/' + competitor.model_id)">
+    <div class="col-xs-6" ng-if="isXXS">
+      <div class="competitor-item">
+        <img ng-src="{{competitor.image_url}}" class="img-responsive"></img>
+        <h4 class="special-writing">{{competitor.name}}</h4>
+      </div>
+    </div>
+    <div ng-if="!isXXS" class="col-xs-4">
+      <div class="competitor-item">
+        <img ng-src="{{competitor.image_url}}" class="img-responsive"></img>
+        <h4 class="special-writing">{{competitor.name}}</h4>
+      </div>
+    </div>
+      <!-- <div class="col-xs-7 col-sm-9 pull-right">
+        
+      </div> -->
+      <!-- <hr> -->
     </div>
   </div>
   

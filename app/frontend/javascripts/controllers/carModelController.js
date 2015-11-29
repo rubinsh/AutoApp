@@ -1,8 +1,8 @@
 angular.module('autoControllers')
 .controller('CarModelCtrl', ['$scope', '$location', '$routeParams','$q', '$sce', '$timeout', 'matchmedia', 'SearchServices', 
-            'CatalogServices', 'GalleryServices', 'VersionsServices', 'ModelVideosServices', 'ModelCompetitorsServices',
+            'CatalogServices', 'GalleryServices', 'VersionsServices', 'ModelVideosServices', 'ModelCompetitorsService',
             function($scope, $location, $routeParams, $q, $sce, $timeout, matchmedia, SearchServices, 
-              CatalogServices, GalleryServices, VersionsServices, ModelVideosServices, ModelCompetitorsServices) {
+              CatalogServices, GalleryServices, VersionsServices, ModelVideosServices, ModelCompetitorsService) {
               $scope.model_id = $routeParams.id;
               $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.model_id + "&channelId=Auto&contentType=Auto_cars&platform=mobile");
               $scope.used_id = $routeParams.usedID;
@@ -67,13 +67,12 @@ angular.module('autoControllers')
                   }
                 }));
                 $scope.competitors = false;
-                // promises.push(ModelCompetitorsServices.getAllModelCompetitorsByCompetitorId($scope.model.competitorsId)
-                // .success(function(data) {
-                //   debugger;
-                //   if (data.length > 0) {
-                //     $scope.competitors = data;
-                //   }
-                // }));
+                promises.push(ModelCompetitorsService.getAllModelCompetitorsByCompetitorId($scope.model.competitorsId)
+                .success(function(data) {
+                  if (data.length > 0) {
+                    $scope.competitors = data;
+                  }
+                }));
                     
                 return $q.all(promises);
               }

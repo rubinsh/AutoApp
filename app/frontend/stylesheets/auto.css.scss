@@ -409,6 +409,12 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
       .text-right { float: right; }
       .text-left {float: left; }
     }
+
+    .competitor-item {
+      margin-bottom: 10px;
+      h4 { text-align: center; color: $auto-dark; }
+      img { margin: 0 auto; border: 3px solid $auto-dark; }
+    }
   }
   .carusela-lapanim {
     .img-thumbnail.active {

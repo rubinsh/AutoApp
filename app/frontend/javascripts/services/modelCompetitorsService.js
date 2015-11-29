@@ -1,10 +1,10 @@
 angular.module('autoServices')
-.factory('ModelCompetitorsServices', ['$http',
+.factory('ModelCompetitorsService', ['$http',
          function($http) {
            var source = {};
 
            source.getAllModelCompetitorsByCompetitorId = function(competitor_id) {
-             return $http.get(autoApiPrefix + 'competitors/' + competitor_id, {
+             return $http.get(autoApiPrefix + 'competitors/' + competitor_id + '/10', {
                headers: {
                  'Accept': 'application/json',
                  'Content-type': 'application/json'
