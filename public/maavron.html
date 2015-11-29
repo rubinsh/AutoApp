@@ -14,8 +14,27 @@
  	max-width: 320px; 
  	max-width: 100vw;
  } 
+ .close-button {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 40px;
+		z-index:9999;
+	}
+ .close-button img {
+ 	height: 40px;
+ }
  /* a {display: block; height: 1%; overflow: hidden } */
 </style>
+<script type="text/javascript" charset="utf-8">
+	function closeMaavron() {
+		$ = window.parent.$;
+		$('.auto-maavron').css('display','none');
+    $('.automag-app').css('visibility','visible');
+    $('.auto-ad-container').css('display','block');
+    $('#auto-bottom-ad-container').removeClass('hidden');
+	}
+</script>
 <script type="text/javascript" charset="utf-8">
 //<![CDATA[
 	var openLink = function(url) {
@@ -38,5 +57,9 @@
 </script>
 
 </head>
-<body></body>
+<body>
+	  <div class="close-button" ng-click="hideConsulting()">
+    	<img src="/assets/images/button-close-maavron.png" height="40" onclick="closeMaavron()"/>
+  </div>
+</body>
 </html>
