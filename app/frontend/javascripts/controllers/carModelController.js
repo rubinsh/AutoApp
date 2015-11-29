@@ -25,6 +25,9 @@ angular.module('autoControllers')
               };
 
               $scope.getCarModelPriceStr = function() {
+                if (!$scope.model) {
+                  return "";
+                }
                 if (!$scope.model.MinPrice && !$scope.model.MaxPrice) {
                   return $filter('number')(Number($scope.model.price),0);
                 }
