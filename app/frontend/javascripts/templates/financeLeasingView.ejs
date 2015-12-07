@@ -1,0 +1,55 @@
+<div ng-controller="LeasingCtrl" class="content-page">
+  <div>
+    <h1 class="special-writing dark-red" style="font-weight: bold;">ליסינג מימוני</h1>
+    <div class="content-list">
+      <div ng-repeat="article in leasingArticles" class="content-list-item">
+        <a ng-href="/#{{article.url}}">
+          <h4 class="text-center special-writing dark-red" style="padding: 0; margin: 0;">
+            {{article.name}}
+          </h4>
+        </a>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <h4 class="special-writing dark-red">בעל עסק? חושב על עסקת ליסינג מימוני?</h4>
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12 text-center">
+      <a href="javascript:void(0)" ng-click="displayConsulting()" class="btn btn-danger"><h4 class="special-writing">לחץ כאן לקבלת יעוץ חינם</h4></a>
+    </div>
+  </div>
+  <hr/>
+  <div>
+    <h4 class="special-writing dark" style="font-weight: bolder;">ליסינג מימוני - איך בנויה העסקה?</h4>
+
+ <p><strong>ליסינג מימוני<br></strong>ליסינג מימוני זו היא נוסחת עסקת קניית רכב המאפשרת לקבל רכב חדש ללא צורך להוציא סכום גדול בבת אחת וגם עם תשלומים חודשיים נמוכים יחסית.</p>
+<p>תהליך התשלום עבור הרכב חולק לשלושה מהלכים - תשלום ראשוני קטן, תשלומים חודשיים מוקטנים במהלך כ 36 חודשים והיתרה תשלמו רק בסוף התקופה או תינתן לכם אפשרות להתקדם לרכב הבא שלכם.<br>נוסחת הליסינג הממוני נועדה לא רק לאנשים פרטיים המעוניינים בקניית רכב חדש בתנאים נוחים אלה גם למגזר העסקי, כאשר חברות ועצמאיים יכולים להשתמש בה לצורך רכישת רכב לעסק.</p>
+<p><strong>ליסינג מימוני - קחו בחשבון את עלויות העסקה<br></strong>נכון שליסינג ממוני מאפשר לקבל רכב חדש בתנאים מאד נוחים אך כמובן יש לזה מחיר. אומנם תוכלו לעמוד בתשלומים עבור הרכב יחסית בקלות אך בסופו של יום תצטרכו לשלם עבורו יותר מאשר אילו הייתם משלמים את כל הסכום במקום.</p>
+<p>עסקת ליסינג ממוני היא עסקה ממומנת ועל הממון יש ריביות והצמדות שהגורם הממן - האם זה בנק או חברת ממון - צריך להרוויח.</p>
+<p>עדיין ליסינג ממוני יכול להיות עסקה משתלמת ובמיוחד לעסקים שבמקום להשקיע כסף נזיל באוטו יכולים להשתמש בו להשגת רווחים נוספים לעצמם.<br>חשוב גם לזכור שקניית רכב חדש מבטיחה לכם שקט נפשי והוצאות תחזוקה נמוכות לכמה שנים הקרובות. ויחד עם זאת בכל מקרה כדאי לבדוק כדאיות של העסקה למקרה ספציפי. יכול להיות שרכישת רכב משומש תתאים יותר לצרכים שלכם.</p>
+<p>ולגבי כדאיות העסקה וקבלת מידע על הזדמנויות אחרות העומדות לרשותכם בשוק כדאי מאוד להשתמש בשרות ייעוץ חינמי של מערכת האתר אוטו.</p>
+<p><strong>ליסינג מימוני - מתי זה משתלם?<br></strong>עסקת ליסינג מימוני מיועדת לרכישת רכב חדש ולפי הפרמטר הזה אפשר להבין למי הסקה תהיה משתלמת.<br>קודם כל לעסקים עם צורך לנסיעות מרובות. הרי ברור שכל תקלה ברכב משומש לא רק תגרור הוצאות תיקון וטיפול אלה גם יפגע בפעילות עסקית ותגרום להפסדים. לכן לעסקים כאלה עדיף לרכוש רכב חדש וליסינג מימוני הנותן פה פתרון מצוין.</p>
+<p>ברור שללקוח פרטי קניית רכב משומש היא אופציה חסכונית יותר אבל למי שיידע להתמודד עם התשלומים חודשיים ומקדמה ורוצה רכב חדש עכשיו - זו גם אפשרות להגשים חלום מידית.</p>
+  </div>
+  <hr/>
+  <h2 class="special-writing dark-red">מדריכים וכתבות בנושא ליסינג מימוני</h2>
+  <ul class="list-group">
+    <li class="list-group-item text-center" ng-repeat="article in financeLeasingContent">
+      <a ng-href="/#{{article.url}}">
+        <h5 class="text-center dark" style="padding: 0; margin: 0;">
+            <strong>{{article.name}}</strong>
+        </h5>
+      </a>
+    </li>
+  </ul>
+  <hr/>
+  <img style="margin: 0 auto;" class="img-responsive" src="http://campaign.auto.co.il//media/8548/יועץ-חדש.jpg">
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12 text-center">
+      <a href="javascript:void(0)" ng-click="displayConsulting()" class="btn btn-danger"><h4 class="special-writing">לחץ כאן לקבלת יעוץ חינם</h4></a>
+    </div>
+  </div>
+  <hr/>
+  <h2 class="special-writing dark-red">כתבות נוספות בנושא ליסינג</h2>
+  <more-articles category-id="83" current-article-id="10000" no-skip="true" more-text=""></more-articles>
+</div>

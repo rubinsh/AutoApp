@@ -81,6 +81,18 @@ angular.module("main")
                 .when('/leasing', {
                     templateUrl: 'leasingView'
                 })
+                .when('/personal-leasing', {
+                    templateUrl: 'personalLeasingView'
+                })
+                .when('/business-leasing', {
+                    templateUrl: 'businessLeasingView'
+                })
+                .when('/operating-leasing', {
+                    templateUrl: 'operatingLeasingView'
+                })
+                .when('/finance-leasing', {
+                    templateUrl: 'financeLeasingView'
+                })
                 .when('/consulting', {
                     templateUrl: 'consultingView'
                 })

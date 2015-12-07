@@ -126,6 +126,21 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
   }
 }
 .automag-app {
+  .content-page {
+    .content-list {
+      display:flex;
+      justify-content: space-between;
+
+    }
+    .content-list-item {
+      border: 1px solid $auto-dark-red;
+      display: flex;
+      align-items: center;
+      margin: 0 2px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
   .special-writing {
     text-align: center;
     font-family: extazy;

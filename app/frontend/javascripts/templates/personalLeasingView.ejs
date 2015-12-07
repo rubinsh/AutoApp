@@ -1,0 +1,68 @@
+<div ng-controller="LeasingCtrl" class="content-page">
+  <div>
+    <h1 class="special-writing dark-red" style="font-weight: bold;">ליסינג פרטי</h1>
+    <div class="content-list">
+      <div ng-repeat="article in leasingArticles" class="content-list-item">
+        <a ng-href="/#{{article.url}}">
+          <h4 class="text-center special-writing dark-red" style="padding: 0; margin: 0;">
+            {{article.name}}
+          </h4>
+        </a>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <h4 class="special-writing dark-red">בעל עסק? חושב על עסקת ליסינג פרטי?</h4>
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12 text-center">
+      <a href="javascript:void(0)" ng-click="displayConsulting()" class="btn btn-danger"><h4 class="special-writing">לחץ כאן לקבלת יעוץ חינם</h4></a>
+    </div>
+  </div>
+  <hr/>
+  <div>
+    <h4 class="special-writing dark" style="font-weight: bolder;"> ליסינג פרטי - איך בנויה העסקה?</h4>
+
+    <p>השתרשות הליסינג בישראל, יחד עם צמצום תחום הליסינג התפעולי בשל שינויים ברגולציה (בעיקר הגדלת המס על "רכב מהעבודה"), הביאה להתפתחות תחום <strong>הליסינג הפרטי.</strong></p>
+
+    <p>תחום זה מיועד לקהל הפרטי, בניגוד לערוצים הקודמים שהוזכרו, שפנו בעיקר לחברות ועסקים, והיו עיקר תחום הפעילות של הליסינג בארץ בתחילת דרכו.</p>
+
+    <p>שיטת רכישה זו נהוגה בצפון אמריקה ומערב אירופה מזה שנים רבות, אך בישראל עדיין עושה את צעדיה הראשונים. ללקוח הפרטי מוצעים שני המסלולים, מימוני ותפעולי, כאשר הראשון נפוץ הרבה יותר.</p>
+
+    <p>ערוץ הליסינג הפרטי הוא למעשה מסלול לרכישת רכב בתשלומים בפרישה ארוכת טווח, המנגישה רכב חדש גם למי שאין בידיו את הסכום הנדרש במזומן. ערוץ זה מתחרה ישירות במסלולי המימון השונים שמציעים חברות מימון ואשראי, בנקים והיבואנים עצמם.</p>
+
+    <h4 class="special-writing dark" style="font-weight: bolder;">תנאים כלליים לעסקאות ליסינג פרטי</h4>
+
+    <p>עסקאות הליסינג הפרטי הן בדרך כלל לתקופה של 30 חודשים (שנתיים וחצי), ומורכבות ממקדמה, תשלום חודשי ותשלום אחרון.</p>
+
+    <p>המקדמה היא בדרך כלל בסדר גודל של 20% עד 40% ממחיר הרכב, כאשר גובה המקדמה משפיע על התשלום החודשי. בסוף התקופה יכול הלקוח לבחור בין תשלום יתרת הסכום, לבין גלגול עסקת הליסינג לרכב חדש, מבלי לשלם שוב מקדמה.</p>
+
+    <h4 class="special-writing dark" style="font-weight: bolder;">מה עוד חשוב לדעת לפני רכישת רכב בליסינג פרטי?</h4>
+
+    <p>כלי רכב הנרכשים במסלול ליסינג פרטי רשומים במקרים רבים על שם חברת הליסינג, כך שבמקרה של פשיטת רגל, הרכב עלול להילקח מהלקוח.</p>
+
+    <p>במקרים אחרים הרכב נרשם על שם הלקוח, אך משועבד לחברת הליסינג עד סיום התשלומים. שעבוד זה מונע את מכירת הרכב ללא אישור חברת הליסינג.</p>
+
+    <p>אם הרכב היה רשום על שם חברת הליסינג, והלקוח ירצה לרכוש אותו בסוף התקופה, הרי שהוא יחשב "יד שניה", עם בעלות קודמת ליסינג – מה שישפיע על ערך השוק שלו כמשומש.</p>
+  </div>
+  <hr/>
+  <h2 class="special-writing dark-red">מדריכים וכתבות בנושא ליסינג פרטי</h2>
+  <ul class="list-group">
+    <li class="list-group-item text-center" ng-repeat="article in personalLeasingContent">
+      <a ng-href="/#{{article.url}}">
+        <h5 class="text-center dark" style="padding: 0; margin: 0;">
+            <strong>{{article.name}}</strong>
+        </h5>
+      </a>
+    </li>
+  </ul>
+  <hr/>
+  <img style="margin: 0 auto;" class="img-responsive" src="http://campaign.auto.co.il//media/8548/יועץ-חדש.jpg">
+  <div class="row" style="margin-top: 10px;">
+    <div class="col-xs-12 text-center">
+      <a href="javascript:void(0)" ng-click="displayConsulting()" class="btn btn-danger"><h4 class="special-writing">לחץ כאן לקבלת יעוץ חינם</h4></a>
+    </div>
+  </div>
+  <hr/>
+  <h2 class="special-writing dark-red">כתבות בנושא ליסינג פרטי</h2>
+  <more-articles category-id="83" current-article-id="10000" no-skip="true" more-text=""></more-articles>
+</div>

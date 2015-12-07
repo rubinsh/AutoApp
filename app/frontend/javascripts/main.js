@@ -1,12 +1,12 @@
 /* App Module */
 var autoModuleApp = angular.module("main", [
   'ngRoute',
-  'ngIOS9UIWebViewPatch',
+  // 'ngIOS9UIWebViewPatch',
   'ngResource',
   'ngAnimate',
-  // 'ngTouch',
+  // 'ngTouch', //removed because it fucks up the maavronim
   'angular-cache',
-  'slick',
+  'slickCarousel',
   'matchmedia-ng',
   'angular-loading-bar',
   'autoServices',

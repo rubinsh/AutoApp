@@ -37,7 +37,11 @@ angular.module('autoDirectives')
                  var loadMoreArticles = function() {
                     var skip = 0;
                     if (typeof(attrs.noSkip) === "undefined") {
-                      skip = Math.floor(Math.random() * 90); //take any number from the first 100 articles
+                      var skipMax = 90;
+                      if (attrs.categoryId == "109") {
+                        skipMax = 30;
+                      }
+                      skip = Math.floor(Math.random() * skipMax); //take any number from the first 100 articles
                     }
                     ArticlesService.getAllArticlesByCatregoryId(attrs.categoryId,9,skip).success(function(data) {
                       scope.moreArticles = [];
@@ -50,6 +54,11 @@ angular.module('autoDirectives')
                    });
 
                  };
+
+                elem.bind("$destroy", function() {
+                  $(window).unbind('scroll');
+                  // console.log("window unbind 'scroll' event ");
+                });
 
 
                  scope.$watch('article',function(article) {

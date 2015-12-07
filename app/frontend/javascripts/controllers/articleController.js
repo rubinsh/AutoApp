@@ -8,6 +8,7 @@ angular.module('autoControllers')
 
             ArticlesServices.getArticleById($scope.article_id).success(function(data) {
                 $scope.article = data[0];
+                $scope.article.content = $scope.article.content.replace(/&nbsp;/gi,"");
                 window.scrollTo(0,0);
             });
 

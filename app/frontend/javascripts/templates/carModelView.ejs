@@ -2,7 +2,7 @@
   <div class="row" >
     <div class="col-xs-12"><h1 class="special-writing dark-red">{{model.name}}</h1></div>
     <div ng-class="{'col-xs-12': isXXS, 'col-xs-6': !isXXS}">
-      <slick init-onload=true data="images" slides-to-show="1" slides-to-scroll="1" rtl="true" lazyload="progressive" adaptive-height: ="true">
+      <slick init-onload=true ng-if="galleryVisible" data="images" slides-to-show="1" slides-to-scroll="1" rtl="true" lazyload="progressive" adaptive-height: ="true">
           <div ng-repeat="item in images">
             <img ng-src={{item.imageUrl}} class="img-responsive"  ></img>
           </div>
