@@ -14,7 +14,8 @@ liveReload      = require("gulp-livereload"),
 jst             = require('gulp-jst2'),
 uglify          = require('gulp-uglify'),
 del 						= require('del'),
-gulpif 					= require('gulp-if');
+gulpif 					= require('gulp-if'),
+gulpSlash       = require('gulp-slash');
 
 
 var cachebust = new CacheBuster({checksumLength: 16, random: true});
@@ -38,6 +39,7 @@ gulp.task("clean-assets", function(cb) {
 
 gulp.task('jst', ["clean-assets"], function () {
 	return gulp.src('./app/frontend/javascripts/templates/**/*.ejs')
+    .pipe(gulpSlash())
 		.pipe(jst({ prepend: "JST['%s'] = " }))
 		.pipe(concat('jst.js', { newLine: ';\n' }))
 		.pipe(insert.prepend('window.JST = {};\n\n'))
@@ -118,7 +120,7 @@ gulp.task('webserver', function() {
 	.pipe(webserver({
 			port: 8000,
 			host: '0.0.0.0',
-			proxies: [{source: '/autoapi.svc', target: 'http://m.auto.co.il/autoapi.svc'}]				
+			proxies: [{source: '/autoapi.svc', target: 'http://m.auto.co.il/autoapi.svc'}]
 	}));
 });
 
@@ -132,4 +134,3 @@ gulp.task("watch", function() {
 gulp.task("default", ["clean-assets","bower-files","jst","js", "sass", "images","html"]);
 gulp.task("reload", ["watch","bower-files","jst", "js", "sass", "images","html"]);
 gulp.task("server", ["watch","bower-files","jst", "js", "sass", "images","html","webserver"]);
-
