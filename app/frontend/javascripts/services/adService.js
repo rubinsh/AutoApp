@@ -3,7 +3,7 @@ angular.module('autoServices')
 function($window, $route, $location) {
   $window.showingMaavron = false;
   var resource = {};
-  var counter = 0;
+  $window.adCounter = 0;
   resource.noBannerRoutes = ["/consulting"]
 
   resource.init = function() {
@@ -25,7 +25,7 @@ function($window, $route, $location) {
       return (parseInt($window.localStorage.getItem("autoMag.adCounter")) === 0);
     }
     else {
-      return (counter === 0);
+      return ($window.adCounter === 0);
     }
   };
 
@@ -60,9 +60,9 @@ function($window, $route, $location) {
       $window.localStorage.setItem("autoMag.adCounter",counter);
     }
     else {
-      counter |= 0;
-      counter += 1;
-      counter %= 3;
+      $window.adCounter |= 0;
+      $window.adCounter += 1;
+      $window.adCounter %= 3;
     }
   };
 
