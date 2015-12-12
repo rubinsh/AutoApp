@@ -16,10 +16,11 @@ var autoModuleApp = angular.module("main", [
 
 window.localStorageSupported = function() {
      try {
-       $window.localStorage.setItem("autoMag.test",0);
+       window.localStorage.setItem("autoMag.test","0");
        return true;
      }
      catch(err) {
+       console.error(err);
        return false;
      }
 };
