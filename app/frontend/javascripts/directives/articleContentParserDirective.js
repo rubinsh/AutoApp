@@ -28,19 +28,23 @@ angular.module('autoDirectives')
 
         var fixLink = function(linkElem ,searchStr, urlPrefix) {
           var href = linkElem.attr('href');
-          if (href.indexOf(searchStr) > -1) {
-            linkElem.attr('href', urlPrefix + href.split(searchStr)[1]);
-            linkElem.removeAttr('target');
+          if (href) {
+            if (href.indexOf(searchStr) > -1) {
+              linkElem.attr('href', urlPrefix + href.split(searchStr)[1]);
+              linkElem.removeAttr('target');
+            }
           }
         };
 
         var convertToConsulting = function(linkElem,searchStr) {
           var href = linkElem.attr('href');
-          if (href.indexOf(searchStr) > -1) {
-            linkElem.attr('href', "javascript:void(0)");
-            linkElem.attr('ng-click',"displayConsulting()");
-            linkElem.attr('class','article-consulting-link');
-            linkElem.removeAttr('target');
+          if (href) {
+            if (href.indexOf(searchStr) > -1) {
+              linkElem.attr('href', "javascript:void(0)");
+              linkElem.attr('ng-click',"displayConsulting()");
+              linkElem.attr('class','article-consulting-link');
+              linkElem.removeAttr('target');
+            }
           }
         }
 
