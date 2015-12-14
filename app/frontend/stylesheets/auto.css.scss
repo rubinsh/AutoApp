@@ -81,9 +81,10 @@ $auto-dark: #222;
 }
 body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
 .back-button {
+  font-size: 1.5em;
   color: #fff;
   float: left;
-  margin: 17px 0 0 10px;
+  margin: 13px 0 0 10px;
 }
 
 .inline-ad {
@@ -126,6 +127,37 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
   }
 }
 .automag-app {
+  .navbar-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    #auto-brand {
+      flex: 1 100%;
+      display: flex;
+      justify-content: center;
+    }
+    #ios-back {
+      flex: 1 100%;
+    }
+    #menu-button {
+      flex: 1 100%;
+      .navbar-toggle {
+        float: right;
+        padding: 5px;
+        margin: 5px 5px 0 0;
+        .icon-bar {
+          display: block;
+          width: 30px;
+          height: 2px;
+          border-radius: 1px;
+        }
+
+        .icon-bar + .icon-bar {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
   .content-page {
     .content-list {
       display:flex;
@@ -145,13 +177,13 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
     text-align: center;
     font-family: extazy;
     // font-weight: bold;
-    // background-color: 
+    // background-color:
     color: #fff;
-    // font-size: 1.99em;   
+    // font-size: 1.99em;
     letter-spacing: -0.025em;
   }
   .red {
-      color: $auto-red; 
+      color: $auto-red;
   }
   .dark-red {
     color: $auto-dark-red;
@@ -269,7 +301,7 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
       line-height: 30px;
       font-size: 1.1em;
       min-height: 30px;
-      font-weight: bold; 
+      font-weight: bold;
       //border-bottom: solid 1px $auto-red-darker;
       // background-image: linear-gradient(to bottom, $auto-red 0%, $auto-red-darker 100%);
       background: $auto-border-color;
@@ -370,9 +402,9 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
   .article {
 
     .article-consulting-link {
-      display: -webkit-box; 
-      margin: 0 auto; 
-      -webkit-box-orient: vertical; 
+      display: -webkit-box;
+      margin: 0 auto;
+      -webkit-box-orient: vertical;
       max-width: 90%;
       -webkit-line-clamp:2;
       color: white;
@@ -461,6 +493,3 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
-
-
-
