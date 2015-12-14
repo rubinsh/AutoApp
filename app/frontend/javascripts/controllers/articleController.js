@@ -9,7 +9,7 @@ angular.module('autoControllers')
             ArticlesServices.getArticleById($scope.article_id).success(function(data) {
                 $scope.article = data[0];
                 $scope.article.content = $scope.article.content.replace(/&nbsp;/gi,"");
-                $scope.trustedDesktopUrl = $scope.mako_personalization_url = $sce.trustAsResourceUrl($scope.article.desktopUrl);
+                $scope.trustedDesktopUrl = $sce.trustAsResourceUrl($scope.article.desktopUrl);
                 window.scrollTo(0,0);
             });
 
