@@ -40,7 +40,7 @@
     <div class="col-xs-12 text-center">
       <a href="javascript:void(0)" ng-click="displayConsulting()" class="btn btn-danger btn-block"><h4>{{model.consultingText}}</h4></a>
     </div>
-    
+
     <!-- <div class="col-xs-6 col-xxs text-right">
       <hr/>
       <h4 texthtmlparser texthtml="{{model.review.summary}}">{{model.review.summary}}</h4>
@@ -52,7 +52,7 @@
       <p class="text-right" style="font-size: 120%" texthtmlparser texthtml="{{review.content}}"></p>
     </div>
   </div>
-  
+
   <div class="row" style="margin-top: 10px;">
     <div class="col-xs-12 text-center">
       <a href="javascript:void(0)" ng-click="displayConsulting()" class="btn btn-danger btn-block"><h4>{{model.consultingText}}</h4></a>
@@ -86,7 +86,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row more-articles" ng-if="showArticles" >
     <div class="col-xs-12"><h2 class="special-writing dark-red">{{model.name}} - כתבות</h2></div>
     <!--<ul rn-carousel rn-carousel-indicator rn-carousel-control>-->
@@ -104,7 +104,7 @@
   <div class="row competitors" ng-if="competitors" >
     <div class="col-xs-12">
       <h2 class="special-writing dark-red">{{model.name}} - דגמים מתחרים</h2></div>
-      <div ng-repeat="competitor in competitors" ng-if="competitor.model_id != model.id" 
+      <div ng-repeat="competitor in competitors" ng-if="competitor.model_id != model.id"
         ng-click="navigate('/catalog/models/' + competitor.model_id)">
       <div class="col-xs-6" ng-if="isXXS">
         <div class="competitor-item">
@@ -120,15 +120,15 @@
       </div>
     </div>
   </div>
-  
+
 
 <!--   <ul class="list-group" style="margin-bottom: 15px">
     <li ng-repeat="td in tableData" ng-click="navigate(td.link)" class="list-group-item">
     {{td.title}}
     </li>
   </ul> -->
-  <input type="hidden" value="http://static.auto.co.il/Content/CustomCarModelsImages/{{model_id}}-1.jpg" id="customImageUrl1"/>
-  <input type="hidden" value="http://static.auto.co.il/Content/CustomCarModelsImages/{{model_id}}-1.jpg" id="customImageUrl2"/>
+  <input type="hidden" value="{{images[0].imageUrl}}" id="customImageUrl1"/>
+  <input type="hidden" value="{{images[1].imageUrl}}" id="customImageUrl2"/>
   <input type="hidden" value="{{model_id}}" id="modelId"/>
   <input type="hidden" value="{{model.BrandID}}" id="brandId"/>
   <input type="hidden" value="{{model.name}}" id="modelName"/>
