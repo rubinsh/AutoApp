@@ -1,6 +1,15 @@
-<div ng-controller="ManufacturersCtrl" class="container" ng-show="manufacturers" ng-cloak>
-  <ul ng-repeat="manufactur in manufacturers" class="list-group" >
-    <li class="list-group-item list-group-item-danger">{{manufactur.key}}</li>
-    <li ng-click="selectMF(col)" ng-repeat="col in manufactur.collection" class="list-group-item">{{col.name}}</li>
+<div ng-controller="ManufacturersCtrl" class="container" ng-show="manufacturers">
+  <h2>בחר יצרן</h2>
+  <ul class="list-group">
+    <li ng-click="selectMF(manufacturer)" ng-repeat="manufacturer in manufacturers" class="list-group-item">
+      <div class="row">
+        <div class="col-xs-3">
+          <img ng-src="{{manufacturer.logoUrl}}" />
+        </div>
+        <div class="col-xs-8">
+          <h3>{{manufacturer.name}}</h3>
+        </div>
+      </div>
+    </li>
   </ul>
 </div>
