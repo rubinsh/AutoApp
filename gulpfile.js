@@ -15,8 +15,9 @@ jst             = require('gulp-jst2'),
 uglify          = require('gulp-uglify'),
 del 						= require('del'),
 gulpif 					= require('gulp-if'),
-gulpSlash       = require('gulp-slash');
-
+gulpSlash       = require('gulp-slash'),
+gutil           = require( 'gulp-util' ),
+ftp             = require('vinyl-ftp');
 
 var cachebust = new CacheBuster({checksumLength: 16, random: true});
 
@@ -130,6 +131,35 @@ gulp.task("watch", function() {
 	gulp.watch("./app/frontend/stylesheets/**/*", { interval: 500 }, ["html"]);
 	gulp.watch(["./app/frontend/javascripts/**/*","gulpfile.js","./public/index-orig.html"],  { interval: 500 }, ["html"]);
 });
+
+
+gulp.task('deploy', [], function () {
+
+    var conn = ftp.create( {
+        host:     '192.117.187.236',
+        user:     'rubinsh',
+        password: 'rubinsh#1245',
+        parallel: 10,
+        log:      gutil.log
+    } );
+
+    var globs = [
+        'public/fonts/*',
+        'public/assets/*.js',
+        'public/assets/*.css',
+        'public/assets/images/**',
+        'public/index.html'
+    ];
+
+    // using base = '.' will transfer everything to /public_html correctly
+    // turn off buffering in gulp.src for best performance
+
+    return gulp.src( globs, { base: './public', buffer: false } )
+        .pipe(gulpSlash())
+        .pipe( conn.newer( '/wwwroot/' ) ) // only upload newer files
+        .pipe( conn.dest( 'wwwroot/' ) );
+
+} );
 
 gulp.task("default", ["clean-assets","bower-files","jst","js", "sass", "images","html"]);
 gulp.task("reload", ["watch","bower-files","jst", "js", "sass", "images","html"]);
