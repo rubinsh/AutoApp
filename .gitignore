@@ -17,6 +17,7 @@ public/index.html
 /bower_components
 /auto-mobile.herokuapp.com
 npm-debug.log
+public/index.html
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
