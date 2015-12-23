@@ -1,98 +1,91 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 // this is for -webkit browser to remove the darg event.
 // this is needed for the angular slider for the ng-touch event to work
-
-$brand-danger:      #bb0000 !default;//    #EC1B23 !default;
+$brand-danger: #9F1B2C; //    #bb0000 !default;//    #EC1B23 !default;
 $auto-red: $brand-danger;
 $auto-border-color: #ddd;
-$auto-red-darker: #ba1016;
+$auto-red-darker: #9f1d2c; //#ba1016;
 $auto-dark-red: #BB0000;
-$state-danger-text:              white !default;
-$state-danger-bg:                #EC1B23 !default;
+$state-danger-text: white !default;
+$state-danger-bg: #EC1B23 !default;
 $auto-dark: #222;
-
 @font-face {
   font-family: 'extazy';
-  src: url('/fonts/extazyregularwebfont.eot'); /* IE9 Compat Modes */
-  src: url('/fonts/extazyregularwebfont.eot?') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/extazyregularwebfont.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/extazyregularwebfont.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/extazyregularwebfont.svg') format('svg'); /* Legacy iOS */
-     font-weight: normal;
+  src: url(/fonts/extazyregularwebfont.eot);
+  /* IE9 Compat Modes */
+  src:/* IE6-IE8 */
+  /* Modern Browsers */
+  /* Safari, Android, iOS */
+  url('/fonts/extazyregularwebfont.eot?') format('embedded-opentype'),url('/fonts/extazyregularwebfont.woff') format('woff'),url('/fonts/extazyregularwebfont.ttf') format('truetype'),url('/fonts/extazyregularwebfont.svg') format('svg');
+  /* Legacy iOS */
+  font-weight: normal;
 }
-
 @font-face {
   font-family: 'extazy';
-  src: url('/fonts/extazyboldwebfont.eot'); /* IE9 Compat Modes */
-  src: url('/fonts/extazyboldwebfont.eot?') format('embedded-opentype'), /* IE6-IE8 */
-       url('/fonts/extazyboldwebfont.woff') format('woff'), /* Modern Browsers */
-       url('/fonts/extazyboldwebfont.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('/fonts/extazyboldwebfont.svg') format('svg'); /* Legacy iOS */
-    font-weight: bold;
+  src: url(/fonts/extazyboldwebfont.eot);
+  /* IE9 Compat Modes */
+  src:/* IE6-IE8 */
+  /* Modern Browsers */
+  /* Safari, Android, iOS */
+  url('/fonts/extazyboldwebfont.eot?') format('embedded-opentype'),url('/fonts/extazyboldwebfont.woff') format('woff'),url('/fonts/extazyboldwebfont.ttf') format('truetype'),url('/fonts/extazyboldwebfont.svg') format('svg');
+  /* Legacy iOS */
+  font-weight: bold;
 }
-
 // $icon-font-path: "../fonts/" !default;
 .headhesive {
-    /* Required styles */
+  /* Required styles */
   position: fixed;
   z-index: 1;
   top: 50;
   left: 0;
   width: 100%;
-
   /* Additional styles */
   background: #fff;
-
   /* Translate -100% to move off screen */
   -webkit-transform: translateY(-100%);
-      -ms-transform: translateY(-100%);
-          transform: translateY(-100%);
-
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
   /* Animations */
   -webkit-transition: all 200ms ease-in-out;
-     -moz-transition: all 200ms ease-in-out;
-          transition: all 200ms ease-in-out;
+  -moz-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
   // border-bottom: 1px solid $auto-border-color;
-
 }
 .headhesive--stick {
-
   /* Translate back to 0%; */
-    -webkit-transform: translateY(0%);
-    -ms-transform: translateY(0%);
-    transform: translateY(0%);
-
-    height: 50px;
-    padding: 0 15px 0 15px;
-    // box-shadow: 0 0 10px black;
-    border-bottom: 2px solid $auto-border-color;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+  height: 50px;
+  padding: 0 15px;
+  // box-shadow: 0 0 10px black;
+  border-bottom: 2px solid $auto-border-color;
 }
-
-
 #loading-bar .bar {
   background: $brand-danger;
 }
 #loading-bar-spinner .spinner-icon {
-  border-top-color:  $brand-danger;
+  border-top-color: $brand-danger;
   border-left-color: $brand-danger;
 }
-body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
+body {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  padding-bottom: 10vh;
+}
 .back-button {
   font-size: 1.5em;
   color: #fff;
   float: left;
   margin: 7.5px 0 0 5px;
 }
-
 .inline-ad {
   padding: 10px;
   text-align: center;
   min-height: 50px;
 }
-
 @media (orientation: landscape) {
   #auto-bottom-ad-container {
     display: none;
@@ -101,13 +94,11 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
     padding-bottom: 0;
   }
 }
-
 #auto-bottom-ad-container {
-    height: 50px;
-    height: 10vh;
-    min-height: 50px;
+  height: 50px;
+  height: 10vh;
+  min-height: 50px;
 }
-
 .auto-ad-container {
   position: fixed;
   bottom: 0;
@@ -127,6 +118,21 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
   }
 }
 .automag-app {
+  .navbar-inverse {
+    // background: $brand-danger;
+    background-image: linear-gradient(to bottom, $auto-red 0%, $auto-red-darker 100%);
+    border-color: $auto-red-darker;
+    .navbar-nav > li > a {
+      color: #fff;
+    }
+    .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+      background: #fff;
+      color: $auto-red-darker;
+    }
+    .navbar-collapse, .navbar-inverse .navbar-form {
+      border-color: white;
+    }
+  }
   .navbar-header {
     display: flex;
     flex-direction: row;
@@ -145,13 +151,14 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
         float: right;
         padding: 5px;
         margin: 5px 5px 0 0;
+        border: none;
+        background: $brand-danger;
         .icon-bar {
           display: block;
           width: 30px;
           height: 2px;
-          border-radius: 1px;
+          // border-radius: 1px;
         }
-
         .icon-bar + .icon-bar {
           margin-top: 10px;
         }
@@ -160,9 +167,8 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
   }
   .content-page {
     .content-list {
-      display:flex;
+      display: flex;
       justify-content: space-between;
-
     }
     .content-list-item {
       border: 1px solid $auto-dark-red;
@@ -183,7 +189,7 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
     letter-spacing: -0.025em;
   }
   .red {
-      color: $auto-red;
+    color: $auto-red;
   }
   .dark-red {
     color: $auto-dark-red;
@@ -196,15 +202,13 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
     overflow: hidden;
     height: 1%;
   }
-
   .auto-menu-item {
     font-size: 1.2em;
   }
-
   @media (max-width: 499px) {
     .col-xxs {
-      display:block;
-      float:none;
+      display: block;
+      float: none;
       width: 100%;
       &.carousel-item {
         padding: 0;
@@ -216,15 +220,12 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
     .index-page .rn-carousel-control {
       margin-top: -80px !important;
     }
-
   }
-
   @media (min-width: 500px) and (max-width: 767px) {
     .carousel-item {
-      padding-right: 0px;
+      padding-right: 0;
     }
   }
-
   .rn-carousel-container {
     direction: ltr;
   }
@@ -239,16 +240,15 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
       }
     }
   }
-
   .index-page {
     .main-headline {
-      position:relative;
+      position: relative;
       span {
         position: absolute;
         font-weight: bold;
         font-size: 15px;
         bottom: 0;
-        right: 0px;
+        right: 0;
         background: $auto-red;
         margin: 0 13px 2px 0;
         color: white;
@@ -276,11 +276,14 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
     .catalog-component {
       margin-top: 20px;
       border-bottom: 2px solid #ddd;
-      .bootstrap-select { margin-top: 20px;}
+      .bootstrap-select {
+        margin-top: 20px;
+      }
     }
   }
-
-  .buying-guide-page, .car-compare-page, .index-page {
+  .buying-guide-page,
+  .car-compare-page,
+  .index-page {
     .dropdown-menu {
       text-align: right;
       .select-option {
@@ -288,15 +291,12 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
       }
     }
   }
-
   .car-compare-page {
     .selectors-container {
       padding-top: 15px;
     }
   }
-
   .compare-result-page {
-
     .header-cell {
       line-height: 30px;
       font-size: 1.1em;
@@ -322,18 +322,19 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
       border-bottom: solid 2px $auto-border-color;
     }
   }
-
-  .model-page, .index-page, .model-gallery-page {
+  .model-page,
+  .index-page,
+  .model-gallery-page {
     .rn-carousel-control {
       margin-top: -20px;
       font-size: initial;
       opacity: 1;
     }
     .rn-carousel-control.rn-carousel-control-prev:before {
-      content: url('images/carousel-left.png');
+      content: url(images/carousel-left.png);
     }
     .rn-carousel-control.rn-carousel-control-next:before {
-      content: url('images/carousel-right.png');
+      content: url(images/carousel-right.png);
     }
   }
   .more-articles {
@@ -343,24 +344,20 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
       border-color: #222;
     }
   }
-
   .list-group-item-inverse {
     color: white;
     background-color: #222;
     border-color: #090909;
   }
-
   .list-group-item-danger {
     background-color: $auto-dark-red;
   }
-
   //override bootstrap select values to make it rtl
   .bootstrap-select.btn-group .btn {
     .caret {
       left: 12px;
       right: initial;
     }
-
     .filter-option {
       float: right;
       text-align: right;
@@ -369,25 +366,28 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
       }
     }
   }
-
   .car-list-item {
-    h4 { margin: 0; }
-    padding: 5px 0px;
+    h4 {
+      margin: 0;
+    }
+    padding: 5px 0;
     border-bottom: solid 1px #222;
   }
-
   .articles-list {
-    h4 { margin: 0; }
+    h4 {
+      margin: 0;
+    }
     .article-header {
-      h3 { margin: 0; }
+      h3 {
+        margin: 0;
+      }
       background-color: $auto-red;
       color: white;
     }
-
     .more-in-category {
       background-color: #222;
       a {
-        color: white;//#EC1B23;
+        color: white; //#EC1B23;
       }
       margin-bottom: 2px;
       &.last_category {
@@ -395,18 +395,18 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
         padding-bottom: 20px;
       }
       //padding: 5px 0;
-      h3 {margin:0}
+      h3 {
+        margin: 0;
+      }
     }
   }
-
   .article {
-
     .article-consulting-link {
       display: -webkit-box;
       margin: 0 auto;
       -webkit-box-orient: vertical;
       max-width: 90%;
-      -webkit-line-clamp:2;
+      -webkit-line-clamp: 2;
       color: white;
       background: $auto-red;
       font-family: extazy;
@@ -416,51 +416,66 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
     hr {
       border-top: 1px solid #222;
     }
-    h4 { font-weight: bold; }
-    div { font-size: 18px !important; }
-
+    h4 {
+      font-weight: bold;
+    }
+    div {
+      font-size: 18px !important;
+    }
     .share-col {
       text-align: left;
-
       .share-btn {
         background-color: rgb(255,0,0); // Old browsers
-        background: -webkit-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* For Safari 5.1 to 6.0 */
-        background: -o-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* For Opera 11.1 to 12.0 */
-        background: -moz-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* For Firefox 3.6 to 15 */
-        background: linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0)); /* Standard syntax */
+        background: -webkit-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0));
+        /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0));
+        /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0));
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(rgb(255,0,0) 0%,rgb(86,0,0));
+        /* Standard syntax */
         border: none;
         border-radius: 5px;
         margin-top: 25px;
         padding: 2px 13px;
         height: 26px;
-
         .glyphicon-share {
           color: white;
         }
       }
     }
   }
-
   .model-page {
     hr {
-      margin: 0 0 10px 0;
+      margin: 0 0 10px;
       border-top: 1px solid #ddd;
     }
-
     .sub-header {
       margin-bottom: 10px;
       display: block;
       overflow: hidden;
       height: 1%;
-      div,h4 { display: inline;}
-      .text-right { float: right; }
-      .text-left {float: left; }
+      div,
+      h4 {
+        display: inline;
+      }
+      .text-right {
+        float: right;
+      }
+      .text-left {
+        float: left;
+      }
     }
-
     .competitor-item {
       margin-bottom: 10px;
-      h4 { text-align: center; color: $auto-dark; }
-      img { margin: 0 auto; border: 3px solid $auto-dark; }
+      h4 {
+        text-align: center;
+        color: $auto-dark;
+      }
+      img {
+        margin: 0 auto;
+        border: 3px solid $auto-dark;
+      }
     }
   }
   .carusela-lapanim {
@@ -470,26 +485,25 @@ body {padding-top: 50px; padding-bottom: 40px; padding-bottom: 10vh;}
     .side-image {
       padding: 0 0 5px;
     }
-
     .carousel-item {
-      h3 { margin-top: 0; }
+      h3 {
+        margin-top: 0;
+      }
     }
   }
-
   .index-header {
-    h4 {margin: 0; }
+    h4 {
+      margin: 0;
+    }
     //    background-color: $auto-red;
   }
-
 }
-
-
 /// sahar css
-
-.auto-version-included-item{
+.auto-version-included-item {
   padding-left: 2em !important;
 }
-
-[ng\:cloak], [ng-cloak], .ng-cloak {
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
   display: none !important;
 }
