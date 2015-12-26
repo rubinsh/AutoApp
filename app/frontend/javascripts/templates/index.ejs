@@ -1,9 +1,5 @@
 <div ng-controller="IndexCtrl" class="index-page" ng-show="latest" ng-cloak>
-	<div class="">
-		<div style="margin-top: 10px">
-	  	<button ng-click="navigate('/catalog/manufacturers')" class="btn btn-danger btn-block btn-lg" style="padding: 10px 0 8px"><span style="font-family: extazy; font-size: 24px;">חפש את הרכב הבא שלך </span><i style="font-size:18px;"class="glyphicon glyphicon-chevron-left"></i></button>
-		</div>
-	</div>
+	<catalog-button></catalog-button>
  	<iframe src="http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_782087275&channelId=Auto&contentType=Auto_homepage&platform=mobile" frameBorder="0" height="1" width="1"></iframe>
   <br/>
   <div class="col-sm-12 col-md-12 articles-list">

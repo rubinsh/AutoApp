@@ -118,6 +118,48 @@ body {
   }
 }
 .automag-app {
+  .catalog-button-container {
+    background: #DADADA;
+    padding: 5px 10px;
+
+    .catalog-button {
+      background: #fff;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.5);
+      margin: 5px 0;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row-reverse;
+      .left-part {
+        width: 60px;
+        //flex: 1.7;
+        display: flex;
+        justify-content: center; /* align horizontal */
+        align-items: center; /* align vertical */
+        background: linear-gradient(to bottom, #971B29 0%, #620E18 100%);
+        border-radius: 10px 0 0 10px;
+      }
+      .right-part {
+        flex: 1;
+        // line-height: 2em;
+        padding: 8px 0;
+        display: flex;
+
+        justify-content: space-around;
+        flex-direction: row;
+        .special-writing {
+          font-size: 1.4em;
+          &.text {
+            flex: 5;
+          }
+          &.separator {
+            flex: 1;
+          }
+        }
+
+      }
+    }
+  }
   .navbar-inverse {
     // background: $brand-danger;
     background-image: linear-gradient(to bottom, $auto-red 0%, $auto-red-darker 100%);
@@ -204,6 +246,13 @@ body {
   }
   .auto-menu-item {
     font-size: 1.2em;
+  }
+  .manf-page {
+    background: #F0F0F0;
+    .manf-list-item {
+      padding: 10px;
+      border-bottom: 1px solid #DADADA;
+    }
   }
   @media (max-width: 499px) {
     .col-xxs {

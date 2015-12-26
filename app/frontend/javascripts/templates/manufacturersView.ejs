@@ -1,7 +1,7 @@
-<div ng-controller="ManufacturersCtrl" class="container" ng-show="manufacturers">
+<div ng-controller="ManufacturersCtrl" class="container manf-page" ng-show="manufacturers">
   <h2>בחר יצרן</h2>
-  <ul class="list-group">
-    <li ng-click="selectMF(manufacturer)" ng-repeat="manufacturer in manufacturers" class="list-group-item">
+
+    <div ng-click="selectMF(manufacturer)" ng-repeat="manufacturer in manufacturers" class="manf-list-item row">
       <div class="row">
         <div class="col-xs-3">
           <img ng-src="{{manufacturer.logoUrl}}" />
@@ -10,6 +10,5 @@
           <h3>{{manufacturer.name}}</h3>
         </div>
       </div>
-    </li>
-  </ul>
+    </div>
 </div>
