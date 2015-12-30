@@ -119,15 +119,17 @@ body {
 }
 .automag-app {
   .catalog-button-container {
+
     background: #DADADA;
     padding: 5px 10px;
 
     .catalog-button {
       background: #fff;
-      border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.5);
+      border-radius: 11px;
+      border: 1px solid rgba(0,0,0,0.3);
       margin: 5px 0;
       display: flex;
+      height: 44px;
       justify-content: space-between;
       flex-direction: row-reverse;
       .left-part {
@@ -137,33 +139,43 @@ body {
         justify-content: center; /* align horizontal */
         align-items: center; /* align vertical */
         background: linear-gradient(to bottom, #971B29 0%, #620E18 100%);
-        border-radius: 10px 0 0 10px;
+        border-radius: 11px 0 0 11px;
+
       }
+
       .right-part {
         flex: 1;
-        // line-height: 2em;
-        padding: 8px 0;
+        padding: 7px 0;
         display: flex;
+        font-size: 14px !important;
 
         justify-content: space-around;
         flex-direction: row;
-        .special-writing {
-          font-size: 1.4em;
-          &.text {
-            flex: 5;
-          }
-          &.separator {
-            flex: 1;
-          }
+
+        .text {
+          flex: 5;
+          font-size: 1.363em;
+          font-family: "extazy";
+          color: rgb(149, 26, 39);
+          line-height: 30px;
+          text-align: center;
+        }
+        .separator {
+          flex: 1;
         }
 
       }
     }
   }
+
   .navbar-inverse {
     // background: $brand-danger;
-    background-image: linear-gradient(to bottom, $auto-red 0%, $auto-red-darker 100%);
-    border-color: $auto-red-darker;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%);
+    background-color: rgba(0,0,0,0);
+    border-color: #fff;
+    .navbar-header {
+      background-image: linear-gradient(to bottom, $auto-red-darker 0%, $auto-red-darker 100%);
+    }
     .navbar-nav > li > a {
       color: #fff;
     }
@@ -173,6 +185,9 @@ body {
     }
     .navbar-collapse, .navbar-inverse .navbar-form {
       border-color: white;
+      background-image: linear-gradient(to bottom, rgba(159,27,44,1) 0%, rgba(159,27,44,0.8) 100%) !important;
+      // background-color: rgba(0,0,0,0.5) !important;
+
     }
   }
   .navbar-header {
@@ -247,12 +262,37 @@ body {
   .auto-menu-item {
     font-size: 1.2em;
   }
-  .manf-page {
+  .manf-page, .models-page {
     background: #F0F0F0;
+    margin-right: -15px;
+    margin-left: -15px;
     .manf-list-item {
       padding: 10px;
       border-bottom: 1px solid #DADADA;
+      .model-text {
+        font-size: 1.363em;
+        font-family: extazy;
+        color: rgba(15, 15, 15, 0.922);
+        text-align: right;
+        margin-bottom: 0;
+      }
+
+      .price-text {
+          font-size: 13px;
+          color: rgb(176, 0, 1);
+          font-family: extazy;
+          font-weight: bold;
+          line-height: 1.293em;
+          text-align: right;
+          // -moz-transform: matrix( 1.09365157584353,0,0,1.09354083177825,0,0);
+          // -webkit-transform: matrix( 1.09365157584353,0,0,1.09354083177825,0,0);
+          // -ms-transform: matrix( 1.09365157584353,0,0,1.09354083177825,0,0);
+      }
     }
+    h2 {
+      text-align: center; background: #247DC6; color: #fff; margin: 0 -15px 0 -15px; padding: 15px 0;
+    }
+
   }
   @media (max-width: 499px) {
     .col-xxs {

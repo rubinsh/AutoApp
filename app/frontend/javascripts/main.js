@@ -35,8 +35,7 @@ autoModuleApp.run(["$window", "$templateCache", "$http", "CacheFactory" , functi
   $http.defaults.cache = CacheFactory('defaultCache', {
     maxAge: 15 * 60 * 1000, // Items added to this cache expire after 15 minutes
     cacheFlushInterval: 60 * 60 * 1000, // This cache will clear itself every hour
-    deleteOnExpire: 'aggressive', // Items will be deleted from this cache when they expire
-    storageMode: storageMode
+    deleteOnExpire: 'aggressive' // Items will be deleted from this cache when they expire
   });
 
   $http.defaults.headers.get = {
@@ -44,6 +43,7 @@ autoModuleApp.run(["$window", "$templateCache", "$http", "CacheFactory" , functi
     'Content-type': 'application/json'
   };
 }]);
+
 /* App Module Dependencies*/
 var autoControllers = angular.module('autoControllers', []);
 var autoDirectives = angular.module('autoDirectives', []);

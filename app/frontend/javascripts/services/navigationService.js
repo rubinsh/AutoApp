@@ -8,7 +8,7 @@ angular.module('autoServices')
             sharedService.navs = [{
                 name: 'קטלוג הרכב',
                 img: '......',
-                route: '/catalog'
+                route: '/catalog/manufacturers'
             }, {
                 name: 'כתבות',
                 img: '......',
@@ -23,7 +23,7 @@ angular.module('autoServices')
                 name: 'מדריך קניה',
                 img: '......',
                 route: '/guide'
-            }, 
+            },
             {
                 name: 'השוואת רכבים',
                 img: '......',
