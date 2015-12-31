@@ -172,7 +172,7 @@ body {
     // background: $brand-danger;
     background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%);
     background-color: rgba(0,0,0,0);
-    border-color: #fff;
+    border: none;
     .navbar-header {
       background-image: linear-gradient(to bottom, $auto-red-darker 0%, $auto-red-darker 100%);
     }
@@ -264,9 +264,11 @@ body {
   }
   .manf-page, .models-page {
     background: #F0F0F0;
-    margin-right: -15px;
-    margin-left: -15px;
+    margin: 0 -15px 0 -15px;
+    // margin-right: -15px;
+    // margin-left: -15px;
     .manf-list-item {
+
       padding: 10px;
       border-bottom: 1px solid #DADADA;
       .model-text {
@@ -284,13 +286,15 @@ body {
           font-weight: bold;
           line-height: 1.293em;
           text-align: right;
-          // -moz-transform: matrix( 1.09365157584353,0,0,1.09354083177825,0,0);
-          // -webkit-transform: matrix( 1.09365157584353,0,0,1.09354083177825,0,0);
-          // -ms-transform: matrix( 1.09365157584353,0,0,1.09354083177825,0,0);
       }
     }
     h2 {
-      text-align: center; background: #247DC6; color: #fff; margin: 0 -15px 0 -15px; padding: 15px 0;
+      text-align: center; background: #247DC6; color: #fff;
+      margin: 0;
+      padding: 15px 0;
+    }
+    h3 {
+      font-family: extazy;
     }
 
   }

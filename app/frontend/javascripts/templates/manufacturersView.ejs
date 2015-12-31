@@ -1,15 +1,15 @@
-<div ng-controller="ManufacturersCtrl" class="container manf-page" ng-show="manufacturers">
-  <h2 class="special-writing">בחר יצרן</h2>
+<div ng-controller="ManufacturersCtrl" class="manf-page" ng-show="manufacturers">
+  <h2>בחר יצרן</h2>
 
-    <div ng-click="selectMF(manufacturer)" ng-repeat="manufacturer in manufacturers" class="manf-list-item row" >
-      <div class="row" style="display: flex; padding-right: 25px;">
-        <div style="flex: 80px">
-          <img ng-src="{{manufacturer.logoUrl}}" />
-        </div>
-        <div style="display:flex; justify-content: space-between; flex: 100%;">
-          <h3 class="special-writing" style="color: #2C2C2C; margin-right: 10px;">{{manufacturer.name}}</h3>
-          <img src="/assets/images/arrow-left-search-2.png" height="39" style="margin: 12.5px 0 0 20px;" />
-        </div>
+  <div ng-click="selectMF(manufacturer)" ng-repeat="manufacturer in manufacturers" class="manf-list-item" >
+    <div style="display: flex; padding-left: 10px;">
+      <div style="flex: 80px">
+        <img ng-src="{{manufacturer.logoUrl}}" />
+      </div>
+      <div style="flex: 100%; display: flex; justify-content: space-between;">
+        <h3 style="color: #2C2C2C; margin-right: 10px;">{{manufacturer.name}}</h3>
+        <img src="/assets/images/arrow-left-search-2.png" height="39" style="margin: 12.5px 0 0 0" />
       </div>
     </div>
+  </div>
 </div>

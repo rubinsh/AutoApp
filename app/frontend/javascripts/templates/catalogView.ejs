@@ -15,11 +15,9 @@
     <div ng-show="models">
       <h2>בחר דגם:</h2>
       <div ng-repeat="model in models">
-        <div class="row manf-list-item" ng-click="setModel(model)">
-          <div class="col-xs-4 col-lg-2 col-sm-2">
-            <img class="img-responsive " ng-src="{{model.image_url}}" >
-          </div>
-          <div class="col-xs-8 col-lg-10 col-sm-10">
+        <div class="manf-list-item" style="display: flex;" ng-click="setModel(model)">
+          <img class="img-responsive " ng-src="{{model.image_url}}" >
+          <div style="flex: 100%; margin-right: 10px;">
             <h4 class="model-text">{{model.name}}</h4>
             <p class="price-text" texthtmlparser texthtml="{{model.price}}"></p>
           </div>
