@@ -30,14 +30,14 @@ blockquote.pull-left .small {
 .navbar-brand {
   float: right;
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-right: -15px;
     margin-left: 0;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .navbar-header {
     float: right;
   }
@@ -46,7 +46,7 @@ blockquote.pull-left .small {
   float: left;
   margin-left: 15px;
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .navbar-collapse {
     width: auto;
     border-top: 0;
@@ -63,7 +63,7 @@ blockquote.pull-left .small {
 .navbar-text {
   float: right;
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .navbar-text {
     margin-left: 15px;
     margin-right: 15px;
@@ -75,7 +75,7 @@ blockquote.pull-left .small {
     padding: 5px 25px 5px 15px;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .navbar-nav {
     float: right;
   }
@@ -93,7 +93,7 @@ blockquote.pull-left .small {
   text-align: center;
   margin-bottom: 5px;
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .nav-justified > li {
     display: table-cell;
     width: 1%;
@@ -141,7 +141,7 @@ h6,
   text-align: center;
   margin-bottom: 5px;
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .nav-tabs.nav-justified > li {
     display: table-cell;
     width: 1%;
@@ -153,7 +153,7 @@ h6,
 .nav-tabs.nav-justified > li > a {
   margin-left: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .nav-tabs.nav-justified > li > a {
     border-radius: 4px 4px 0 0;
     color: blue;
@@ -165,7 +165,7 @@ h6,
 .nav-tabs-justified > li > a {
   margin-left: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .nav-tabs-justified > li > a {
     border-radius: 4px 4px 0 0;
     color: blue;
@@ -253,7 +253,7 @@ h6,
   top: auto;
   left: auto;
 }
-@media (min-width: 768px) {
+@media (min-width: $grid-float-breakpoint) {
   .nav-tabs.nav-justified > li,
   .nav-pills.nav-justified > li {
     display: table-cell;
