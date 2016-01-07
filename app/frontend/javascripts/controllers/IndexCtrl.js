@@ -38,16 +38,12 @@ angular.module('autoControllers')
       $scope.currIndex = index;
     };
 
-    var convertToLargeImage = function(imageUrl) {
-      return imageUrl.split(".jpg")[0]+"-4.jpg";
-    };
-
     var articleServices = ArticlesServices;
     var getData = function() {
       var promises = [];
       promises.push(ArticlesServices.getAllArticlesForMainPage());
       // promises.push(ManufacturersServices.getAllManufacturers());
-      
+
 
       return $q.all(promises)
       .then(function(promiseResults) {
@@ -64,7 +60,12 @@ angular.module('autoControllers')
               };
           });
           angular.forEach(data, function(item, index) {
-              $scope.articlesCategoriesCollection[item.categoryId].articles.push(item);
+              if (index > 5) {
+                $scope.articlesCategoriesCollection[item.categoryId].articles.push(item);
+              }
+              else {
+                $scope.articlesCategoriesCollection[74].articles.push(item);
+              }
           });
           $scope.articlesList = [];
           angular.forEach($scope.articlesCategoriesCollection, function(item, index) {
@@ -74,11 +75,11 @@ angular.module('autoControllers')
           $scope.mainArticle = $scope.articlesList[0].articles.shift();
           $scope.mainCategoryName = articleServices.categories[$scope.mainArticle.categoryId];
       });
-      
+
     };
 
     getData().then(function() {
       $scope.latest=true;
-    });    
+    });
   }
 ]);

@@ -16,12 +16,19 @@ angular.module('autoServices')
       return $http.get(autoApiPrefix + 'articles/grouped?categories=74,75,76,1294,1297,1374&groupcount=3');
     };
 
+    var convertToLargeImage = function(imageUrl) {
+      return imageUrl.split(".jpg")[0]+"-4.jpg";
+    };
+
     resource.getAllArticlesForMainPage = function() {
       var deferred = $q.defer();
-      promise1 = $http.get(autoApiPrefix + 'articles/grouped?categories=75,76,1294,1297,1374&groupcount=3');
-      promise2 = $http.get(autoApiPrefix + 'articles/grouped?categories=74&groupcount=6');
-      
+      promise1 = $http.get(autoApiPrefix + 'articles/grouped?categories=74,75,76,1294,1297,1374&groupcount=3&ignoreLatest=true');
+      promise2 = $http.get(autoApiPrefix + 'articles/latest?limit=6');
+
       $q.all([promise1,promise2]).then(function(promises) {
+        angular.forEach(promises[1].data,function(item,index) {
+          item.imageUrl = convertToLargeImage(item.imageUrl);
+        })
         deferred.resolve(promises[1].data.concat(promises[0].data));
       });
 
