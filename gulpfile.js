@@ -1,6 +1,5 @@
 var gulp        = require('gulp');
 var ejs         = require("gulp-ejs");
-var filter      = require("gulp-filter");
 var concat      = require("gulp-concat");
 var insert      = require('gulp-insert');
 var sass        = require("gulp-sass");
@@ -15,7 +14,9 @@ jst             = require('gulp-jst2'),
 uglify          = require('gulp-uglify'),
 del 						= require('del'),
 gulpif 					= require('gulp-if'),
-gulpSlash       = require('gulp-slash');
+gulpSlash       = require('gulp-slash'),
+gutil           = require('gulp-util'),
+ts              = require('gulp-typescript');
 
 
 var cachebust = new CacheBuster({checksumLength: 16, random: true});
@@ -75,6 +76,7 @@ gulp.task("js", ["jst","bower-files"], function() {
 		"app/frontend/javascripts/directives/**/*",
 		"app/frontend/javascripts/appConfiguration.js"])
 		.pipe(sourceMaps.init())
+    .pipe(gulpif(/[.]ts$/,ts({target: 'ES5'},{},ts.reporter.fullReporter(true)).on('error', gutil.log)))
 		.pipe(concat("application.js"))
 		.pipe(gulpif(useUglify,uglify()))
 		.pipe(cachebust.resources())

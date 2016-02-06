@@ -24,7 +24,7 @@
     "angular-route": "~1.4",
     "angular-touch": "~1.4",
     "angular": "~1.4",
-    "bootstrap-select": "~1.9.3",
+    "bootstrap-select": "~1.9.4",
     "modernizr": "~2.8.3",
     "matchmedia-ng": "~1.0.5",
     "underscore": "~1.8.3",

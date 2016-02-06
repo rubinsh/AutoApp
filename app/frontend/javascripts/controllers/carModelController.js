@@ -1,8 +1,8 @@
 angular.module('autoControllers')
   .controller('CarModelCtrl', ['$scope', '$location', '$routeParams', '$q', '$sce', '$filter', '$timeout', 'matchmedia', 'SearchServices',
-    'CatalogServices', 'GalleryServices', 'VersionsServices', 'ModelVideosServices', 'ModelCompetitorsService',
+    'CatalogServices', 'GalleryServices', 'VersionsServices', 'ModelVideosServices', 'ModelCompetitorsService', 'dynamicPopupService',
     function($scope, $location, $routeParams, $q, $sce, $filter, $timeout, matchmedia, SearchServices,
-      CatalogServices, GalleryServices, VersionsServices, ModelVideosServices, ModelCompetitorsService) {
+      CatalogServices, GalleryServices, VersionsServices, ModelVideosServices, ModelCompetitorsService, DynamicPopupService) {
       $scope.model_id = $routeParams.id;
       $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.model_id + "&channelId=Auto&contentType=Auto_cars&platform=mobile");
       $scope.used_id = $routeParams.usedID;
@@ -59,14 +59,20 @@ angular.module('autoControllers')
         });
       } else {
         //console.log("Route with -id- routeParams");
-        SearchServices.getSearchResaulForModelByModelId($scope.model_id).success(function(data) {
-          handleResults(data).then(function() {
-            $scope.resultReady = true;
-            $timeout(function() {
-              window.scrollTo(0, 0);
+        DynamicPopupService.getResult($scope.model_id)
+        .then(function(result) {
+          console.log(result);
+        })
+        .then(function() {
+          SearchServices.getSearchResaulForModelByModelId($scope.model_id).success(function(data) {
+            handleResults(data).then(function() {
+              $scope.resultReady = true;
+              $timeout(function() {
+                window.scrollTo(0, 0);
+              });
             });
           });
-        });
+        })
       }
 
       function handleResults(data) {
