@@ -48,7 +48,7 @@ angular.module('autoServices')
           $('.automag-app').css('visibility', 'visible');
           $('.auto-ad-container').css('display', 'block');
           $('#auto-bottom-ad-container').removeClass('hidden');
-        }, 5000);
+        }, 50);
       };
 
       resource.advanceCounter = function() {

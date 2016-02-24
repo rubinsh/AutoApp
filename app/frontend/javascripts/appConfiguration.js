@@ -1,6 +1,7 @@
 angular.module("main")
-    .config(['$routeProvider',
-        function($routeProvider) {
+    .config(['$routeProvider', '$compileProvider',
+        function($routeProvider, $compileProvider) {
+            $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|whatsapp):/);
             $routeProvider
                 .when('/articles/latest', {
                     templateUrl: 'index',
@@ -123,9 +124,9 @@ angular.module("main")
 //             var _opened = $(".navbar-collapse").hasClass("collapsing") || $('.navbar-collapse').hasClass("collapse in");
 //             if (_opened === true && !clickover.hasClass("navbar-toggle")) {
 //                 $("button.navbar-toggle").click();
-//             }    
+//             }
 //         },300);
-        
+
 //         // return false;
 //     };
 

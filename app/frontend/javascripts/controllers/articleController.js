@@ -1,6 +1,6 @@
 angular.module('autoControllers')
-    .controller('ArticleCtrl', ['$scope', '$routeParams', '$timeout', '$sce', 'ArticlesServices',
-        function($scope, $routeParams, $timeout, $sce, ArticlesServices) {
+    .controller('ArticleCtrl', ['$scope', '$routeParams', '$timeout', '$sce','$window', 'ArticlesServices',
+        function($scope, $routeParams, $timeout, $sce, $window, ArticlesServices) {
             $scope.article_id = $routeParams.articleId;
             $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.article_id + "&channelId=Auto&contentType=Auto_content&platform=mobile");
             $scope.mako_personalization_url = $sce.trustAsResourceUrl("http://rcs.mako.co.il/html/p13n_sat_iframe.html?content=%D7%90%D7%95%D7%98%D7%95");
@@ -10,6 +10,7 @@ angular.module('autoControllers')
                 $scope.article = data[0];
                 $scope.article.content = $scope.article.content.replace(/&nbsp;/gi,"");
                 $scope.trustedDesktopUrl = $sce.trustAsResourceUrl($scope.article.desktopUrl);
+                $scope.currUrl = $sce.trustAsResourceUrl($window.location.href);
                 window.scrollTo(0,0);
             });
 

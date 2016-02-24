@@ -27,7 +27,7 @@ window.localStorageSupported = function() {
 
 var storageMode = localStorageSupported() ? "localStorage" : "memory";
 
-autoModuleApp.run(["$window", "$templateCache", "$http", "CacheFactory" , function($window, $templateCache, $http, CacheFactory) {
+autoModuleApp.run(["$window", "$templateCache", "$http", "CacheFactory", function($window, $templateCache, $http, CacheFactory) {
   angular.forEach($window.JST, function(elem,index) {
     $templateCache.put(index,elem());
   });

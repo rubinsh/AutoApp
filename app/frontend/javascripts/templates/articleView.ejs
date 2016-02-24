@@ -27,6 +27,8 @@
     <div class="col-xxs col-xs-6 col-lg-7 col-md-6 col-sm-6 text-right aricle-subtitle">
       <h4>{{article.subTitle}}</h4>
     </div>
+    <share-buttons url="{{trustedDesktopUrl}}" title="{{article.title}}"></share-buttons>
+
   </div>
   <hr/>
   <div class="row">
@@ -37,7 +39,11 @@
   <div class="auto-ad-container big-ad inline" style="margin-top: 20px;" ng-if="showBanner()">
     <iframe ng-src="{{getBigBannerUrl($id+digest)}}" style="width: 100%; border: none; height:300px;"></iframe>
   </div>
+
+  <share-buttons style="text-align: center;" url="{{trustedDesktopUrl}}" title="{{article.title}}"></share-buttons>
+
   <hr/>
+
   <!--<more-articles category-id="{{article.categoryId}}" current-article-id="{{article.articleId}}"></more-articles>-->
   <iframe ng-src="{{mako_url}}" frameBorder="0" height="1" width="1"></iframe>
   <iframe ng-src="{{mako_personalization_url}}" width="0" height="0" style="visibility: hidden;display: none;"></iframe>
