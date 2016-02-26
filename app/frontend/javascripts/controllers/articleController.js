@@ -9,8 +9,8 @@ angular.module('autoControllers')
             ArticlesServices.getArticleById($scope.article_id).success(function(data) {
                 $scope.article = data[0];
                 $scope.article.content = $scope.article.content.replace(/&nbsp;/gi,"");
-                $scope.trustedDesktopUrl = $sce.trustAsResourceUrl($scope.article.desktopUrl);
-                $scope.currUrl = $sce.trustAsResourceUrl($window.location.href);
+                $scope.trustedDesktopUrl = $sce.trustAsResourceUrl(encodeURIComponent($scope.article.desktopUrl));
+                $scope.currUrl =$sce.trustAsResourceUrl($window.location.href);
                 window.scrollTo(0,0);
             });
 
