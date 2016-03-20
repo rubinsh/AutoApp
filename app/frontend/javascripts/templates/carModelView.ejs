@@ -135,4 +135,7 @@
   <input type="hidden" value="{{model.BrandID}}" id="brandId"/>
   <input type="hidden" value="{{model.name}}" id="modelName"/>
   <iframe ng-src="{{mako_url}}" frameBorder="0" width="1" height="1"></iframe>
+  <div ng-if="model.IsBannerActive" id="auto-bottom-ad-container" class="navbar navbar-default navbar-fixed-bottom">
+    <iframe src="{{BannerUrl}}" style="position: absolute; top: 0; left: 0; width: 100%; border: none;"></iframe>
+  </div>
 </div>

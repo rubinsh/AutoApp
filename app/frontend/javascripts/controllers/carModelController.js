@@ -1,7 +1,7 @@
 angular.module('autoControllers')
-  .controller('CarModelCtrl', ['$scope', '$location', '$routeParams', '$q', '$sce', '$filter', '$timeout', 'matchmedia', 'SearchServices',
+  .controller('CarModelCtrl', ['$scope', '$rootScope', '$location', '$routeParams', '$q', '$sce', '$filter', '$timeout', 'matchmedia', 'SearchServices',
     'CatalogServices', 'GalleryServices', 'VersionsServices', 'ModelVideosServices', 'ModelCompetitorsService',
-    function($scope, $location, $routeParams, $q, $sce, $filter, $timeout, matchmedia, SearchServices,
+    function($scope, $rootScope, $location, $routeParams, $q, $sce, $filter, $timeout, matchmedia, SearchServices,
       CatalogServices, GalleryServices, VersionsServices, ModelVideosServices, ModelCompetitorsService) {
       $scope.model_id = $routeParams.id;
       $scope.mako_url = $sce.trustAsResourceUrl("http://mobileapp.mako.co.il/metricsCall.html?vcmId=Auto_" + $scope.model_id + "&channelId=Auto&contentType=Auto_cars&platform=mobile");
@@ -115,6 +115,14 @@ angular.module('autoControllers')
       function setDataFromService(data) {
         $scope.reviews = [];
         $scope.model = data[0];
+        if ($scope.model.IsBannerActive) {
+          $scope.BannerUrl = $sce.trustAsResourceUrl("generic-banner.html?BannerScript=" + $scope.model.BannerScript);
+          $rootScope.showMainBanner = false;
+        }
+        else {
+          $rootScope.showMainBanner = true;
+        }
+
         $scope.model.hasSafetyStars = ($scope.model.safetyStars != "");
         $scope.model.consultingText = $scope.model.name.length > 10 ? "ליעוץ חינם על " + $scope.model.name : "לחץ כאן ליעוץ חינם על " + $scope.model.name;
         $scope.showArticles = ($scope.model.modelArticles && $scope.model.modelArticles.length > 0);

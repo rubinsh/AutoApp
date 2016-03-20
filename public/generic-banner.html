@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	img {display: block; margin: 0 auto; width: 100vw;}
+</style>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+	var openLink = function(url) {
+		if (window.parent.SharedObject) {
+			window.parent.SharedObject.openInBrowser(url);
+		}
+	  else { window.open(url, '_blank');}
+	};
+
+	var atp_uid;if (atp_uid) atp_uid += '-' + new Date().getTime(); else atp_uid = new Date().getTime();
+  var bannerScript = window.location.search.split("BannerScript=")[1];
+
+	document.write ('<sc' + 'ript type="text/javascript" src="' + bannerScript + '"></scri'+'pt>');
+	document.write ('<sc' + 'ript type="text/javascript">' +
+		'var linkElem = document.getElementsByTagName("a")[0];' +
+		'var url = linkElem.attributes["href"].value;' +
+		'linkElem.parentElement.replaceChild(linkElem.childNodes[0],linkElem);' +
+		'var elem = document.getElementsByTagName("img")[0];' +
+		'elem.setAttribute("onclick","openLink(url)");' +
+		'</scri' + 'pt>');
+//]]>
+</script>
+</head>
+<body style="margin:0 !important; min-height: 50px !important"></body>
+</html>
