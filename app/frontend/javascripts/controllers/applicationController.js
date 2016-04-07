@@ -1,7 +1,8 @@
 angular.module('autoControllers')
-.controller('application', ['$scope', '$location', 'ArticlesServices', 'AdService',
-            function($scope, $location, ArticlesService, AdService) {
+.controller('application', ['$rootScope','$scope', '$location', 'ArticlesServices', 'AdService',
+            function($rootScope, $scope, $location, ArticlesService, AdService) {
               $scope.showConsulting = false;
+              $rootScope.showMainBanner = true;
               $scope.$on('$viewContentLoaded', function(event) {
                 ga('set', { page: $location.path()});
                 ga('send', 'pageview');
@@ -53,6 +54,6 @@ angular.module('autoControllers')
               $scope.goBack = function() {
                 history.go(-1);
               }
-              
+
             }
 ]);
