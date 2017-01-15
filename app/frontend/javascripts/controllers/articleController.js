@@ -6,6 +6,12 @@ angular.module('autoControllers')
             $scope.mako_personalization_url = $sce.trustAsResourceUrl("http://rcs.mako.co.il/html/p13n_sat_iframe.html?content=%D7%90%D7%95%D7%98%D7%95");
             $scope.categoryId = ArticlesServices.currentCategory ? ArticlesServices.currentCategory : 1;
 
+            $scope.showMainAdInArticle = false;
+            if ($window.showMainAdInArticle) {
+                $scope.showMainAdInArticle = true;
+                $window.showMainAdInArticle = false;
+            }
+
             ArticlesServices.getArticleById($scope.article_id).success(function(data) {
                 $scope.article = data[0];
 

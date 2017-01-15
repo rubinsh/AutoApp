@@ -1,14 +1,21 @@
 'use strict';
 angular.module('autoControllers')
-.controller('IndexCtrl', ['$scope', '$interval', '$templateCache', '$http','$q', '$timeout', '$location',
+.controller('IndexCtrl', ['$scope', '$interval', '$templateCache', '$http','$q', '$window', '$timeout', '$location',
   'NavServices','CategoriesService','ArticlesServices',
-  function($scope, $interval, $templateCache, $http, $q, $timeout, $location, NavServices,CategoriesService,ArticlesServices) {
+  function($scope, $interval, $templateCache, $http, $q, $window, $timeout, $location, NavServices,CategoriesService,ArticlesServices) {
     var stop;
 
     $scope.navs = NavServices.navs;
     $scope.currIndex = 0;
     $scope.disableModelsDropdown = true;
     $scope.modelsList = [];
+
+    $scope.showMainAd = false;
+
+    if ($window.showMainAd) {
+      $scope.showMainAd = true;
+      $window.showMainAd = false;
+    }
 
     // $timeout(function() {
     //   $('select').selectpicker();

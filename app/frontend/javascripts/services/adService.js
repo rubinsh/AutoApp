@@ -7,6 +7,9 @@ angular.module('autoServices')
       resource.noBannerRoutes = ["/consulting"]
 
       resource.init = function() {
+        $window.showMainAd = true
+        $window.showMainAdInArticle = true
+
         if (localStorageSupported()) {
           $window.localStorage.setItem("autoMag.adCounter", 0);
           $window.localStorage.setItem("autoMag.showingAd", false);
@@ -35,6 +38,10 @@ angular.module('autoServices')
       resource.getBigBannerUrl = function(seed) {
         return "big-banner.html?cachebust=" + seed;
       };
+
+      resource.getMainBannerUrl = function(seed) {
+        return "main-banner.html?cachebust="+ seed;
+      }
 
       resource.showAd = function() {
         $window.showingMaavron = true;

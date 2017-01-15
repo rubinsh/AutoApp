@@ -4,6 +4,17 @@
 <head>
 <style>
 img {display: block; margin: 0 auto;}
+.close-banner-btn {
+	background: rgba(0,0,0,0.5);
+	height: 40px;
+	width: 40px;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.close-banner-btn img {
+	margin: 4px auto;
+}
 </style>
 <script type="text/javascript" charset="utf-8">
 //<![CDATA[
@@ -13,11 +24,15 @@ img {display: block; margin: 0 auto;}
 		}
 		else { window.open(url, '_blank');} 
 	};
+	var hideBanner = function() {
+		window.parent.document.getElementsByTagName('main-banner')[0].style.display="none"
+	}
 	var atp_uid;if (atp_uid) atp_uid += '-' + new Date().getTime(); else atp_uid = new Date().getTime();
 	document.write ('<sc' + 'ript type="text/javascript" src="http://ads.atpclick.com/atpClick.aspx?z=609&a=554&t=_blank&uid='+atp_uid+'&c=script"></scri'+'pt>');
 	document.write ('<sc' + 'ript type="text/javascript">' +
 		'var linkElem = document.getElementsByTagName("a")[0];' +
 		'if (linkElem) {' +
+
 			'var url = linkElem.attributes["href"].value;' +
 			'linkElem.parentElement.replaceChild(linkElem.childNodes[0],linkElem);' +
 			'var elem = document.getElementsByTagName("img")[0];' +
@@ -27,5 +42,9 @@ img {display: block; margin: 0 auto;}
 //]]>
 </script>
 </head>
-<body style="margin:0 !important; height: 50px !important"></body>
+<body style="margin:0 !important;">
+	<div class="close-banner-btn">
+		<img height="32" width="32" onclick="hideBanner()" src="/assets/images/banner-close.png"/>
+	</div>
+</body>
 </html>
