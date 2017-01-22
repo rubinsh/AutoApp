@@ -15,6 +15,13 @@ img {display: block; margin: 0 auto;}
 .close-banner-btn img {
 	margin: 4px auto;
 }
+.banner-img {
+	width: 100vw;
+  height: 100vh;
+  max-width: 375px;
+  max-height: 250px;
+  margin: 0 auto;
+}
 </style>
 <script type="text/javascript" charset="utf-8">
 //<![CDATA[
@@ -28,7 +35,7 @@ img {display: block; margin: 0 auto;}
 		window.parent.document.getElementsByTagName('main-banner')[0].style.display="none"
 	}
 	var atp_uid;if (atp_uid) atp_uid += '-' + new Date().getTime(); else atp_uid = new Date().getTime();
-	document.write ('<sc' + 'ript type="text/javascript" src="http://ads.atpclick.com/atpClick.aspx?z=609&a=554&t=_blank&uid='+atp_uid+'&c=script"></scri'+'pt>');
+	document.write ('<sc' + 'ript type="text/javascript" src="http://ads.atpclick.com/atpClick.aspx?z=796&a=573&t=_blank&uid='+atp_uid+'&c=script"></scri'+'pt>');
 	document.write ('<sc' + 'ript type="text/javascript">' +
 		'var linkElem = document.getElementsByTagName("a")[0];' +
 		'if (linkElem) {' +
@@ -37,6 +44,7 @@ img {display: block; margin: 0 auto;}
 			'linkElem.parentElement.replaceChild(linkElem.childNodes[0],linkElem);' +
 			'var elem = document.getElementsByTagName("img")[0];' +
 			'elem.setAttribute("onclick","openLink(url)");' +
+			'elem.setAttribute("class","banner-img");' +
 		'}' +
 		'</scri' + 'pt>');
 //]]>
