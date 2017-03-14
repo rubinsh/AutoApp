@@ -76,7 +76,7 @@ gulp.task("js", ["jst","bower-files"], function() {
 		"app/frontend/javascripts/directives/**/*",
 		"app/frontend/javascripts/appConfiguration.js"])
 		.pipe(sourceMaps.init())
-    .pipe(gulpif(/[.]ts$/,ts({target: 'ES5'},{},ts.reporter.fullReporter(true)).on('error', gutil.log)))
+    // .pipe(gulpif(/[.]ts$/,ts({target: 'ES5'},{},ts.reporter.fullReporter(true)).on('error', gutil.log)))
 		.pipe(concat("application.js"))
 		.pipe(gulpif(useUglify,uglify()))
 		.pipe(cachebust.resources())
