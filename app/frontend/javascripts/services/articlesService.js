@@ -41,8 +41,8 @@ angular.module('autoServices')
       return $http.get(autoApiPrefix + 'articles?category=' + categoryId + "&take=" + take + "&skip=" + skip);
     };
 
-    resource.getArticleById = function(articleId) {
-      return $http.get(autoApiPrefix + 'articles/' + articleId + '?links=true');
+    resource.getArticleById = function(articleId, isDrm) {
+      return $http.get(autoApiPrefix + 'articles/' + articleId + '?links=true' + (isDrm ? '&autodrm=true' : ''));
       //return Restangular.one('articles', articleId).get({links: true});
     };
 

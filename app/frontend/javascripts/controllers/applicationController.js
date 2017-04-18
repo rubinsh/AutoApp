@@ -1,10 +1,17 @@
 angular.module('autoControllers')
-.controller('application', ['$rootScope','$scope', '$location', 'ArticlesServices', 'AdService',
-            function($rootScope, $scope, $location, ArticlesService, AdService) {
+.controller('application', ['$rootScope','$scope', '$location', '$window', 'ArticlesServices', 'AdService',
+            function($rootScope, $scope, $location, $window, ArticlesService, AdService) {
               $scope.showConsulting = false;
               $rootScope.showMainBanner = true;
+              $rootScope.obslct = ".OUTBRAIN a"
+
               $scope.$on('$viewContentLoaded', function(event) {
-                ga('set', { page: $location.path()});
+                var pagePath = $location.path()
+                if ($window.SharedObject) {
+                  pagePath = pagePath || "";
+                  pagePath += "/naitive-auto-app"
+                }
+                ga('set', { page: pagePath});
                 ga('send', 'pageview');
               });
 

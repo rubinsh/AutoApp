@@ -12,7 +12,7 @@ angular.module('autoControllers')
                 $window.showMainAdInArticle = false;
             }
 
-            ArticlesServices.getArticleById($scope.article_id).success(function(data) {
+            ArticlesServices.getArticleById($scope.article_id, $routeParams.autodrm).success(function(data) {
                 $scope.article = data[0];
 
                 $scope.article.content = $scope.article.content.replace(/&nbsp;/gi,"");
@@ -22,6 +22,10 @@ angular.module('autoControllers')
                 $rootScope.hasCanonicalUrl = true;
                 $scope.currUrl =$sce.trustAsResourceUrl($window.location.href);
                 window.scrollTo(0,0);
+
+                if ((Boolean($routeParams.autodrm) || $scope.article.autodrm) && window.SharedObject) {
+                    eval($scope.article.autodrm)
+                }
             });
 
             var articlesWithIframe = {
@@ -32,6 +36,8 @@ angular.module('autoControllers')
                 31996: '81979374',
                 31889: '24605803'
             }
+
+
 
             $scope.iFrameId = function(article) {
                 return ((typeof(article) !== "undefined") && (typeof(articlesWithIframe[article.articleId]) !== "undefined"));

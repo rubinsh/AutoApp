@@ -13,20 +13,22 @@
 
       ga('create', 'UA-548830-2', 'auto.co.il');
       ga('require', 'displayfeatures');
+      ga('set', { page: window.SharedObject ? "/naitive-auto-app" : "/"});
       ga('send', 'pageview');
    </script>
    <!-- End of Google Analytics Universal API script -->
    <!-- Start of Zoom Analytics Code -->
-<!--    <script type="text/javascript">
+   <script type="text/javascript">
         var _zaVer = 4, _zaq = _zaq || [];
         (function () {
             var w = window, d = document; w.__za_api = function (a) { _zaq.push(a); if (typeof __ZA != 'undefined' && typeof __ZA.sendActions != 'undefined') __ZA.sendActions(a); }
             var e = d.createElement('script'); e.type = 'text/javascript'; e.async = true; e.src = ('https:' == d.location.protocol ? 'https://d2xerlamkztbb1.cloudfront.net/' : 'http://wcdn.zoomanalytics.co/') + '19760853-8309/3/widget.js';
             var ssc = d.getElementsByTagName('script')[0]; ssc.parentNode.insertBefore(e, ssc);
         })();
-    </script> -->
+    </script>
     <!-- End of Zoom Analytics Code -->
     <script type="text/javascript" src="//static.apester.com/js/sdk/v2.0/apester-javascript-sdk.min.js" async></script>
+    <script type="text/javascript" src="https://s3.amazonaws.com/mamaya/2115.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
