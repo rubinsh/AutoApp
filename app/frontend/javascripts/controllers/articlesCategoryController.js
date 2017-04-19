@@ -19,7 +19,7 @@ angular.module('autoControllers')
 
               $scope.addMoreArticles = function() {
                 if (!$scope.busy) {
-                  if (skip <= 100) {
+                  if (skip <= 300) {
                     console.debug('adding more items...');
                     $scope.busy = true;
                     ArticlesServices.getMoreArticlesForCategory($scope.categoryId, skip).success(function(data) {
